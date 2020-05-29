@@ -1,1 +1,64 @@
 \chapter{Introduction} \label{introducao}
+In this chapter the problem statement will be defined. 
+\section{Motivation}
+
+The autonomous vehicles are the new reality for the next years with this premise, the new solutions need to grow, and one of these important necessity is the vehicle tracking. Given that, there are many levels of self-drive car automation as shown in Figure \ref{fig:automation}. This work is focused on test scenario of level 5 of driving automation. Due to drones requires many battery during the test and limits the scenario to 30 to 45 minutes, the proposal is to use the infrastructere along the road as camera on the pole and send the data to a command central.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{imagens/automation.jpg}
+\caption{Refazer figura}
+\label{fig:automation}
+\end{figure}
+
+\section{Problem Description}
+
+The problematic of this theme is to create an architecture to detect objects along the roads combined with the distance of these along the road. The first approach could be using a drone, but due to the battery conditions for a long tests it is not a good choice. Figure \ref{fig:tests} shown this problem. The goal is to track the position of the cars even vehicle under the test (VUT) and traffic simulation data (TSV) along the road and send this information to the command central (CC). 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{imagens/proposal.png}
+\caption{Modelling of the project using drones, where CC means command central, VUT is vehicle under the tests and TSV is traffic simulation vehicle.}
+\label{fig:tests}
+\end{figure}
+
+\section{Objectives}
+
+Create a framework able to detect objects as cars, trucks, motorcycles, pedestrians and other strange obstacles along the road, and with these capacities estimate the distance of this object along the road, this framework is necessary to work with a camera array.
+
+\section{Published Works}
+
+Along the development of this work, the author worked in several areas of computer sciences, in special data science domain and always trying to keep the 
+multidisciplinarity. These are my published works along my master degree:
+
+\begin{enumerate}
+
+\item \textbf{PRACIANO, BRUNO J. G.}; DE CALDAS FILHO, FRANCISCO L. ; E MARTINS, LUCAS M. C. ; DA CUNHA, DAYANNE F. ; DA SILVA, DANIEL ALVES ; DE SOUSA JÚNIOR, RAFAEL TIMÓTEO. SEGURANÇA DO AMBIENTE USANDO DISPOSITIVO IOT COM PROCESSAMENTO DISTRIBUÍDO. In: Atas da conferência IberoAmericana WWW/Internet 2019, 2019. Atas da conferência Ibero-Americana WWW/Internet 2019, 2019. p. 163
+
+\item MARQUES, Angelica Alves da Cunha; \textbf{PRACIANO, Bruno Justino Garcia}. Researchers of the Brazilian archivistics scientific community in French international areas of interlocution Encontros Bibli: revista eletrônica de biblioteconomia e ciência da informação, Florianópolis, v. 25, p. 01-14, mar. 2020. ISSN 1518-2924. doi:https://doi.org/10.5007/1518-2924.2020.e65864.
+
+\item CASTELINO, R. M. ; MOREIRA, G. P. ; \textbf{PRACIANO, BRUNO JUSTINO GARCIA} ; SANTOS, GIOVANNI A. ; WEICHENBERGER, L. ; DE SOUSA, JR, RAFAEL T. . Improving the accuracy of pedestrian detection in partially occluded or obstructed scenarios. In: 2020 10th International Conference on Advanced Computer Information Technologies, 2020, Deggendorf. 2020 10th International Conference on Advanced Computer Information Technologies, 2020. (to be published)
+
+\item CANEDO, EDNA ; PINHEIRO, GABRIEL ; SOUSA JR., RAFAEL ; RIBEIRO, RENATO ; \textbf{PRACIANO, BRUNO} ; LOPES DE MENDONÇA, FÁBIO . Front End Application Security: Proposal for a New Approach. In: 22nd International Conference on Enterprise Information Systems, 2020, Prague. Proceedings of the 22nd International Conference on Enterprise Information Systems, 2020. p. 233.
+
+\item SOUSA JR., RAFAEL ; LOPES DE MENDONÇA, FÁBIO ; NZE, GEORGES ; PINHEIRO, GABRIEL ; \textbf{PRACIANO, BRUNO }; CANEDO, EDNA . Performance Evaluation of Software Defined Network Controllers. In: 10th International Conference on Cloud Computing and Services Science, 2020, Prague. Proceedings of the 10th International Conference on Cloud Computing and Services Science, 2020. p. 363.
+
+
+\item SILVA, DANIEL ALVES DA ; TORRES, JOSÉ ALBERTO SOUSA ; PINHEIRO, ALEXANDRE ; DE CALDAS FILHO, FRANCISCO L. ; MENDONÇA, FABIO L. L. ; \textbf{PRACIANO, BRUNO J. G} ; KFOURI, GUILHERME OLIVEIRA ; DE SOUSA, JR, RAFAEL T. . Inference of driver behavior using correlated IoT data from the vehicle telemetry and the driver mobile phone. In: 2019 Federated Conference on Computer Science and Information Systems, 2019. org.crossref.xschema.\_1.Title@7d70270b, 2019. p. 487.
+
+\item KFOURI, GUILHERME DE O. ; GONÇALVES, DANIEL G. V. ; DUTRA, BRUNO V. ; ALENCASTRO, JOÃO F. DE ; FILHO, FRANCISCO L. DE CALDAS ; MARTINS, LUCAS M. C. E ; \textbf{PRACIANO, BRUNO J. G.} ; ALBUQUERQUE, ROBSON DE O. ; JR, RAFAEL T. DE SOUSA . Design of a Distributed HIDS for IoT Backbone Components. In: 2019 Federated Conference on Computer Science and Information Systems, 2019. org.crossref.xschema.\_1.Title@7bad8b1f, 2019. p. 81.
+
+\item DE MENDONCA, FABIO L. L. ; DA CUNHA, DAYANNE F. ; \textbf{PRACIANO, BRUNO J. G.} ; DA ROSA ZANATTA, MATEUS ; DA COSTA, JOAO PAULO C. L. ; DE SOUSA, RAFAEL T. . P2PIoT: A Peer-To-Peer Communication Model for the Internet of Things. In: 2019 Workshop on Communication Networks and Power Systems (WCNPS), 2019, Brasilia. 2019 Workshop on Communication Networks and Power Systems (WCNPS), 2019. p. 1.
+
+\item BRANDAO, IURE V. ; DA COSTA, JOAO PAULO C. L. ; SANTOS, GIOVANNI A. ; \textbf{PRACIANO, BRUNO J}. G. ; JUNIOR, FRANSCICO C. M. D. ; DE S. JUNIOR, RAFAEL T. . Classification and predictive analysis of educational data to improve the quality of distance learning courses. In: 2019 Workshop on Communication Networks and Power Systems (WCNPS), 2019, Brasilia. 2019 Workshop on Communication Networks and Power Systems (WCNPS), 2019. p. 1.
+
+
+\item DO NASCIMENTO SILVA, GERSON ; DE CALDAS FILHO, FRANCISCO LOPES ; DOS REIS, VINICIUS ELOY ; \textbf{PRACIANO, BRUNO JUSTINO }; LUSTOSA, JOÃO PAULO ; DE SOUSA JÚNIOR, RAFAEL TIMÓTEO . MODELO DE REDES NEURAIS ARTIFICIAIS EM SUPORTE TECNOLÓGICO À DETECÇÃO DE CARTEIS EM LICITAÇÕES PÚBLICAS. In: Atas da conferência IberoAmericana WWW/Internet 2019, 2019. Atas da conferência Ibero-Americana WWW/Internet 2019. p. 191.
+
+\end{enumerate}
+
+\section{Chapters Description}
+
+This work is divides as follow as: in Chapter 2, the state of the art will be presented, with the goal to support this work, once it is necessary to get a good part of the previous contributions in this research area. In Chapter 3, the theoretical concepts to support the understanding of this work will be presented, since self-drive cars is new trend topic is necessary to describe step by step about this necessary to provide a good theoretical background. In Chapter 4, the proposed framework is shown and the mathematical modelling is provided. In Chapter 5, the results will be discussed around the algorithm performance and the error for object detection position estimation. Finally, in Chapter 6, the conclusions will be discussed regarding the experiments, and some future works will be shown.
+
+
