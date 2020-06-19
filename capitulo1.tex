@@ -2,22 +2,22 @@
 In this chapter the problem statement will be defined. 
 \section{Motivation}
 
-The autonomous vehicles are the new reality for the next years with this premise, the new solutions need to grow, and one of these important necessity is the vehicle tracking. Given that, there are many levels of self-drive car automation as shown in Figure \ref{fig:automation}. This work is focused on test scenario of  driving automation. Due to drones requires many battery during the test and limits the scenario to 30 to 45 minutes, the proposal is to use the infrastructure along the road as camera on the pole and send the data to a command central.
+The autonomous vehicles are the new reality for the next years with this premise, the new solutions need to grow, and one of these important necessity is the vehicle tracking, and should reduce the traffic jams and decrease the number of cars crash \cite{bonnefon2016social}. Given that, there are many levels of self-drive car automation as shown in Figure \ref{fig:automation}. This work is focused on test scenario of  driving automation. Due to drones requires many battery during the test and limits the scenario to 30 to 45 minutes, the proposal is to use the infrastructure along the road as camera on the pole and send the data to a command central.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.8]{imagens/automation.jpg}
-\caption{Refazer figura}
+\includegraphics[scale=0.55]{imagens/diagrama_levels.png}
+\caption{Levels of driving automation}
 \label{fig:automation}
 \end{figure}
 
 \section{Problem Description}
 
-The problematic of this theme is to create an architecture to detect objects along the roads combined with the distance of these along the road. The first approach could be using a drone, but due to the battery conditions for a long tests it is not a good choice. Figure \ref{fig:tests} shown this problem. The goal is to track the position of the cars even vehicle under the test (VUT) and traffic simulation data (TSV) along the road and send this information to the command central (CC). 
+The problematic of this theme is to create an architecture to detect objects along the roads combined with the distance measurement of these along the road. The first approach could be using a drone, but due to the battery conditions for a long tests it is not a good choice. Figure \ref{fig:tests} shown this problem. The goal is to track the position of the cars even vehicle under the test (VUT) and traffic simulation data (TSV) along the road and send this information to the command central (CC). 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{imagens/proposal.png}
+\includegraphics[scale=0.6]{imagens/proposal.png}
 \caption{Modelling of the project using drones, where CC means command central, VUT is vehicle under the tests and TSV is traffic simulation vehicle.}
 \label{fig:tests}
 \end{figure}

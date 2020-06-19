@@ -1,33 +1,108 @@
 
 \chapter{Proposed Framework}
 \label{capitulo4}
+The framework was idealized to work and different scenarios, in the Section \ref{sub:1} is presented the proposal with one camera with the object calibration. In Section \ref{sub:2} is defined the problem with one camera, but using a known map with some metrics to estimate the position along the map. The Section \ref{sub:3} is defined the approach with multicameras and real-time processing. 
 
 
-\section{Proposals}
 
-\subsection{One camera with object calibration}
+\section{Approach 1 - One camera with object calibration}\label{sub:1}
+
+The first proposed is based on the approach of the authors of the paper \cite{8678911}, where it is necessary to calibrate the camera before start the object recognition and classification. This proposal were defined in six steps.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{imagens/proposal1.png}
-\caption{Proposal using only one camera with object calibration, this firts approach is based on \cite{8678911}}
+\caption{Proposal using only one camera with object calibration}
 \label{fig:proposal1}
 \end{figure}
 
+\subsection{Camera Calibration}
 
-\subsection{Proposal 2 – One camera with known map}
+For this task is necessary to reduce the distortion of the camera, the camera used on the tasks has a noise, for this approach is really recommend to perform this step. Following this requirement, a script in Python language with the OpenCV library based in \cite{zhu2020camera} was developed. Furthermore, with calibration you may also determine the relation between the camera’s natural units (pixels) and the real world units (for example millimeters).
+
+Using the intrinsic parameters of the camera, using the in (\ref{eq:calibration}), one point is projected on the image plane. 
+
+Where the 3D point ($X_w, Y_w, Z_w$) in the world coordinates to its projection ($u, v$) in the image image coordinates.
+
+
+\begin{equation}
+    \label{eq:calibration}
+    \begin{bmatrix}
+        u'
+        \\v' 
+        \\ z' 
+        
+        \end{bmatrix} = P \begin{bmatrix}
+        X_w\\
+        Y_w 
+        \\ Z_w
+        \\ 1
+        
+        \end{bmatrix}
+\end{equation}
+
+In \ref{eq:points}, $\mathbf{P}$ is a 3x4 projection matrix combined of two different parts, the intrinsic parameters of the camera ($\mathbf{K}$) and the extrinsic matrix ($[\mathbf{R}|t]$) that is based on the combination of 3x3 rotation matrix $\mathbf{R}$ and 3x1 translation $t$ vector. 
+
+\begin{equation}
+    \label{eq:points}
+    P = \overbrace{\hbox{\boldsymbol{K}}}^{\hbox{Intrinsic Matrix}} x \overbrace{\hbox{[\boldsymbol{R}|t]}}^{\hbox{Extrinsic Matrix}}
+\end{equation}
+
+The intrisic matrix ($\mathbf{K}$) is an upper triangular matrix as shown in (\ref{eq:intrisic}). 
+
+\begin{equation}
+    \label{eq:intrisic}
+\textbf{K} = \begin{bmatrix}
+    f_x & \gamma  & c_x\\ 
+    0 & f_y & c_y\\ 
+    0 & 0 & 1
+    \end{bmatrix}
+\end{equation}
+
+where, $f_x, f_y$ are the $x$ and $y$ focal lengths, $c_x, c_y$ are the $x$ and $y$ coordinates of the center in the image plane, $\gamma$ is the skew between the axes, in this master's thesis was defined equal to $0$.  
+
+\subsection{Camera Image}
+
+The image camera model depicted in Figure \ref{fig:image_formation} describes the mathematical relationship between the coordinates of a point in 3-dimension space and its projection onto
+the image plane of a camera, where this aperture is described as a point and no lenses are used to focus light. This means that the model can only be used as a first order approximation of the mapping from a 3D scene to a 2D image \cite{forsyth2002computer}.
+
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{imagens/image_formation.png}
+\caption{The camera model for image formation based on some metrics and known parameters}
+\label{fig:image_formation}
+\end{figure}
+
+\subsection{Extract Features}
+
+When it is necessary to work with variables that contains many contents, there is a necessity to improve this work and reduce the computer bottleneck during the process. In machine learning (ML), there are variables that are independents or some cases features on which the final output is done. And in other cases that numbers of these features increases it and reduce the ability to visualize the data. 
+
+For example, the image resolution of the collected data for training part of the ML algorithm is $1392$ pixels in height and $512$ pixels in width, for the total $712,704$ pixels in total. Where each pixel has a single pixel-value associated with it, indicating the darkness or lightness of that pixel. The range of these numbers are between $0$ and $255$, and with this premise is necessary to determine which objects the image contains.
+
+The task was performed by feature extraction which is a process to creating a new features from existing features, and with this allows to give more information and less redundancies \ref{wang2019data}.
+
+A mathematical tool called Principal Component Analysis (PCA) was used in this step, and the PCA is used to decompose a multivariate dataset in a set of sucessive orthogonal components that explain a maximum amount of the variance \cite{pedregosa2011scikit}. In Figure \ref{fig:pca_step1} is shown how the technique works, the data is decomposed into perpendicular vector where the information is unrolled. And with more variance means more information of data.
+
+
+
+
+\section{Approach 2 – One camera with known map}\label{sub:2}
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{imagens/proposal2.png}
-\caption{Proposal using Proposal 2 – One camera with known map}
+\caption{Approach using one camera with known map}
 \label{fig:proposal2}
 \end{figure}
 
 
-\subsection{Proposal 3 – Multicameras}
+\section{Approach 3 – Multicamera}\label{sub:3}
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{imagens/proposal3.png}
-\caption{Proposal using multicameras}
+\caption{Approach using multicamera}
 \label{fig:proposal3}
 \end{figure}
 

@@ -1,11 +1,11 @@
 \chapter{Technical Background}
 \label{capitulo3}
 
-In this chapter an overview about the main concepts of this work will be described. The present section is divided in three major sections. In Section \ref{sensors}, the concepts of sensors is defined. In Section \ref{image-processing} covers the technical background about image processing. In Section \ref{ml-ai}, the main concepts regarding machine learning and artificial intelligence are described. In Section \ref{autonomous-vehicles} is defined the major concepts about autonomous vehicles.
+In this chapter an overview about the main concepts of this work will be described. The present section is divided in three major sections. In Section \ref{sensors}, the concepts of sensors is defined. In Section \ref{ml-ai}, the main concepts regarding machine learning and artificial intelligence are described. In Section \ref{autonomous-vehicles} is defined the major concepts about autonomous vehicles.
 
 \section{Sensors}\label{sensors}
 
-It is possible to have more sensors in autonomous vehicles, but these three sensors are the main in Autonomous vehicles structure. As is positioned in the Figure \ref{fig:autonomous-vehicles} the correct place for the most important sensors.
+It is possible to have more sensors in autonomous vehicles, but these three sensors are the most common in autonomous vehicles structure. As is positioned in the Figure \ref{fig:autonomous-vehicles} the correct place for the most important sensors.
 
 
 \begin{figure}[H]
@@ -17,7 +17,11 @@ It is possible to have more sensors in autonomous vehicles, but these three sens
 
 
 \subsection{Camera}
-The camera is a kind of sensor whose allows the car to see the environment using the collected image, in Figure \ref{fig:camera} is shown the standard camera for autonomous vehicles. 
+The camera is a kind of sensor whose allows the car to see the environment using the collected image, in Figure \ref{fig:camera} is shown the standard camera for autonomous vehicles.
+
+It is an optical instrument for image or video capture of images in the same size, for example, there are some cameras where it is possible to set up the numbers of frames per second (FPS) and the image resolution. 
+
+Also, it is important to remember the importance of the calibration of the cameras, the Equations for this process were available in \cite{888718}. This step is very important to acquire the real size of the objects, because sometimes is necessary to compare the size of these objects. 
 
 \begin{figure}[H]
 \centering
@@ -26,16 +30,33 @@ The camera is a kind of sensor whose allows the car to see the environment using
 \label{fig:camera}
 \end{figure}
 
-\subsection{Radar}
-\subsection{Lidar}
-The lidar is a kind of sensor whose allows the car to see the environment using the collected image, in Figure \ref{fig:lidar} is shown the standard camera for autonomous vehicles. 
+This sensor allows the car to detect a lot of objects and at the same time it is possible to perform object recognition as well. It is necessary to freeze the difference between object detection and object recognition. There are different algorithms to perform these tasks. The proposed algorithm in Chapter \ref{capitulo4} performs the both detection combined with the distances estimation. 
 
+\subsection{Radar}
+
+The automotive radio detection and ranging (RADAR) sensors has the responsibility to perform object detection around the vehicle and avoid a potential collisions. With this sensor is possible to warn the driver and combined with level 1 of automation as already shown in Figure \ref{fig:automation} to intervene with the brake the car or use other controls to prevent an accident \cite{ariyur2006collision}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{imagens/radar.jpg}
+\caption{A commercial radar model ARS430 CV from Continental}
+\label{fig:camera}
+\end{figure}
+
+Another interesting application of the RADAR in the automotive scenario is the capability to measure the relative speed to the vehicle and other objects, with that it is possible to estimate correctly the distance \cite{stevenson2011long}.
+
+It is possible to combine the camera and RADAR and get a new kind of sensor as defined in \cite{kamerad}. With this approach is possible to react 160 times faster than a human driver.
+
+\subsection{Lidar}
+In Figure \ref{fig:lidar} is shown a light detection and ranging (LIDAR). The main purpose of this laser is to detect and track any kind of objects. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{imagens/lidar.jpg}
 \caption{An exemple of a lidar of the autonomous vehicle}
 \label{fig:lidar}
 \end{figure}
+
+This measurement is based on many times rotate this sensor in different directions, to scan the whole area of the autonomous vehicles is driving and collect some data for detect the objects \cite{gao2018object}.
 
 \section{Machine Learning}\label{ml-ai}
 The machine learning is approach based on algorithms to create some predictions, these techniques are based on mathematical and computer science, it is possible to apply this in several fields of the science. 
@@ -188,15 +209,21 @@ A pooling layer is necessary to simplify the information from the previous layer
 
 
 
-\subsubsection{Auto-encoders}
-\subsubsection{Training}
-\subsubsection{Losses}
-\subsubsection{Stochastic Gradient Descent}
-\subsubsection{Weight Initialization}
-\subsubsection{Error Backpropagation}
+\subsubsection{Auto-encoders}\label{auto-encoder}
 
-\subsubsection{Fully Connected Layers}\label{sub:fully}
-\subsubsection{Regularization}
+It is a special type of neural network that is used to copy its inputs to its output. The intern structure is defined in Figure \ref{fig:autoencoder}. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{imagens/autoencoder.png}
+\caption{The structure of a standard autoenconder, where the variable $x$ means input and $r$ as an output through the internal representation in $h$. The encoder $f$ maps $x$ to $h$ and decoder $g$ maps $h$ to $r$}
+\label{fig:autoencoder}
+\end{figure}
+
+As described in \cite{yang2020feedback}, this architecture has a hidden layer $h$ that describes a code used to represent the input. The network may be viewed as consisting of two parts: an encoder function $h=f(x)$ and a decoder that produces a reconstruction $r=g(h)$.
+
+\subsubsection{Training}
+
 \subsubsection{Data Augmentation}
 
 
