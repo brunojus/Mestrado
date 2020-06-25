@@ -7,7 +7,7 @@ The framework was idealized to work and different scenarios, in the Section \ref
 
 \section{Approach 1 - One camera with object calibration}\label{sub:1}
 
-The first proposed is based on the approach of the authors of the paper \cite{8678911}, where it is necessary to calibrate the camera before start the object recognition and classification. This proposal were defined in six steps.
+The first proposed is based on the approach of the authors of the paper \cite{8678911}, where it is necessary to calibrate the camera before start the object recognition and classification. This proposal were defined in six steps, as shown in Figure \ref{fig:proposal1}.
 
 \begin{figure}[H]
 \centering
@@ -48,7 +48,7 @@ In \ref{eq:points}, $\mathbf{P}$ is a 3x4 projection matrix combined of two diff
     P = \overbrace{\hbox{\boldsymbol{K}}}^{\hbox{Intrinsic Matrix}} x \overbrace{\hbox{[\boldsymbol{R}|t]}}^{\hbox{Extrinsic Matrix}}
 \end{equation}
 
-The intrisic matrix ($\mathbf{K}$) is an upper triangular matrix as shown in (\ref{eq:intrisic}). 
+The intrinsic matrix ($\mathbf{K}$) is an upper triangular matrix as shown in (\ref{eq:intrisic}). 
 
 \begin{equation}
     \label{eq:intrisic}
@@ -82,7 +82,7 @@ When it is necessary to work with variables that contains many contents, there i
 
 For example, the image resolution of the collected data for training part of the ML algorithm is $1392$ pixels in height and $512$ pixels in width, for the total $712,704$ pixels in total. Where each pixel has a single pixel-value associated with it, indicating the darkness or lightness of that pixel. The range of these numbers are between $0$ and $255$, and with this premise is necessary to determine which objects the image contains.
 
-The task was performed by feature extraction which is a process to creating a new features from existing features, and with this allows to give more information and less redundancies \ref{wang2019data}.
+The task was performed by feature extraction which is a process to creating a new features from existing features, and with this allows to give more information and less redundancies \cite{wang2019data}.
 
 A mathematical tool called Principal Component Analysis (PCA) was used in this step, and the PCA is used to decompose a multivariate dataset in a set of successive orthogonal components that explain a maximum amount of the variance \cite{pedregosa2011scikit}. In Figure \ref{fig:pca_step1} is shown how the technique works, the data is decomposed into perpendicular vector where the information is unrolled. And with more variance means more information of data.
 
@@ -151,9 +151,9 @@ In (\ref{eq:pca_4}) the equation to finds the vector $u_i$ which gives the minim
     \end{equation}
 \end{subequations}
 
-Solution to above Equations is gives by Eigen Values and Eigen Vectors. 
+Solution to above Equations is given by Eigenvalues and Eigenvectors. 
 
-Where, the matrix $\mathbf{X}$ in (\ref{eq:matrix}) is the matrix of the datapoints with the shape $(n x d)$
+Where, the matrix $\mathbf{X}$ in (\ref{eq:matrix}) is the matrix of the data points with the shape $(n x d)$
 
 \begin{equation}\label{eq:matrix}
     \mathbf{X} = \begin{bmatrix} 
@@ -172,9 +172,9 @@ Based on the approach of \cite{cambridge2009introduction}, in (\ref{eq:svd}) is 
     \lambda_iV_i_{dx1} = S_{dxd}V_i_{dx1}
 \end{equation}
 
-where $\lambda$ is the scalar eigen values, $S$ is the co-variance matix, $V$ is the vector - eigen vector, and $d$ is the dimension.
+where $\lambda$ is the scalar eigenvalues, $S$ is the co-variance matrix, $V$ is the vector - eigenvector, and $d$ is the dimension.
 
-The steps to find the Eigen-vector: 
+The steps to find the Eigenvector: 
 
 \begin{enumerate}
     \item Do the column standardization of \mathbf{X}
@@ -317,7 +317,7 @@ After the object detection, is necessary to perform the object classification, w
 
 \subsection{Distance Estimation}
 
-For the distance estimation, in this approach is proposed to use the outputs predicted by the object detector, where $4$ variables are predicted, which are $(x, y, w, h)$. In this work, $x,y$ are used to ajust the boundary box, and $w, h$ are used in (\ref{eq:measure}) to measure the distance of the object, and these variables will variate according with the distance of the camera. As it was already defined in \cite{cao2013circle} the image will be refracted in the lens and with this is possible to deduce a relationship between the known parameters: focal length $(f)$, distance of the object from the lens $(d)$, distance of the refracted image from the lens $(D)$. In the Figure \ref{fig:distance} is shown how the distance measurer works. 
+For the distance estimation, in this approach is proposed to use the outputs predicted by the object detector, where $4$ variables are predicted, which are $(x, y, w, h)$. In this work, $x,y$ are used to ajust the boundary box, and $w, h$ are used in Figure \ref{fig:yolo_flow} to measure the distance of the object, and these variables will variate according with the distance of the camera. As it was already defined in \cite{cao2013circle} the image will be refracted in the lens and with this is possible to deduce a relationship between the known parameters: focal length $(f)$, distance of the object from the lens $(d)$, distance of the refracted image from the lens $(D)$. In the Figure \ref{fig:distance} is shown how the distance measurer works. 
 
 
 \begin{figure}[H]
@@ -355,7 +355,7 @@ the focal length is computed by (\ref{eq:focal_length}),
     f = \frac{2\cdot 3.14 \cdot 180}{360},
 \end{equation}
 
-Finally, it is possible to predict the distance based on outputs from the predictor combined with basic physics in (\ref{eq:distance}), where $w$ is the width and $h$ the heigth of the object.
+Finally, it is possible to predict the distance based on outputs from the predictor combined with basic physics in (\ref{eq:distance}), where $w$ is the width and $h$ the height of the object.
 
 \begin{equation}
     \label{eq:distance}
@@ -366,6 +366,10 @@ Finally, it is possible to predict the distance based on outputs from the predic
 
  
 \section{Approach 2 – One camera with known map}\label{sub:2}
+
+The second proposed approach is based on  \cite{mayer2016large}, where it is necessary to take the photos and label this images \cite{tzutalin6labelimg}, and its output is shown in Table \ref{tab:output_table}, and indicates the position and size of the boundary box as already defined in Figure \ref{fig:anchor}, and the real position of the car on the real scenario, and show in Figure \ref{fig:proposal2} is shown the block diagrams and the proposed approach to predict the distance based on the known map. In this Subsection is defined only the step regarding the estimate position based on the map, because the other steps has been already defined in Section \ref{sub:1}. 
+
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{imagens/proposal2.png}
@@ -374,7 +378,55 @@ Finally, it is possible to predict the distance based on outputs from the predic
 \end{figure}
 
 
+\begin{table}[H]
+\centering
+\caption{Example of labeled values}
+\begin{tabular}{llllll} 
+\hline
+Label        & Distance (meters) & X    & Y   & W    & H   \\
+car #1         & 4.41     & 365  & 304 & 1150 & 563  \\
+car #2        & 11.11    & 321  & 256 & 736  & 422  \\
+car #3        & 16.24    & 221  & 198 & 562  & 351  \\
+car #4        & 19.66    & 138  & 172 & 425  & 296  \\
+car #5        & 23.09    & 107  & 150 & 360  & 265  \\
+road signal & 25.82    & 1226 & 6   & 1266 & 95   \\
+tree        & 17.22    & 507  & 1   & 606  & 231  \\
+\hline
+\end{tabular}
+ \label{tab:output_table}
+\end{table}
+
+\subsection{Estimate position based on map}
+
+For this step is necessary to collect data and label of this data before start. Because based on the previous collect data, this predictor will be different compared with the estimation provided in Section \ref{sub:1}. In this approach is used an Artificial Neural Network (ANN), and the concepts of this architecture was defined in 
+Subsection \ref{ml-ai}. The proposed ANN is in Figure \ref{fig:rede_neural}.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{imagens/nn.png}
+\caption{Neural network responsible to predict the distance of the objects based on the boundary boxes}
+\label{fig:rede_neural}
+\end{figure}
+
+And with this defined architecture is possible to estimate the distance of the car along the scenario, an example of labeled image is shown in Figure \ref{fig:boundary_boxes_car}, these outputs were collected from this image and saved in Extensible Markup Language (XML) file so serve as input in the ANN. 
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{imagens/boundary_boxes.JPG}
+\caption{Labeled image with boundary boxes positioned in each important element of the screen}
+\label{fig:boundary_boxes_car}
+\end{figure}
+
+
+
+
 \section{Approach 3 – Multicamera}\label{sub:3}
+
+This approach was the selected one for the construction of the framework on Subsection \ref{framework}, because with this approach is possible to consider the position of the camera on the test scenario. As similar in Subsection \ref{sub:2}, only the last step will be defined here, because the another ones were already described in Subsection \ref{sub:1}. 
+
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{imagens/proposal3.png}
@@ -382,9 +434,12 @@ Finally, it is possible to predict the distance based on outputs from the predic
 \label{fig:proposal3}
 \end{figure}
 
+This approach allow to create a scenario based in multiple cameras and form an array of cameras, and where there is a command central responsible to merge all of collected data and fuse this data on the database such as label of each object, position and its timestamp. 
+
+The data used on this task is provided from streams of the cameras and they send these data to command center via a wireless connection over the protocol IEEE 802.11 and this data fusion is controlled by proxy and it was written in Python. And the distance estimation is based on the Inverse perspective mapping (IPM) and is well defined in \ref{ipm}.
 
 
-\section{Inverse Perspective Mapping }
+\subsection{Estimate position based on multiple inputs}\label{ipm}
 Inverse perspective mapping is a mathematical technique that remove the effects of distortion of a picture when transforming the perspective of the image to another perspective. In spite of disparity mapping, inverse perspective mapping method requires only one camera and this method cannot provide depth information directly ~\cite{Tuohy2010}.
 
 Camera must be located in front of the car with an angle of \(\theta\) to down. Figure \ref{fig:ImageRelationSystem} shows the setup.
@@ -501,7 +556,11 @@ Based on the Equations above, it is possible to infer the Equation \ref{eq:eq4} 
 where $d$ is distance between camera and object and vehicle in meter, $p$ is the order of the row that object is detected and $a, b$ are constants.
 
  
-\section{Framework Architecture} 
+\section{Framework Architecture} \label{framework}
+
+In this section is discussed how the architecture of the Subsection \ref{sub:3} is encapsulated in a software framework. This Architecture was divided in four big modules: client, model, proxy, and controller. 
+
+
 
 \begin{figure}[H]
 \centering
@@ -510,9 +569,20 @@ where $d$ is distance between camera and object and vehicle in meter, $p$ is the
 \label{fig:framework}
 \end{figure}
 
+The first module is the block 1 of Figure \ref{fig:framework} is the client which is responsible to permit all of the interactions with the user and allow to see the cameras doing the inference and see the boundary boxes and the labels, and the distance estimation as well.
+
+The module responsible to control the model is the block 2 of Figure \ref{fig:framework} and it will be expanded in Figure \ref{fig:networkBehavior}. The input data is gotten from data provided from cameras and the output will be saved in the database, these outputs have already defined in Section \ref{sub:3}. 
+
+The block 3 of Figure \ref{fig:framework} needs to control all of this flow along the usage of this framework and provide an abstraction layer to the usage of the database. 
+
+In block 4 of Figure \ref{fig:framework} is the part responsible to connect the other cameras via WIFI protocol and allows the system to connect another cameras, the total amount of camera is based on the hardware available for the tests. 
+
+
+In Figure \ref{fig:networkBehavior} is shown how the model performs the inference process along the detection time.  
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{imagens/Network Behavior.png}
-\caption{Architecture approach of framework}
+\caption{Architecture of framework based on multicameras perspective}
 \label{fig:networkBehavior}
 \end{figure}

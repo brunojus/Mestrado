@@ -202,7 +202,7 @@ A pooling layer is necessary to simplify the information from the previous layer
 \centering
 \includegraphics[scale=0.35]{imagens/max_pooling.png}
 \caption{Representation of the maxpooling process}
-\label{fig:bias}
+\label{fig:pooling}
 \end{figure}
 
 
@@ -223,13 +223,31 @@ As described in \cite{yang2020feedback}, this architecture has a hidden layer $h
 
 \subsubsection{Training}
 
-\subsubsection{Data Augmentation}
-
+In machine learning scenario, in special the neural networks domain epoch can be defined as a single forward pass and backward pass of all the training examples. It feeds in all the neurons into the network at once. Instead, it chooses a batch of neurons and feed them in. It performs stochastic gradient descent, and prevent our network from overfitting. There is difference between individual training step time and total training time \cite{pascanu2013difficulty}. 
 
 
 \section{Autonomous Vehicles} \label{autonomous-vehicles}
+
+In this section will be discussed the importance of the autonomous vehicles domain and its applicability on the society, and the problems occurred as well. 
+
 \subsection{What are autonomous vehicles}
-\subsection{History and current research}
+Modern vehicles now have Advanced Driver Assistance Systems (ADAS)
+which work at several levels of autonomy, with these levels being
+outlined by the National Highway Traffic Safety Administration
+(NHTSA). The levels range from 0, no-automation, to 5, full selfdriving automation \cite{national2013preliminary}. An example of an ADAS is a parking system, proposed by \cite{krasner2016automatic}, that uses sensors to find the best way to maneuver a car into a parking space without driver input. Systems such as these are being used in modern semi-autonomous
+vehicles as driver aids to hand over work from the driver to the
+car’s systems \cite{schoning2006parklenkassistent}. As technology progresses, there will be a more
+and more handover of control from the driver to the vehicle, level
+4 of automation being the fully-autonomous state that is a prominent talking point in the automotive industry. The level 5 AV will
+be able to self-drive anywhere (“full automation”), i.e. no cockpits,
+drivers are not required to be fit to drive and even they do not require a driving license (every person in a vehicle is a passenger).
+
+Actually, there are a lot of open datasets to allow new people to work with autonomous vehicles and hackthons as well. In the special the KITTI Dataset \cite{geiger2013vision} and NuScenes in \cite{caesar2020nuscenes}. These datasets provided data using GPS, Camera, RADAR and LIDAR. 
+
 \subsection{Challenges}
-\subsection{Levels	of	Automation}
-\subsection{Effects of autonomous vehicles in the society}
+
+The cities are not preparing for the autonomous vehicles at the same velocity of the industry. In the United States, for example, only of 6\% of the biggest cities from there are thinking or trying to create the necessary infrastructure to work with this new reality based on the data provided by \cite{cutler2015many}.
+
+The process to put an autonomous vehicles on the street is very slow due to there a lot of other problems to take care such as the network even 3G, 4G or 5G, the conservation of the roads and the most important aspect is regarding the legislation. 
+
+The study and development of this applications will change a lot of things in the society even at the sector of process until companies that work with delivery. But it is really necessary to control the traffic and reduce the accidents, follows the World Health Organization (WHO) every years over 1 million people lose their lives in car accidents and only in Brazil it is over than 47,000 deaths \cite{world2004world}. 

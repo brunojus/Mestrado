@@ -22,10 +22,10 @@ For validation purpose, it was used a commercial laser measurement as shown in F
 \centering
 \includegraphics[scale=0.3]{imagens/trena.jpg}
 \caption{Commercial laser measurer}
-\label{fig:output}
+\label{fig:laser_meas}
 \end{figure}
 
-The instrumental error rate is $\pm 1.5 mm$, thereby we repeated the measure three times and computed the mean, and standard deviation as well. In Table \ref{tab:tab_measure} is shown the measurements with the camera positioned at $2.01$ m from the ground. And in the Figure \ref{fig:park} is shown the position of the cars along the parking lot. 
+The instrumental error rate is $\pm 1.5 mm$, thereby we repeated the measure three times and computed the mean, and standard deviation as well. In Table \ref{tab:tab_measure} is shown the measurements with the camera positioned at $2.01$ m from the ground. And in Figure \ref{fig:park} is shown the position of the cars along the parking lot. 
 
 
 
@@ -46,11 +46,53 @@ Car & First measure & Second measure & Third measure  \\
 \end{table} 
 
 
+The algorithm for object detection was performed over the parking lot of the company EFS GmbH as shown in Figure \ref{fig:park}.
+
 
 \begin{figure}[H]
 \centering
-\label{fig:park}
 \includegraphics[scale=0.5]{imagens/park.JPG}
 \caption{Position of the cars on the parking lot}
-\label{fig:output}
+\label{fig:park}
+\end{figure}
+
+The algorithm of the proposed framework predict the objects of the whole scenario in 28 ms and has identified 9 cars on the image as show in Figure \ref{fig:park_predict} and in Table \ref{tab:accuracy} is shown the accuracy of each prediction for each car. 
+ 
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{imagens/predictions.jpg}
+\caption{Output image with predictions }
+\label{fig:park_predict}
+\end{figure}
+
+
+
+\begin{table}[H]
+\centering
+\caption{Accuracy of the proposed framework in object detector and classification}
+\begin{tabular}{c|c}
+\hline
+Predicted Label & Accuracy \\ \hline
+Car             & 91\%     \\ \hline
+Car             & 31\%     \\ \hline
+Car             & 96\%     \\ \hline
+Car             & 94\%     \\ \hline
+Car             & 95\%     \\ \hline
+Car             & 98\%     \\ \hline
+Car             & 47\%     \\ \hline
+Car             & 97\%     \\ \hline
+Car             & 98\%     \\ \hline
+\end{tabular}
+\label{tab:accuracy}
+\end{table}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{imagens/output_framework.png}
+\caption{Output image with predictions }
+\label{fig:framework_predict}
 \end{figure}
