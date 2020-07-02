@@ -45,7 +45,7 @@ In \ref{eq:points}, $\mathbf{P}$ is a 3x4 projection matrix combined of two diff
 
 \begin{equation}
     \label{eq:points}
-    P = \overbrace{\hbox{\boldsymbol{K}}}^{\hbox{Intrinsic Matrix}} x \overbrace{\hbox{[\boldsymbol{R}|t]}}^{\hbox{Extrinsic Matrix}}
+    P = \overbrace{\hbox{\boldsymbol{K}}}^{\hbox{Intrinsic Matrix}} \cdot \overbrace{\hbox{[\boldsymbol{R}|t]}}^{\hbox{Extrinsic Matrix}}
 \end{equation}
 
 The intrinsic matrix ($\mathbf{K}$) is an upper triangular matrix as shown in (\ref{eq:intrisic}). 
@@ -169,7 +169,7 @@ Based on the approach of \cite{cambridge2009introduction}, in (\ref{eq:svd}) is 
 
 \begin{equation}
     \label{eq:svd}
-    \lambda_iV_i_{dx1} = S_{dxd}V_i_{dx1}
+    \lambda_i V_{i_{dx1}} = S_{dxd}V_{i_{dx1}}
 \end{equation}
 
 where $\lambda$ is the scalar eigenvalues, $S$ is the co-variance matrix, $V$ is the vector - eigenvector, and $d$ is the dimension.
@@ -177,7 +177,7 @@ where $\lambda$ is the scalar eigenvalues, $S$ is the co-variance matrix, $V$ is
 The steps to find the Eigenvector: 
 
 \begin{enumerate}
-    \item Do the column standardization of \mathbf{X}
+    \item Do the column standardization of $\mathbf{X}$
     \item compute the co-variance Matrix: $S = X^TX$
     \item $\lambda = $ Eigen Value and $V$ = Eigen Vector
     \item $\lambda V = SV$
@@ -267,7 +267,7 @@ $\sigma(t_i)$ is the box confidence score.
 \label{fig:anchor}
 \end{figure}
 
-As it already defined, the proposed solution predicts multiple bounding boxes per grid cell. For this is necessary compute the loss for the true positive, with the intention to reduce the error, hence the object is to be faster not accurated, in other hands each cell will be looked on time along the use, and it will be used the highest IoU. The loss funcion is composed by classification loss in (\ref{eq:classification_loss}), the localization loss in (\ref{eq:localization_loss}), the confidence loss (\ref{eq:confidence_loss}), and the loss funtcion is (\ref{eq:loss}). 
+As it already defined, the proposed solution predicts multiple bounding boxes per grid cell. For this is necessary compute the loss for the true positive, with the intention to reduce the error, hence the object is to be faster not accurate, in other hands each cell will be looked on time along the use, and it will be used the highest IoU. The loss function is composed by classification loss in (\ref{eq:classification_loss}), the localization loss in (\ref{eq:localization_loss}), the confidence loss (\ref{eq:confidence_loss}), and the loss function is (\ref{eq:loss}). 
 
 If the object is located on the frame, the classification loss will perform the squared error at each cell on the conditional probability for each class: 
 
@@ -276,7 +276,7 @@ If the object is located on the frame, the classification loss will perform the 
     \sum_{i=0}^{s^2}1^{obj}_i \sum_{c\in~classes} \left ( p_i\left ( c \right )-\hat{p}_i\left ( c \right )\right )^2
 \end{equation}
 
-where, $1^{obj}_i$ is the boolean that controls if has an object or not, $\hat{p}_i\left ( c \right )$ denotes the conditional probability for each classes in the cell.
+where, $1^{obj}_i$ is the Boolean that controls if has an object or not, $\hat{p}_i\left ( c \right )$ denotes the conditional probability for each classes in the cell.
 
 The localization loss is necessary to take care about the measure errors regarding the locations and the sizes of the boxes, the goal is not to define the weight absolute errors in large boxes and small boxes, it predicts the square root of the bounding box width and height instead of the width and height. 
 
@@ -309,7 +309,6 @@ The final loss is computed through the add of the previous losses, in (\ref{eq:l
 +    \sum_{i=0}^{s^2}\sum_{j=0}^{B}1^{noobj}_{ij}\left ( C_i - \hat{C}_i \right )^2\\
 +  \lambda_{noobj}\sum_{i=0}^{s^2}\sum_{j=0}^{B}1^{noobj}_{ij}\left ( C_i - \hat{C}_i \right )^2\\
 +     \sum_{i=0}^{s^2}1^{obj}_i \sum_{c\in~classes} \left ( p_i\left ( c \right )-\hat{p}_i\left ( c \right )\right )^2
-
     \end{aligned}
 \end{equation}
 
@@ -328,7 +327,7 @@ For the distance estimation, in this approach is proposed to use the outputs pre
 \end{figure}
 
 
-So the red line $d$ represents the actual distance of the object from the convex length. And $D$ gives a sense of how the actual image looks like. Now if we consider a triangle in the left side of the image (new refracted image) with base $d$ and draw a opposite triangle similar to the left side one. So the new base of the opposite triangle will also be do with the same perpendicular distance. Now if we compare the two triangles from right side we will see $d$ and $D$ is parallel and the angle that create on each side of both the triangle are opposite to each other. From which we can infer that, both the triangles on the right side is also similar. Now, as they are similar, ratio of the corresponding sides will be also similar. So $\frac{d}{D} = \frac{A}{B}$. Again if we compare between two triangles in right side of the image where opposite angles are equal and one angle of both the triangles are right angle (90°) (dark blue area). So A:B is both hypotenuse of the similar triangle where both triangle has a right angle. So the new equation can be defined as:
+So the red line $d$ represents the actual distance of the object from the convex length. And $D$ gives a sense of how the actual image looks like. Now if we consider a triangle in the left side of the image (new refracted image) with base $d$ and draw a opposite triangle similar to the left side one. So the new base of the opposite triangle will also be do with the same perpendicular distance. Now if we compare the two triangles from right side we will see $d$ and $D$ is parallel and the angle that create on each side of both the triangle are opposite to each other. From which we can infer that, both the triangles on the right side is also similar. Now, as they are similar, ratio of the corresponding sides will be also similar. So $\frac{d}{D} = \frac{A}{B}$. Again if we compare between two triangles in right side of the image where opposite angles are equal and one angle of both the triangles are right angle (90$^{\circ}$ ) (dark blue area). So A:B is both hypotenuse of the similar triangle where both triangle has a right angle. So the new equation can be defined as:
 
     \begin{equation}\label{eq:meausure}
         \frac{d}{D} = \frac{A}{B} = \frac{f}{D-f},
@@ -384,11 +383,11 @@ The second proposed approach is based on  \cite{mayer2016large}, where it is nec
 \begin{tabular}{llllll} 
 \hline
 Label        & Distance (meters) & X    & Y   & W    & H   \\
-car #1         & 4.41     & 365  & 304 & 1150 & 563  \\
-car #2        & 11.11    & 321  & 256 & 736  & 422  \\
-car #3        & 16.24    & 221  & 198 & 562  & 351  \\
-car #4        & 19.66    & 138  & 172 & 425  & 296  \\
-car #5        & 23.09    & 107  & 150 & 360  & 265  \\
+car \#1         & 4.41     & 365  & 304 & 1150 & 563  \\
+car \#2        & 11.11    & 321  & 256 & 736  & 422  \\
+car \#3        & 16.24    & 221  & 198 & 562  & 351  \\
+car \#4        & 19.66    & 138  & 172 & 425  & 296  \\
+car \#5        & 23.09    & 107  & 150 & 360  & 265  \\
 road signal & 25.82    & 1226 & 6   & 1266 & 95   \\
 tree        & 17.22    & 507  & 1   & 606  & 231  \\
 \hline

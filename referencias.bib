@@ -150,11 +150,7 @@ file = {:home/bruno/Documentos/Mestrado/morsu.pdf:pdf},
 pages = {1--10},
 title = {{Camera Based Moving Object Detection for Autonomous Driving}}
 }
-@article{Weichenberger,
-author = {Weichenberger, Lothar and Behn, Tobias},
-file = {:home/bruno/Documentos/Mestrado/bruno{\_}hoje.pdf:pdf},
-title = {{Camera based vehicle localization in testing scenarios for the evaluation of driving assistance systems}}
-}
+
 @article{Guillet2020,
 abstract = {Large collections of images have become readily available through modern digital catalogs, from sources as diverse as historical photographs, aerial surveys, or user-contributed pictures. Exploiting the quantitative information present in such wide-ranging collections can greatly benefit studies that follow the evolution of landscape features over decades, such as measuring areas of glaciers to study their shrinking under climate change. However, many available images were taken with low-quality lenses and unknown camera parameters. Useful quantitative data may still be extracted, but it becomes important to both account for imperfect optics, and estimate the uncertainty of the derived quantities. In this paper, we present a method to address both these goals, and apply it to the estimation of the area of a landscape feature traced as a polygon on the image of interest. The technique is based on a Bayesian formulation of the camera calibration problem. First, the probability density function (PDF) of the unknown camera parameters is determined for the image, based on matches between 2D (image) and 3D (world) points together with any available prior information. In a second step, the posterior distribution of the feature area of interest is derived from the PDF of camera parameters. In this step, we also model systematic errors arising in the polygon tracing process, as well as uncertainties in the digital elevation model. The resulting area PDF therefore accounts for most sources of uncertainty. We present validation experiments, and show that the model produces accurate and consistent results. We also demonstrate that in some cases, accounting for optical lens distortions is crucial for accurate area determination with consumer-grade lenses. The technique can be applied to many other types of quantitative features to be extracted from photographs when careful error estimation is important.},
 author = {Guillet, Gr{\'{e}}goire and Guillet, Thomas and Ravanel, Ludovic},
@@ -904,6 +900,26 @@ year = {2019}
 }
 
 
+@inproceedings{paszke2019pytorch,
+  title={Pytorch: An imperative style, high-performance deep learning library},
+  author={Paszke, Adam and Gross, Sam and Massa, Francisco and Lerer, Adam and Bradbury, James and Chanan, Gregory and Killeen, Trevor and Lin, Zeming and Gimelshein, Natalia and Antiga, Luca and others},
+  booktitle={Advances in neural information processing systems},
+  pages={8026--8037},
+  year={2019}
+}
+
+
+@article{mckinney2011pandas,
+  title={pandas: a foundational Python library for data analysis and statistics},
+  author={McKinney, Wes and others},
+  journal={Python for High Performance and Scientific Computing},
+  volume={14},
+  number={9},
+  year={2011},
+  publisher={Seattle}
+}
+
+
 @inproceedings{caesar2020nuscenes,
   title={nuscenes: A multimodal dataset for autonomous driving},
   author={Caesar, Holger and Bankiti, Varun and Lang, Alex H and Vora, Sourabh and Liong, Venice Erin and Xu, Qiang and Krishnan, Anush and Pan, Yu and Baldan, Giancarlo and Beijbom, Oscar},
@@ -925,30 +941,8 @@ title = {{Self-Driving Cars: A Survey}},
 url = {http://arxiv.org/abs/1901.04407},
 year = {2019}
 }
-@inproceedings{JustinoGarciaPraciano2019,
-abstract = {Text classification techniques and sentiment analysis can be applied to understand and predict the behavior of users by exploiting the massive amount of data available on social networks. In this context, trend analysis tools based on supervised machine learning are crucial. In this work, a framework for spatiooral trend analysis of Brazilian presidential election trends based on Twitter data is proposed. Experimental results show that the proposed framework presents good effectiveness in predicting election results as well as providing tweet author's geolocation and tweet timestamp. According to our results the spatio trend analysis applying our framework via SVM on the Twitter data returns an accuracy close to 90{\%} when the Support Vector Machine (SVM) algortihm is applied for sentiment classification.},
-author = {{Justino Garcia Praciano}, Bruno and {Carvalho Lustosa Da Costa}, Joao Paulo and {Abreu Maranhao}, Joao Paulo and {Lopes De Mendonca}, Fabio Lucio and {De Sousa Junior}, Rafael Timoteo and {Barbosa Prettz}, Juliano},
-booktitle = {IEEE International Conference on Data Mining Workshops, ICDMW},
-doi = {10.1109/ICDMW.2018.00192},
-isbn = {9781538692882},
-issn = {23759259},
-keywords = {Big Data,Supervised Machine Learning,Support Vector Machine,Trend Analysis},
-pages = {1355--1360},
-title = {{Spatiooral trend analysis of the brazilian elections based on twitter data}},
-volume = {2018-Novem},
-year = {2019}
-}
-@article{No2001,
-abstract = {Inhibitor for delta5 desaturase},
-author = {No, Patent},
-file = {:home/bruno/Documentos/Mestrado/US10192312.pdf:pdf},
-journal = {Young},
-number = {12},
-pages = {0--2},
-title = {{States Patent}},
-volume = {1},
-year = {2001}
-}
+
+
 @article{Lategahn2013,
 abstract = {Next generation driver assistance systems require precise self localization. Common approaches using global navigation satellite systems (GNSSs) suffer from multipath and shadowing effects often rendering this solution insufficient. In urban environments this problem becomes even more pronounced. Herein we present a system for six degrees of freedom (DOF) ego localization using a mono camera and an inertial measurement unit (IMU). The camera image is processed to yield a rough position estimate using a previously computed landmark map. Thereafter IMU measurements are fused with the position estimate for a refined localization update. Moreover, we present the mapping pipeline required for the creation of landmark maps. Finally, we present experiments on real world data. The accuracy of the system is evaluated by computing two independent ego positions of the same trajectory from two distinct cameras and investigating these estimates for consistency. A mean localization accuracy of 10 cm is achieved on a 10 km sequence in an inner city scenario. {\textcopyright} 2013 IEEE.},
 author = {Lategahn, Henning and Schreiber, Markus and Ziegler, Julius and Stiller, Christoph},
