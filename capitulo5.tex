@@ -143,7 +143,7 @@ In Figure \ref{fig:park_predict} was used just the model that contains the objec
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.3]{imagens/predictions.jpg}
-\caption{Output image with predictions }
+\caption{Output image with boundary boxes predictions}
 \label{fig:park_predict}
 \end{figure}
 
@@ -172,11 +172,11 @@ Car             & 98\%     \\ \hline
 
 In Figure \ref{fig:framework_predict} is shown the frontend of the application of this work, it was developed using Python and Javascript to allow the browser communicate with the model. The Python module is composed by the libraries called sockets, and it permits the communication over many cameras and share the stream information between the cameras and the command central, it was possible because the cameras used in the tests have internal wireless network. And based on it a script with a proxy function was developed to take care of this behavior. 
 
-The backend side of this project is described in the Appendix \ref{ap:app} where there are the informations about the pre-processment step, training step, object detection, and the frontend scenario as well. The network was built using the framework Pytorch \cite{paszke2019pytorch} this script permits the abstraction of the Darknet to perform the object detection and the object recognition, and with all of this information the step to predict the distance was combined to show the output. 
+The backend side of this project is described in the Appendix \ref{ap:app} where there are the information about the pre-processing step, training step, object detection, and the frontend scenario as well. The network was built using the framework Pytorch \cite{paszke2019pytorch} this script permits the abstraction of the Darknet to perform the object detection and the object recognition, and with all of this information the step to predict the distance was combined to show the output. 
 
-The camera 1 of the Figure \ref{fig:framework_predict} is used only to perform the boundary boxes detections and the camera 2 is used to perform the distance prediction. This solution was embedded in a module to work as a controller of this framework.
+The camera 1 of the Figure \ref{fig:framework_predict} is used only to perform the boundary boxes detection and the camera 2 is used to perform the distance prediction. This solution was embedded in a module to work as a controller of this framework.
 
-The experiments led us also to measure the rapidity of the multicameras method by computing the number of frames treated per second.  The Fig. 9 shows that the method could treat up to 23 frames per second. the average of frames per second through all the experiments is 20.57 frames per second which is enough for real time treatments. 
+% The experiments led us also to measure the rapidity of the multicameras method by computing the number of frames treated per second.  The Fig. 9 shows that the method could treat up to 23 frames per second. the average of frames per second through all the experiments is 20.57 frames per second which is enough for real time treatments. 
 
 \begin{figure}[H]
 \centering
