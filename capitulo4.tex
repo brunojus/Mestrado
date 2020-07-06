@@ -1,13 +1,13 @@
 
 \chapter{Proposed Framework}
 \label{capitulo4}
-The framework was idealized to work and different scenarios, in the Section \ref{sub:1} is presented the proposal with one camera with the object calibration. In Section \ref{sub:2} is defined the problem with one camera, but using a known map with some metrics to estimate the position along the map. The Section \ref{sub:3} is defined the approach with multicameras and real-time processing. 
+The framework was idealized to work and different scenarios, in Section \ref{sub:1} is presented the proposal with one camera with the object calibration. In Section \ref{sub:2} is defined as the problem with one camera, but using a known map with some metrics to estimate the position along with the map. The Section \ref{sub:3} is defined the approach with multi-cameras and real-time processing. 
 
 
 
 \section{Approach 1 - One camera with object calibration}\label{sub:1}
 
-The first proposed is based on the approach of the authors of the paper \cite{8678911}, where it is necessary to calibrate the camera before start the object recognition and classification. This proposal were defined in six steps, as shown in Figure \ref{fig:proposal1}.
+The first proposed is based on the approach of the authors of the paper \cite{8678911}, where it is necessary to calibrate the camera before start the object recognition and classification. This proposal was defined in six steps, as shown in Figure \ref{fig:proposal1}.
 
 \begin{figure}[H]
 \centering
@@ -18,11 +18,11 @@ The first proposed is based on the approach of the authors of the paper \cite{86
 
 \subsection{Camera Calibration}
 
-For this task is necessary to reduce the distortion of the camera, the camera used on the tasks has a noise, for this approach is really recommend to perform this step. Following this requirement, a script in Python language with the OpenCV library based in \cite{zhu2020camera} was developed. Furthermore, with calibration you may also determine the relation between the camera’s natural units (pixels) and the real world units (for example millimeters).
+For this task is necessary to reduce the distortion of the camera, the camera used on the tasks has a noise, for this approach is recommended to perform this step. Following this requirement, a script in Python language with the OpenCV library based in \cite{zhu2020camera} was developed. Furthermore, with calibration, you may also determine the relationship between the camera’s natural units (pixels) and the real-world units (for example millimeters).
 
 Using the intrinsic parameters of the camera, using the in (\ref{eq:calibration}), one point is projected on the image plane. 
 
-Where the 3D point ($X_w, Y_w, Z_w$) in the world coordinates to its projection ($u, v$) in the image image coordinates.
+Where the 3D point ($X_w, Y_w, Z_w$) in the world coordinates to its projection ($u, v$) in the image coordinates.
 
 
 \begin{equation}
@@ -64,7 +64,7 @@ where, $f_x, f_y$ are the $x$ and $y$ focal lengths, $c_x, c_y$ are the $x$ and 
 \subsection{Camera Image}
 
 The image camera model depicted in Figure \ref{fig:image_formation} describes the mathematical relationship between the coordinates of a point in 3-dimension space and its projection onto
-the image plane of a camera, where this aperture is described as a point and no lenses are used to focus light. This means that the model can only be used as a first order approximation of the mapping from a 3D scene to a 2D image \cite{forsyth2002computer}.
+the image plane of a camera, where this aperture is described as a point and no lenses are used to focus light. This means that the model can only be used as a first-order approximation of the mapping from a 3D scene to a 2D image \cite{forsyth2002computer}.
 
 
 
@@ -78,13 +78,13 @@ the image plane of a camera, where this aperture is described as a point and no 
 
 \subsection{Extract Features}
 
-When it is necessary to work with variables that contains many contents, there is a necessity to improve this work and reduce the computer bottleneck during the process. In machine learning (ML), there are variables that are independents or some cases features on which the final output is done. And in other cases that numbers of these features increases it and reduce the ability to visualize the data. 
+When it is necessary to work with variables that contain many contents, there is a necessity to improve this work and reduce computer bottleneck during the process. In machine learning (ML), some variables are independents or some cases features on which the final output is done. And in other cases, that number of these features increases it and reduces the ability to visualize the data. 
 
-For example, the image resolution of the collected data for training part of the ML algorithm is $1392$ pixels in height and $512$ pixels in width, for the total $712,704$ pixels in total. Where each pixel has a single pixel-value associated with it, indicating the darkness or lightness of that pixel. The range of these numbers are between $0$ and $255$, and with this premise is necessary to determine which objects the image contains.
+For example, the image resolution of the collected data for the training part of the ML algorithm is $1392$ pixels in height and $512$ pixels in width, for the total $712,704$ pixels in total. Where each pixel has a single pixel-value associated with it, indicating the darkness or lightness of that pixel. The range of these numbers is between $0$ and $255$, and with this premise is necessary to determine which objects the image contains.
 
-The task was performed by feature extraction which is a process to creating a new features from existing features, and with this allows to give more information and less redundancies \cite{wang2019data}.
+The task was performed by feature extraction which is a process of creating new features from existing features, and this allows us to give more information and fewer redundancies \cite{wang2019data}.
 
-A mathematical tool called Principal Component Analysis (PCA) was used in this step, and the PCA is used to decompose a multivariate dataset in a set of successive orthogonal components that explain a maximum amount of the variance \cite{pedregosa2011scikit}. In Figure \ref{fig:pca_step1} is shown how the technique works, the data is decomposed into perpendicular vector where the information is unrolled. And with more variance means more information of data.
+A mathematical tool called Principal Component Analysis (PCA) was used in this step, and the PCA is used to decompose a multivariate dataset in a set of successive orthogonal components that explain a maximum amount of the variance \cite{pedregosa2011scikit}. In Figure \ref{fig:pca_step1} is shown how the technique works, the data is decomposed into a perpendicular vector where the information is unrolled. And with more variance means more information regarding data.
 
 \begin{figure}[H]
 \centering
@@ -94,7 +94,7 @@ A mathematical tool called Principal Component Analysis (PCA) was used in this s
 \end{figure}
 
 
-Based on Figure \ref{fig:pca_step2}, is necessary to find a direction $f_i$ such has the variance of $x_i's$ project on $f_i's$ has the maximum value. Also, it is necessary to rotate the previous axis to find $f_i's$, and finally drop $f_2$
+Based on Figure \ref{fig:pca_step2}, is necessary to find a direction $f_i$ such as the variance of $x_i's$ project on $f_i's$ has the maximum value. Also, it is necessary to rotate the previous axis to find $f_i's$, and finally, drop $f_2$
 
 \begin{figure}[H]
 \centering
@@ -151,7 +151,7 @@ In (\ref{eq:pca_4}) the equation to finds the vector $u_i$ which gives the minim
     \end{equation}
 \end{subequations}
 
-Solution to above Equations is given by Eigenvalues and Eigenvectors. 
+The solution to the above Equations is given by Eigenvalues and Eigenvectors. 
 
 Where, the matrix $\mathbf{X}$ in (\ref{eq:matrix}) is the matrix of the data points with the shape $(n x d)$
 
@@ -188,7 +188,7 @@ To brief these steps is necessary to assume the more variability in a particular
 
 \subsection{Object Detection and Object Recognition} 
 
-This task is based on the paper \cite{redmon2016you}, where You Only Look Once (YOLO) version 3 is used as object detector and uses the features after the pre-processment as input the deep convolutional neural network in Figure \ref{fig:yolo_arc}.  
+This task is based on the paper \cite{redmon2016you}, where You Only Look Once (YOLO) version 3 is used as an object detector and uses the features after the pre-processing as input the deep convolutional neural network in Figure \ref{fig:yolo_arc}.  
 
 \begin{figure}[H]
 \centering
@@ -203,7 +203,7 @@ This architecture makes use of only convolutional neural networks, this topic ha
 
 
 
-In the YOLO environment, the algorithm divides the input image into a $ZxZ$ grid. And each grid of this frame predicts only one object as is shown in Figure \ref{fig:yolo_flow}. And YOLO uses $7x7$ grids ($ZxZ$), 2 boundary boxes (B) and 20 classes (C). So, the tensor of the YOLO prediction has a shape of $(Z,Z, Bx5+20) = (7,7,30)$
+In the YOLO environment, the algorithm divides the input image into a $ZxZ$ grid. And each grid of this frame predicts only one object as is shown in Figure \ref{fig:yolo_flow}. And YOLO uses $7x7$ grids ($ZxZ$), 2 boundary boxes (B), and 20 classes (C). So, the tensor of the YOLO prediction has a shape of $(Z, Z, Bx5+20) = (7,7,30)$
 
 
 \begin{figure}[H]
@@ -213,7 +213,7 @@ In the YOLO environment, the algorithm divides the input image into a $ZxZ$ grid
 \label{fig:yolo_flow}
 \end{figure}
 
-Going deeper in the architecture, the object detection is based on the boundary box approach, and each box has 5 known elements (x, y, w, h) and a box confidence score. This score means how likely the box contains an object. It uses a CNN to reduce the spatial dimension, after that it performs a linear regression using two fully connected layers to make the predictions, this approach consider only predictions over 0.5. It is defined in Table \ref{eq:prob_yolo}. 
+Going deeper into the architecture, object detection is based on the boundary box approach, and each box has 5 known elements (x, y, w, h) and a box confidence score. This score means how likely the box contains an object. It uses CNN to reduce the spatial dimension, after that, it performs a linear regression using two fully connected layers to make the predictions, this approach considers only predictions over 0.5. It is defined in Table \ref{eq:prob_yolo}. 
 
 
 \begin{table}[H]
@@ -238,7 +238,7 @@ $IoU$ is the intersection over the union between the predicted box and the groun
 $P_r(class_i|object)$ is the probability the object belongs to $class_i$ given an object is presence.
 $P_r(class_i)$ is the probability the object belongs to $class_i$.
 
-The bounding boxes concept is defined in \cite{redmon2017yolo9000}, and in the many problems as in autonomous driving domain, the most common detection will be pedestrian and cars at different distance \cite{ess2010object}. To take care of this problem, it is necessary to apply the clusterization approach, in this case is defined by K-means with $K=5$. Since the algorithm is working with a many kinds of bounding boxes, it is not possible to use the regular spatial distance to measure the data point distances, that is the reason to use $IoU$. Based on the distance of the cluster called as anchor, in this solution will predicts 5 parameters ($t_x, t_y, t_w, t_h,$ and $t_o$) combined with the sigma function to reduce the offset range as is already defined in (\ref{eq:bound}) and it is detailed graphically in Figure \ref{fig:anchor}.
+The bounding boxes concept is defined in \cite{redmon2017yolo9000}, and in the many problems as in the autonomous driving domain, the most common detection will be pedestrians and cars at different distances \cite{ess2010object}. To take care of this problem, it is necessary to apply the clusterization approach, in this case, is defined by K-means with $K=5$. Since the algorithm is working with many kinds of bounding boxes, it is not possible to use the regular spatial distance to measure the data point distances, that is the reason to use $IoU$. Based on the distance of the cluster called as the anchor, in this solution will predict 5 parameters ($t_x, t_y, t_w, t_h,$ and $t_o$) combined with the sigma function to reduce the offset range as is already defined in (\ref{eq:bound}) and it is detailed graphically in Figure \ref{fig:anchor}.
 
 
     
@@ -267,7 +267,7 @@ $\sigma(t_i)$ is the box confidence score.
 \label{fig:anchor}
 \end{figure}
 
-As it already defined, the proposed solution predicts multiple bounding boxes per grid cell. For this is necessary compute the loss for the true positive, with the intention to reduce the error, hence the object is to be faster not accurate, in other hands each cell will be looked on time along the use, and it will be used the highest IoU. The loss function is composed by classification loss in (\ref{eq:classification_loss}), the localization loss in (\ref{eq:localization_loss}), the confidence loss (\ref{eq:confidence_loss}), and the loss function is (\ref{eq:loss}). 
+As already defined, the proposed solution predicts multiple bounding boxes per grid cell. For this is necessary to compute the loss for the true positive, to reduce the error, hence the object is to be faster, not accurate, in other hands each cell will be looked on time along with the use, and it will be used the highest IoU. The loss function is composed by classification loss in (\ref{eq:classification_loss}), the localization loss in (\ref{eq:localization_loss}), the confidence loss (\ref{eq:confidence_loss}), and the loss function is (\ref{eq:loss}). 
 
 If the object is located on the frame, the classification loss will perform the squared error at each cell on the conditional probability for each class: 
 
@@ -276,7 +276,7 @@ If the object is located on the frame, the classification loss will perform the 
     \sum_{i=0}^{s^2}1^{obj}_i \sum_{c\in~classes} \left ( p_i\left ( c \right )-\hat{p}_i\left ( c \right )\right )^2
 \end{equation}
 
-where, $1^{obj}_i$ is the Boolean that controls if has an object or not, $\hat{p}_i\left ( c \right )$ denotes the conditional probability for each classes in the cell.
+where, $1^{obj}_i$ is the Boolean that controls if has an object or not, $\hat{p}_i\left ( c \right )$ denotes the conditional probability for each class in the cell.
 
 The localization loss is necessary to take care about the measure errors regarding the locations and the sizes of the boxes, the goal is not to define the weight absolute errors in large boxes and small boxes, it predicts the square root of the bounding box width and height instead of the width and height. 
 
@@ -288,18 +288,18 @@ The localization loss is necessary to take care about the measure errors regardi
     \end{aligned}
 \end{equation}
 
-where, $1_{ij}^{obj} = 1$ if the boundary box in the cell is responsible to detect the object, otherwise is 0. $\lambda_{coord}$ increases the weight for the loss in the boundary boxes coordinates, with this variable is possible to put more emphasis on the accuracy, so it is multiplied by the loss, the default value for this work is 5. 
+where $1_{ij}^{obj} = 1$ if the boundary box in the cell is responsible to detect the object, otherwise is 0. $\lambda_{coord}$ increases the weight for the loss in the boundary boxes coordinates, with this variable is possible to put more emphasis on the accuracy, so it is multiplied by the loss, the default value for this work is 5. 
 
-The confidence loss is used to measure the objectness of the box, because a grand part of the boxes do not have any detect object inside, and with this a imbalance issue is noted, to avoid this object is necessary to compute this loss. 
+The confidence loss is used to measure the objectness of the box because a grand part of the boxes does not have any detect object inside, and with this, an imbalance issue is noted, to avoid this object is necessary to compute this loss. 
 
 \begin{equation}
     \label{eq:confidence_loss}
     \lambda_{noobj}\sum_{i=0}^{s^2}\sum_{j=0}^{B}1^{noobj}_{ij}\left ( C_i - \hat{C}_i \right )^2
 \end{equation}
 
-where, $1^{noobj}_i$ is the complement of $1^{obj}_i$, $\hat{C}_i$ is the box confidence score of the box $j$ in cell $i$, and $\lambda_{noobj}$ takes care of the weights down the loss when a background is detected in this work the used value for this variable is $0.5$. 
+where $1^{noobj}_i$ is the complement of $1^{obj}_i$, $\hat{C}_i$ is the box confidence score of the box $j$ in cell $i$, and $\lambda_{noobj}$ takes care of the weights down the loss when the background is detected in this work the used value for this variable is $0.5$. 
 
-The final loss is computed through the add of the previous losses, in (\ref{eq:loss}) is defined the actual loss to reduce the errors in the object detection.
+The final loss is computed through the addition of the previous losses, in (\ref{eq:loss}) is defined as the actual loss to reduce the errors in the object detection.
 
 \begin{equation}
 \label{eq:loss}
@@ -312,11 +312,11 @@ The final loss is computed through the add of the previous losses, in (\ref{eq:l
     \end{aligned}
 \end{equation}
 
-After the object detection, is necessary to perform the object classification, where each box predicts the classes the bounding box, so it is recommend to use multilabel classification. The difference in this work is to use the softmax function in the output of the classifications. The data used in this training is labeled and it was collected from Open Image Dataset \cite{krasin2017openimages}, and this classification was performed over the Darkenet neural network \cite{redmon2013darknet}.
+After object detection, is necessary to perform the object classification, where each box predicts the classes the bounding box, so it is recommended to use multilabel classification. The difference in this work is to use the softmax function in the output of the classifications. The data used in this training is labeled and it was collected from Open Image Dataset \cite{krasin2017openimages}, and this classification was performed over the Darknet neural network \cite{redmon2013darknet}.
 
 \subsection{Distance Estimation}
 
-For the distance estimation, in this approach is proposed to use the outputs predicted by the object detector, where $4$ variables are predicted, which are $(x, y, w, h)$. In this work, $x,y$ are used to ajust the boundary box, and $w, h$ are used in Figure \ref{fig:yolo_flow} to measure the distance of the object, and these variables will variate according with the distance of the camera. As it was already defined in \cite{cao2013circle} the image will be refracted in the lens and with this is possible to deduce a relationship between the known parameters: focal length $(f)$, distance of the object from the lens $(d)$, distance of the refracted image from the lens $(D)$. In the Figure \ref{fig:distance} is shown how the distance measurer works. 
+For the distance estimation, this approach is proposed to use the outputs predicted by the object detector, where $4$ variables are predicted, which are $(x, y, w, h)$. In this work, $x,y$ are used to adjust the boundary box and $w, h$ are used in Figure \ref{fig:yolo_flow} to measure the distance of the object, and these variables will variate according to with the distance of the camera. As it was already defined in \cite{cao2013circle} the image will be refracted in the lens and with this is possible to deduce a relationship between the known parameters: focal length $(f)$, the distance of the object from the lens $(d)$, the distance of the refracted image from the lens $(D)$. In Figure \ref{fig:distance} is shown how the distance measurer works. 
 
 
 \begin{figure}[H]
@@ -327,7 +327,7 @@ For the distance estimation, in this approach is proposed to use the outputs pre
 \end{figure}
 
 
-So the red line $d$ represents the actual distance of the object from the convex length. And $D$ gives a sense of how the actual image looks like. Now if we consider a triangle in the left side of the image (new refracted image) with base $d$ and draw a opposite triangle similar to the left side one. So the new base of the opposite triangle will also be do with the same perpendicular distance. Now if we compare the two triangles from right side we will see $d$ and $D$ is parallel and the angle that create on each side of both the triangle are opposite to each other. From which we can infer that, both the triangles on the right side is also similar. Now, as they are similar, ratio of the corresponding sides will be also similar. So $\frac{d}{D} = \frac{A}{B}$. Again if we compare between two triangles in right side of the image where opposite angles are equal and one angle of both the triangles are right angle (90$^{\circ}$ ) (dark blue area). So A:B is both hypotenuse of the similar triangle where both triangle has a right angle. So the new equation can be defined as:
+So the red line $d$ represents the actual distance of the object from the convex length. And $D$ gives a sense of how the actual image looks like. Now if we consider a triangle on the left side of the image (new refracted image) with base $d$ and draw an opposite triangle similar to the left side one. So the new base of the opposite triangle will also be done with the same perpendicular distance. Now if we compare the two triangles from the right side we will see $d$ and $D$ is parallel and the angle that creates on each side of both the triangle is opposite to each other. From which we can infer that both the triangles on the right side are also similar. Now, as they are similar, the ratio of the corresponding sides will be also similar. So $\frac{d}{D} = \frac{A}{B}$. Again if we compare two triangles in the right side of the image where opposite angles are equal and one angle of both the triangles are right angle (90$^{\circ}$ ) (dark blue area). So A and B are both hypotenuses of the similar triangle where both triangles have a right angle. So the new equation can be defined as:
 
     \begin{equation}\label{eq:meausure}
         \frac{d}{D} = \frac{A}{B} = \frac{f}{D-f},
@@ -339,7 +339,7 @@ So the red line $d$ represents the actual distance of the object from the convex
     \frac{1}{f} = \frac{1}{d} + \frac{1}{D},
 \end{equation}
 
-It is necessary to consider the proportion of the size of each images, as is shown in (\ref{eq:proportion}), these variables come from the object detection, as shown in (\ref{eq:distance}).
+It is necessary to consider the proportion of the size of each image, as is shown in (\ref{eq:proportion}), these variables come from the object detection, as shown in (\ref{eq:distance}).
 
 
 \begin{equation}
@@ -366,7 +366,7 @@ Finally, it is possible to predict the distance based on outputs from the predic
  
 \section{Approach 2 – One camera with known map}\label{sub:2}
 
-The second proposed approach is based on  \cite{mayer2016large}, where it is necessary to take the photos and label this images \cite{tzutalin6labelimg}, and its output is shown in Table \ref{tab:output_table}, and indicates the position and size of the boundary box as already defined in Figure \ref{fig:anchor}, and the real position of the car on the real scenario, and show in Figure \ref{fig:proposal2} is shown the block diagrams and the proposed approach to predict the distance based on the known map. In this Subsection is defined only the step regarding the estimate position based on the map, because the other steps has been already defined in Section \ref{sub:1}. 
+The second proposed approach is based on  \cite{mayer2016large}, where it is necessary to take the photos and label this images \cite{tzutalin6labelimg}, and its output is shown in Table \ref{tab:output_table}, and indicates the position and size of the boundary box as already defined in Figure \ref{fig:anchor}, and the real position of the car on the real scenario, and show in Figure \ref{fig:proposal2} is shown the block diagrams and the proposed approach to predict the distance based on the known map. In this Subsection is defined only the step regarding the estimated position based on the map, because the other steps have been already defined in Section \ref{sub:1}. 
 
 
 \begin{figure}[H]
@@ -397,7 +397,7 @@ tree        & 17.22    & 507  & 1   & 606  & 231  \\
 
 \subsection{Estimate position based on map}
 
-For this step is necessary to collect data and label of this data before start. Because based on the previous collect data, this predictor will be different compared with the estimation provided in Section \ref{sub:1}. In this approach is used an Artificial Neural Network (ANN), and the concepts of this architecture was defined in 
+For this step is necessary to collect data and label this data before the start. Because based on the previous collect data, this predictor will be different compared with the estimation provided in Section \ref{sub:1}. In this approach is used as an Artificial Neural Network (ANN), and the concepts of this architecture were defined in 
 Subsection \ref{ml-ai}. The proposed ANN is in Figure \ref{fig:rede_neural}.
 
 
@@ -408,7 +408,7 @@ Subsection \ref{ml-ai}. The proposed ANN is in Figure \ref{fig:rede_neural}.
 \label{fig:rede_neural}
 \end{figure}
 
-And with this defined architecture is possible to estimate the distance of the car along the scenario, an example of labeled image is shown in Figure \ref{fig:boundary_boxes_car}, these outputs were collected from this image and saved in Extensible Markup Language (XML) file so serve as input in the ANN. 
+And with this defined architecture is possible to estimate the distance of the car along with the scenario, an example of the labeled image is shown in Figure \ref{fig:boundary_boxes_car}, these outputs were collected from this image and saved in Extensible Markup Language (XML) file so serve as input in the ANN. 
 
 
 \begin{figure}[H]
@@ -423,7 +423,7 @@ And with this defined architecture is possible to estimate the distance of the c
 
 \section{Approach 3 – Multicamera}\label{sub:3}
 
-This approach was the selected one for the construction of the framework on Subsection \ref{framework}, because with this approach is possible to consider the position of the camera on the test scenario. As similar in Subsection \ref{sub:2}, only the last step will be defined here, because the another ones were already described in Subsection \ref{sub:1}. 
+This approach was the selected one for the construction of the framework on Subsection \ref{framework}, because with this approach is possible to consider the position of the camera on the test scenario. As similar in Subsection \ref{sub:2}, only the last step will be defined here because the other ones were already described in Subsection \ref{sub:1}. 
 
 
 \begin{figure}[H]
@@ -433,15 +433,15 @@ This approach was the selected one for the construction of the framework on Subs
 \label{fig:proposal3}
 \end{figure}
 
-This approach allow to create a scenario based in multiple cameras and form an array of cameras, and where there is a command central responsible to merge all of collected data and fuse this data on the database such as label of each object, position and its timestamp. 
+This approach allows us to create a scenario-based in multiple cameras and form an array of cameras, and where there is a command central responsible to merge all of the collected data and fuse this data on the database such as the label of each object, position and its timestamp. 
 
-The data used on this task is provided from streams of the cameras and they send these data to command center via a wireless connection over the protocol IEEE 802.11 and this data fusion is controlled by proxy and it was written in Python. And the distance estimation is based on the Inverse perspective mapping (IPM) and is well defined in \ref{ipm}.
+The data used on this task is provided from streams of the cameras and they send these data to the command center via a wireless connection over the protocol IEEE 802.11 and this data fusion is controlled by proxy and it was written in Python. And the distance estimation is based on the Inverse perspective mapping (IPM) and is well defined in \ref{ipm}.
 
 
 \subsection{Estimate position based on multiple inputs}\label{ipm}
-Inverse perspective mapping is a mathematical technique that remove the effects of distortion of a picture when transforming the perspective of the image to another perspective. In spite of disparity mapping, inverse perspective mapping method requires only one camera and this method cannot provide depth information directly ~\cite{Tuohy2010}.
+Inverse perspective mapping is a mathematical technique that removes the effects of distortion of a picture when transforming the perspective of the image to another perspective. Despite disparity mapping, the inverse perspective mapping method requires only one camera and this method cannot provide depth information directly ~\cite{Tuohy2010}.
 
-Camera must be located in front of the car with an angle of \(\theta\) to down. Figure \ref{fig:ImageRelationSystem} shows the setup.
+The camera must be located in front of the car with an angle of \(\theta\) to down. Figure \ref{fig:ImageRelationSystem} shows the setup.
 
 \begin{figure}[h]
 \centering
@@ -486,7 +486,7 @@ T=
 
 
 \par
-K is the camera parameter matrix given in the Equation \ref{exp4}. Where $f$ is the focal length of the camera, $s$ is the skew parameter and $u_0, v_0$ are the center of the pixel of desired image size. 
+K is the camera parameter matrix given in (\ref{exp4}). Where $f$ is the focal length of the camera, $s$ is the skew parameter, and $u_0, v_0$ are the center of the pixel of desired image size. 
 \begin{equation} \label{exp4}
 K =
 \begin{bmatrix}
@@ -518,7 +518,7 @@ Z_w\\
 \label{eq:eq2}
 \end{equation}
 
-where the matrix P was gotten from product between K, T, and R. As is only necessary to evaluate the position of the road, so the coordinate $Y_w$ can be equal to 0, so simplifying the Equation \ref{eq:eq2}, so it is given by Equation \ref{eq:eq3}.
+where the matrix P was gotten from a product between K, T, and R. As is only necessary to evaluate the position of the road, so the coordinate $Y_w$ can be equal to 0, so simplifying the Equation \ref{eq:eq2}, so it is given by Equation \ref{eq:eq3}.
 
 \begin{equation}
     \label{eq:eq3}
@@ -539,10 +539,10 @@ Z_w\\
 \end{bmatrix}
 \end{equation}
 
-Based on the Equations above, it is possible to infer the Equation \ref{eq:eq4} for compute the distance from the camera until the object. 
+Based on the Equations above, it is possible to infer the Equation \ref{eq:eq4} to compute the distance from the camera until the object. 
 
 \begin{enumerate}
-    \item Calculating average intensity in row direction from bottom row up to top row
+    \item Calculating average intensity in the row direction from the bottom row up to top row
     \item The average intensity of each row is compared with the threshold level (obtained from the experimental) which is 50. The starting position of an object is indicated if the average intensity in that row is greater than 50 and the order of that row is stored in a parameter p.
     \item The distance between object and vehicle is therefore calculated using a linear equation given in \ref{eq:eq4}.
 \end{enumerate}
@@ -552,12 +552,12 @@ Based on the Equations above, it is possible to infer the Equation \ref{eq:eq4} 
     d = ap+b
 \end{equation}
 
-where $d$ is distance between camera and object and vehicle in meter, $p$ is the order of the row that object is detected and $a, b$ are constants.
+where $d$ is the distance between camera and object and the vehicle in meter, $p$ is the order of the row that object is detected and $a, b$ are constants.
 
  
 \section{Framework Architecture} \label{framework}
 
-In this section is discussed how the architecture of the Subsection \ref{sub:3} is encapsulated in a software framework. This Architecture was divided in four big modules: client, model, proxy, and controller. 
+In this section is discussed how the architecture of the Subsection \ref{sub:3} is encapsulated in a software framework. This Architecture was divided into four big modules: client, model, proxy, and controller. 
 
 
 
@@ -568,13 +568,13 @@ In this section is discussed how the architecture of the Subsection \ref{sub:3} 
 \label{fig:framework}
 \end{figure}
 
-The first module is the block 1 of Figure \ref{fig:framework} is the client which is responsible to permit all of the interactions with the user and allow to see the cameras doing the inference and see the boundary boxes and the labels, and the distance estimation as well.
+The first module is block 1 of Figure \ref{fig:framework} is the client which is responsible to permit all of the interactions with the user and allow to see the cameras doing the inference and see the boundary boxes and the labels, and the distance estimation as well.
 
-The module responsible to control the model is the block 2 of Figure \ref{fig:framework} and it will be expanded in Figure \ref{fig:networkBehavior}. The input data is gotten from data provided from cameras and the output will be saved in the database, these outputs have already defined in Section \ref{sub:3}. 
+The module responsible to control the model is block 2 of Figure \ref{fig:framework} and it will be expanded in Figure \ref{fig:networkBehavior}. The input data is gotten from data provided from cameras and the output will be saved in the database, these outputs have already defined in Section \ref{sub:3}. 
 
-The block 3 of Figure \ref{fig:framework} needs to control all of this flow along the usage of this framework and provide an abstraction layer to the usage of the database. 
+Block 3 of Figure \ref{fig:framework} needs to control all of this flow along with the usage of this framework and provide an abstraction layer to the usage of the database. 
 
-In block 4 of Figure \ref{fig:framework} is the part responsible to connect the other cameras via WIFI protocol and allows the system to connect another cameras, the total amount of camera is based on the hardware available for the tests. 
+In block 4 of Figure \ref{fig:framework} is the part responsible to connect the other cameras via WIFI protocol and allows the system to connect another camera, the total amount of camera is based on the hardware available for the tests. 
 
 
 In Figure \ref{fig:networkBehavior} is shown how the model performs the inference process along the detection time.  
