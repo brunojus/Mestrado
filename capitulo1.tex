@@ -1,5 +1,10 @@
 \chapter{Introduction} \label{introducao}
-In this chapter, the problem statement will be defined. 
+The research area of autonomous vehicles (AV) is totally multidisciplinary, with the way the vehicle is built, it is possible to create high impact applications, which establish interrelations and information flows and detect new extended stimuli in scenarios where the infrastructure is physical or mobile \cite{bayat2017environmental}. With this, there is the possibility to apply the concepts of computer vision, which allows the car to see the external environment and combined with Machine Learning (ML) tools the vehicle begins to interpret what is around it \cite{rasouli2019autonomous}.
+
+One of the major challenges of AV is detect the position of the car along the road, it is possible to perform this task using vehicle to infrastructure (V2I), or with other technique such as GPS \cite{hobert2015enhancements}. Therefore, there are some studies to investigate the acceptation of the AV and a way to proof this new technology can reduce the car accidents, as study guided by Xu et. al where Of the respondents, 42.35\% and 45.28\% expect lower risk and lower insurance premiums for autonomous vehicles, respectively \cite{xu2019autonomous}.
+
+Considering that it is possible to have cameras around the road, in this thesis, we propose an object detection model using multi-cameras, where there is a responsible algorithm for detecting and classifying objects, as well as estimating the distance where that object is positioned.
+
 \section{Motivation}
 
 The autonomous vehicles are the new reality for the next years with this premise, the new solutions need to grow, and one of these important necessities is the vehicle tracking, and should reduce the traffic jams and decrease the number of cars crash \cite{bonnefon2016social}. Given that, there are many levels of self-drive car automation as shown in Figure \ref{fig:automation}. This work is focused on the test scenario of driving automation. Due to drones requires much battery during the test and limits the scenario to 30 to 45 minutes, the proposal is to use the infrastructure along the road as a camera on the pole and send the data to a command center.
