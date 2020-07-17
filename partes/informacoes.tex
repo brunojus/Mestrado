@@ -1,0 +1,75 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GRAU PRETENDIDO E TIPO DE MONOGRAFIA									%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Alguns exemplos seguem abaixo. Se o seu for algum deles, descomente-o. Em geral, o grau e o tipo de monografia associado estão na mesma linha.
+%\grau{Título}{especificação} \tipodemonografia{"a" para feminino e "e" para masculino}{Tipo}
+%\grau{Doutor}{em Engenharia Elétrica} \tipodemonografia{a}{Tese de Doutorado}
+%\grau{Mestre}{em Engenharia de Sistemas Eletrônicos e Automação} \tipodemonografia{a}{Dissertação de Mestrado}
+\grau{Mestre}{em Sistemas Mecatrônicos} \tipodemonografia{o}{Dissertação de Mestrado}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TÍTULO																%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Os comandos a seguir servem para definir o título do trabalho. Para evitar  que o latex defina automaticamente a quebra de linha, foram definidos um comando por linha. Desta forma o autor define como quer que o título seja dividio em várias linhas. O exemplo abaixo é para um título que ocupa três linhas. Observe que mesmo com a linha 4 não sendo utilizada, o comando \titulolinhaiv é chamado.
+\titulolinhai{Multi-Camera Framework for ~}
+\titulolinhaii{ Object Detection and Distance Estimation~}
+\titulolinhaiii{}
+\titulolinhaiv{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AUTORES																%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Os nomes dos autores são definidos pelos comandos \autori (autor 1) e \autorii (autor 2). Para trabalhos com apenas um autor, deve-se usar \autorii{} para que não apareça um nome para segundo autor.
+\autori{Bruno Justino Garcia Praciano}
+\autorii{Nome do Autor 2}
+\autorii{} % descomente esta linha se não houver segundo autor.
+\autoriii{Nome do Autor 3}
+\autoriii{} % descomente esta linha se não houver terceiro autor.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BANCA EXAMINADORA														%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Os nomes dos membros da banca são definidos a seguir. Pode-se ter até 5 membros da banca, numerados de i a v (algarismos romanos).
+% Para trabalhos com apenas um autor, deve-se usar \autorii{} para que não apareça um nome para segundo autor. É incubência do usuário definir no argumento dos comandos a afiliação do membro da banca, assim como sua posição (se for orientador ou co-orientador). 
+% Os nomes definidos pelos comandos abaixo aparecem na ordem de i a v.
+\membrodabancai{Prof. João Paulo C. L. da Costa,\hfill \break Prof. Dr.-Ing., ENE/UnB}
+\membrodabancaifuncao{\vspace{0.06cm}Orientador}
+\membrodabancaii{Rafael T. de Sousa Jr., Prof. Dr., ENE/UnB}
+\membrodabancaiifuncao{Examinador interno}
+\membrodabancaiii{Arnaldo Arancíbia, Dr.-Ing., EFS GmbH, TU Berlin}
+\membrodabancaiiifuncao{Examinador externo}
+\membrodabancaiv{}
+\membrodabancaivfuncao{Examinador interno}
+\membrodabancav{}
+\membrodabancavfuncao{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DATA DA DEFESA														%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mes{19 de junho}
+\ano{2020}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FICHA CATALOGRÁFICA													%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Colocar o nome do autor como vai aparecer no catálogo. Último sobrenome primeiro, depois o nome e sobrenomes intermediários. Ex.: Borges, Geovany Araújo
+\autorcatalogo{Praciano, Bruno Justino Garcia}
+%Colocar o nome abreviado. Último sobrenome primeiro, depois as iniciais do nome e sobrenomes intermediários. Ex.: Borges, G.A.
+\autorabreviadocatalogo{Praciano, B. J. G.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PALAVRAS CHAVE														%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\palavraschavecatalogoi{Autonomous Vehicles}
+\palavraschavecatalogoii{Computational Vision}
+\palavraschavecatalogoiii{Object Detection}
+\palavraschavecatalogoiv{Distance Estimation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NÚMERO DA PUBLICAÇÃO													%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%fornecido pelo departamento após a defesa
+%\publicacao{TCC-}
+
+%Número de páginas da dissertação.
+\numeropaginascatalogo{\pageref{LastPage}~p.}

@@ -1,11 +1,11 @@
 \chapter{Technical Background}
 \label{capitulo3}
 
-In this chapter, an overview of the main concepts of this work will be described. The present section is divided into three major sections. In Section \ref{sensors}, the concepts of sensors are defined. In Section \ref{ml-ai}, the main concepts regarding machine learning and artificial intelligence are described. Section \ref{autonomous-vehicles} is defined as the major concepts of autonomous vehicles.
+This chapter presents an overview of the main concepts of this work. The present section is divided into three significant sections. In Section \ref{sensors}, the concepts of sensors are introduced. In Section \ref{ml-ai}, the main ideas regarding machine learning and artificial intelligence are described. Section \ref{autonomous-vehicles} is defined as the significant concepts of autonomous vehicles.
 
 \section{Sensors}\label{sensors}
 
-It is possible to have more sensors in autonomous vehicles, but these three sensors are the most common in autonomous vehicles structure. As is positioned in Figure \ref{fig:autonomous-vehicles} the correct place for the most important sensors.
+It is possible to have more sensors in autonomous vehicles, but these three sensors are the most common in autonomous vehicles structure. As is positioned in Figure \ref{fig:autonomous-vehicles}, the correct place for the most important sensors.
 
 
 \begin{figure}[H]
@@ -19,9 +19,9 @@ It is possible to have more sensors in autonomous vehicles, but these three sens
 \subsection{Camera}
 The camera is a kind of sensor that allows the car to see the environment using the collected image, in Figure \ref{fig:camera} is shown the standard camera for autonomous vehicles.
 
-It is an optical instrument for image or video capture of images in the same size, for example, there are some cameras where it is possible to set up the numbers of frames per second (FPS) and the image resolution. 
+It is an optical instrument for image or video capture of images in the same size. For example, there are some cameras where it is possible to set up the numbers of frames per second (FPS) and the image resolution. 
 
-Also, it is important to remember the importance of the calibration of the cameras, the Equations for this process were available in \cite{888718}. This step is very important to acquire the real size of the objects because sometimes is necessary to compare the size of these objects. 
+It is also essential to remember the importance of the camera's calibration; the Equations for this process were available in \cite{888718}. This step is necessary to acquire the objects' real size because it is sometimes required to compare the size of these objects. 
 
 \begin{figure}[H]
 \centering
@@ -30,11 +30,11 @@ Also, it is important to remember the importance of the calibration of the camer
 \label{fig:camera}
 \end{figure}
 
-This sensor allows the car to detect a lot of objects and at the same time, it is possible to perform object recognition as well. It is necessary to freeze the difference between object detection and object recognition. There are different algorithms to perform these tasks. The proposed algorithm in Chapter \ref{capitulo4} performs both detections combined with the estimation of the distance. 
+This sensor allows the car to detect many objects while it is possible to perform object recognition as well. It is necessary to freeze the difference between object detection and object recognition. There are different algorithms to perform these tasks. The proposed algorithm in Chapter \ref{capitulo4} shows both exposures combined with the estimation of the distance. 
 
 \subsection{Radar}
 
-The automotive radio detection and ranging (RADAR) sensors have the responsibility to perform object detection around the vehicle and avoid potential collisions. With this sensor is possible to warn the driver and combined with level 1 of automation as already shown in Figure \ref{fig:automation} to intervene with the brake the car or use other controls to prevent an accident \cite{ariyur2006collision}.
+The automotive radio detection and ranging (RADAR) sensors have the responsibility to perform object detection around the vehicle and avoid potential collisions. Therefore, with this sensor, it is possible to warn the driver and combined with level 1 of automation as already shown in Figure \ref{fig:automation} to intervene with the brake the car or use other controls to prevent an accident \cite{ariyur2006collision}.
 
 \begin{figure}[H]
 \centering
@@ -43,9 +43,9 @@ The automotive radio detection and ranging (RADAR) sensors have the responsibili
 \label{fig:camera}
 \end{figure}
 
-Another interesting application of the RADAR in the automotive scenario is the capability to measure the relative speed to the vehicle and other objects, with that it is possible to estimate correctly the distance \cite{stevenson2011long}.
+Another exciting application of the RADAR in the automotive scenario is the ability to measure the relative speed to the vehicle and other objects. It is possible to estimate the distance \cite{stevenson2011long} correctly.
 
-It is possible to combine the camera and RADAR and get a new kind of sensor as defined in \cite{kamerad}. With this approach is possible to react 160 times faster than a human driver.
+It is possible to combine the camera and RADAR and get a new kind of sensor, as defined in \cite{kamerad}. With this approach, it is possible to reach 160 times faster than a human driver.
 
 \subsection{Lidar}
 In Figure \ref{fig:lidar} is shown a light detection and ranging (LIDAR). The main purpose of this laser is to detect and track any kind of objects. 
@@ -59,10 +59,10 @@ In Figure \ref{fig:lidar} is shown a light detection and ranging (LIDAR). The ma
 This measurement is based on many times rotate this sensor in different directions, to scan the whole area of the autonomous vehicles is driving and collect some data for detecting the objects \cite{gao2018object}.
 
 \section{Machine Learning}\label{ml-ai}
-The machine learning is an approach based on algorithms to create some predictions, these techniques are based on mathematical and computer science, it is possible to apply this in several fields of science. 
+The machine learning is an approach based on algorithms to create some predictions. These techniques are based on mathematical and computer science. It is possible to apply this in several fields of science. 
 \subsection{Artificial Neural Networks}
 
-The artificial neural networks (ANN) or perceptron were inspired by the human brain. This approach is because of the capacity of the human brain to categorize new information. In Figure \ref{fig:ann} is shown an example of the structure of an ANN. Where there is an input array with the processed features for categorization. The next step of the processing is to define the weights for this analysis. The activation function is the main part of this process because in this step the algorithm will transform the numbers collected by the previous steps and will return only in binary purpose, like $0$ and $1$ in the output layer \cite{goodfellow2016deep}.
+The human brain has inspired artificial neural networks (ANN) or perceptron. This approach is because of the capacity of the human mind to categorize new information. In Figure \ref{fig:ann} is shown an example of the structure of an ANN. There is an input array with the processed features for categorization. The next step of the processing is to define the weights for this analysis. The activation function is the central part of this process. In this step, the algorithm will transform the numbers collected by the previous actions and return only in twofold purpose, like $0$ and $1$ in the output layer \cite{goodfellow2016deep}.
 
 \begin{figure}[H]
 \centering
@@ -120,7 +120,7 @@ In this work, Relu is the activation function chosen activation. Its mathematica
 \end{equation}
 
 
-The graphic visualization of the function Relu is shown in Figure \ref{fig:relu}, where this function returns $0$ if the number from the weighted sum is below than $0$, or return $x$ if the previous value is over than $0$.
+The graphic visualization of the function Relu is shown in Figure \ref{fig:relu}, where this function returns $0$ if the number from the weighted sum is lower than $0$, or return $x$ if the previous value is over than $0$.
 
 
 \begin{figure}[H]
@@ -130,7 +130,7 @@ The graphic visualization of the function Relu is shown in Figure \ref{fig:relu}
 \label{fig:relu}
 \end{figure} 
 
-These are the important characteristics of this activation function.
+These are the essential characteristics of this activation function.
 
     \begin{itemize}
         \item Widely used in deep networks
@@ -141,7 +141,7 @@ These are the important characteristics of this activation function.
 \subsubsection{Layered Neural Networks}
 
 The quintessential illustration of a deep learning model is the multilayer perceptron (MLP). An MLP is just a mathematical function mapping some set of input values to output values. The function
-is formed by composing many simpler functions \cite{goodfellow2016deep}.
+is formed by composing many more straightforward functions \cite{goodfellow2016deep}.
 
 
 These are important deep learning models. The goal
@@ -155,7 +155,7 @@ These models are called feedforward because information flows through the functi
 \subsection{Convolutional Neural Networks}\label{sec:cnn}
 
 
-The Convolutional Neural Networks (CNN) is a specialized kind of neural network for processing data that has a known \cite{lecun1995convolutional}. For example in the domain of the autonomous vehicle, this approach is several used for object detection and object identification. This name  indicates that the network employs a mathematical operation called
+The Convolutional Neural Networks (CNN) is a specialized kind of neural network for processing data that has a known \cite{lecun1995convolutional}. For example, in the autonomous vehicle domain, this approach is several used for object detection and object identification. This name  indicates that the network employs a mathematical operation called
 convolution. 
 
 A CNN coarsely scans the image for features (in lower dimension space), pools possible patterns, then inspect those patterns in detail with its fully connected
@@ -171,7 +171,7 @@ subnetworks, generating their classifications. In Figure \ref{fig:cnn_car} is de
 \subsubsection{Convolutional Layer}
 \label{sub:conv}
 
-When the convolutional layer is introduced, common inputs are a tridimensional matrix with height and width defined accordingly with the image dimensions and determined by the number of colors. In general, the images use three color channels, Red-Green-Blue (RGB) as is shown in Figure \ref{fig:rgb}.
+The standard inputs are a tridimensional matrix with height and width defined accordingly with the image dimensions and determined by the number of colors. In general, the images use three color channels, Red-Green-Blue (RGB), as is shown in Figure \ref{fig:rgb}.
 
 \begin{figure}[H]
 \centering
@@ -181,7 +181,7 @@ When the convolutional layer is introduced, common inputs are a tridimensional m
 \end{figure}
 
 
-The convolutions work as filters that seem little squares and they are slipping through the whole image and capturing the most important parts. For example in Figure \ref{fig:bias}, an image with $NxNX3$ and a filter with the $MxMX3$, where the main difference is that each result is then summed, along with the Bias ($\beta$) value, to be then passed to the activation function. And at the end of the process generates a new matrix called a feature map or activation map.
+The convolutions work as filters that seem little squares, and they are slipping through the whole image and capturing essential parts.  Figure \ref{fig:bias} shows an image by dimensions of $NxNX3$, filter among the $MxMX3$, wherever particular main difference per result is then summed, on bias ($\beta$) value, then passed through an activation function. Furthermore, the end of the process generates a new matrix called a feature map or activation map.
 
 
 \begin{figure}[H]
@@ -196,7 +196,7 @@ The convolutions work as filters that seem little squares and they are slipping 
 
 \subsubsection{Pooling and Upsampling}\label{sub:pooling}
 
-A pooling layer is necessary to simplify the information from the previous layer. As happens with the convolution layer, it is choosing a unit area, for example, $2x2$ to slicing for the whole output information from the previous step. To brief, if the information from the previous layer was $4x4$, the output from the process of pooling will be $2x2$. Nevertheless, the most used method is max-pooling, where the biggest number in the matrix is passed to the next step, this data summarization is used to reduce the number of weights and to avoid overfitting. In Figure \ref{fig:pooling} is shown the max-pooling process.
+A pooling layer is necessary to simplify the information from the previous layer. As happens with the convolution layer, it is choosing a unit area, for example, $2x2$ to slicing for the whole output information from the previous step. To brief, if the information from the previous layer was $4x4$, the output from the process of pooling will be $2x2$. Nevertheless, the most used method is max-pooling, where the biggest number in the matrix is passed to the next step. This data summarization is used to reduce the number of weights and avoid overfitting. In Figure \ref{fig:pooling} is shown the max-pooling process.
 
 \begin{figure}[H]
 \centering
@@ -223,7 +223,7 @@ As described in \cite{yang2020feedback}, this architecture has a hidden layer of
 
 \subsubsection{Training}
 
-In the machine learning scenario, in special the neural networks domain epoch can be defined as a single forward pass and backward pass of all the training examples. It feeds in all the neurons into the network at once. Instead, it chooses a batch of neurons and feeds them in. It performs stochastic gradient descent, and prevent our network from overfitting. There is a difference between individual training step time and total training time \cite{pascanu2013difficulty}. 
+In the machine learning scenario, in special, the neural networks domain epoch can be defined as a single forward pass and backward pass of all the training examples. It feeds in all the neurons into the network at once. Instead, it chooses a batch of neurons and feeds them in. It performs stochastic gradient descent, and prevent the system from overfitting. There is a difference between individual training step time and total training time \cite{pascanu2013difficulty}. 
 
 
 \section{Autonomous Vehicles} \label{autonomous-vehicles}
@@ -238,16 +238,16 @@ outlined by the National Highway Traffic Safety Administration
 vehicles as driver aids to hand over work from the driver to the
 car’s systems \cite{schoning2006parklenkassistent}. As technology progresses, there will be a more
 and more handover of control from the driver to the vehicle, level
-4 of automation being the fully-autonomous state that is a prominent talking point in the automotive industry. The level 5 AV will
-be able to self-drive anywhere (“full automation”), i.e. no cockpits,
-drivers are not required to be fit to drive and even they do not require a driving license (every person in a vehicle is a passenger).
+Four of automation being the fully-autonomous state that is a prominent talking point in the automotive industry. The level 5 AV will
+be able to self-drive anywhere ("full automation"), i.e., no cockpits,
+drivers are not required to be fit to drive, and even they do not require a driving license (every person in a vehicle is a passenger).
 
-There are a lot of open datasets to allow new people to work with autonomous vehicles and hackathons as well. In the special the KITTI Dataset \cite{geiger2013vision} and NuScenes in \cite{caesar2020nuscenes}. These datasets provided data using GPS, Camera, RADAR, and LIDAR. 
+There are many open datasets to allow new people to work with autonomous vehicles and hackathons as well. In the special the KITTI Dataset \cite{geiger2013vision} and NuScenes in \cite{caesar2020nuscenes}. These datasets provided data using GPS, Camera, RADAR, and LIDAR. 
 
 \subsection{Challenges}
 
-The cities are not preparing for autonomous vehicles at the same velocity as the industry. In the United States, for example, only of 6\% of the biggest cities from there are thinking or trying to create the necessary infrastructure to work with this new reality based on the data provided by \cite{cutler2015many}.
+The cities are not preparing for autonomous vehicles at the same velocity as the industry. Based on the data provided by \cite{cutler2015many}, only 6\% of the biggest cities in the United States are considering to create the necessary infrastructure to work with this new reality.
 
-The process to put an autonomous vehicles on the street is very slow due to there a lot of other problems to take care such as the network even 3G, 4G, or 5G, the conservation of the roads, and the most important aspect is regarding the legislation. 
+The process of putting autonomous vehicles on the street is prolonged due to a lot of other problems taking care of the network, even 3G, 4G, or 5G, the conservation of the roads, and the most critical aspect are regarding the legislation. 
 
-The study and development of these applications will change a lot of things in society even in the sector of the process until companies that work with delivery. But it is really necessary to control the traffic and reduce the accidents, follows the World Health Organization (WHO) every year over 1 million people lose their lives in car accidents and only in Brazil it is over 47,000 deaths \cite{world2004world}. 
+The study and development of these applications will change many things in society even in the sector of the process until companies that work with delivery. Nevertheless, it is indispensable to control the traffic and reduce the accidents, It follows the World Health Organization (WHO) every year over 1 million people lose their lives in car accidents, and only in Brazil is over 47,000 deaths \cite{world2004world}. 
