@@ -1,7 +1,7 @@
 \chapter{Results}
 \label{capitulo5}
 
-In this chapter, the results collected from the Chapter 4 will be discussed and analyzed. It is essential to freeze that only approach three from \ref{sub:3} was implemented into the framework, due to the goal was to work with multiple cameras and multi-view perspective.
+In this chapter, the results collected from the Chapter 4 will be discussed and analyzed. It is essential to freeze that only approach three from \ref{sub:3} was implemented into the framework because the goal was to work with multiple cameras and multi-view perspectives.
 
 The algorithms and the simulations was performed in a computer with this follow configuration:
 
@@ -46,14 +46,14 @@ The used cameras were GoPro 5, which allow building a wireless network with many
 
 \section{Results with camera calibration}
 
-The results provided from approach one from \ref{sub:1} were implemented using Python 3.7 and Opencv3, and the position was computed based on the camera calibration. Equation (\ref{eq:focal_distance}) is defined as the distance used in the camera calibration, using a measurer tape and a piece of paper ($21.59$ cm x  $27.94$ cm), and this was positioned $60.96$ cm in front of the camera to take the photo.
+The results from approach one from \ref{sub:1} were implemented using Python 3.7 and Opencv3, and the position was computed based on camera calibration. Equation (\ref{eq:focal_distance}) is defined as the distance used in the camera calibration, using a measurer tape and a piece of paper ($21.59$ cm x  $27.94$ cm), and this was positioned $60.96$ cm in front of the camera to take the photo.
 
 \begin{equation}
     \label{eq:focal_distance}
     F = \frac{P\cdot D}{W}
 \end{equation}
 
-W is the width of the piece of the paper, in this case, is $27.94$ cm, D is the distance from the piece of paper to the camera, and P is the paper's measure in pixels is taken from the image. Applying the (\ref{eq:focal_distance}), the focal length (F) is $541.09$ pixels.
+W is the piece of the paper's width, in this case, is $27.94$ cm, D is the distance from the piece of paper to the camera, and P is the paper's measure in pixels is taken from the image. Applying the (\ref{eq:focal_distance}), the focal length (F) is $541.09$ pixels.
 
 
 
@@ -85,7 +85,7 @@ In this section is detailed the results of the proposal with a known map, this a
 
 The results collected in this section are beneficial, as several companies and other universities are releasing the dataset as open source. There is a need to understand image manipulation, and in some cases, data from LIDAR and Radar.
 
-The main idea of this test was to get the information from the object detection performed with the algorithm using the boundary boxes approach, collect this known information as input in the neural network, and start predicting a distance from the camera until the object. Where in Figure \ref{fig:output} is shown an example of the known KITTI dataset, it serves just as motivation for this work, the final results were not performed over this dataset. 
+This test's main idea was to get the information from the object detection performed with the algorithm using the boundary boxes approach, collect this known information as input in the neural network, and start predicting a distance from the camera until the object. Where in Figure \ref{fig:output} is shown an example of the known KITTI dataset, it serves just as motivation for this work, the final results were not performed over this dataset. 
 
 \begin{figure}[H]
 \centering
@@ -116,9 +116,9 @@ Car &  Measurements      \\
 \section{Results with multi-cameras and proposed framework}
 
 
-The proposed framework's algorithm predicts the objects of the whole scenario in 28 ms and has identified nine cars on the image, as shown in Figure \ref{fig:park_predict} and in Table \ref{tab:accuracy} is shown the accuracy of each prediction for each car. The output accuracies from the algorithm are shown in Table \ref{fig:framework_predict}, the low accuracies are related to the partially occluded objects, such as car two and car 6. 
+The proposed framework's algorithm predicts the objects of the whole scenario in 28 ms and has identified nine cars on the image, as shown in Figure \ref{fig:park_predict} and in Table \ref{tab:accuracy} is demonstrated the accuracy of each prediction for each vehicle. The output accuracies from the algorithm are shown in Table \ref{fig:framework_predict}, the low accuracies are related to the partially occluded objects, such as car two and car 6. 
 
-The perspective of the distance, this algorithm computed this using the Inverse Perspective Mapping (IPM) combined with the Yolo Algorithm, where the perspective of distance was fused on the last fully connected layer. In Table \ref{tab:output_framework} is shown the results achieved from the perspective using two cameras. 
+The perspective of the distance, this algorithm computed this using the Inverse Perspective Mapping (IPM) combined with the Yolo Algorithm, where the view of distance was fused on the last fully connected layer. In Table \ref{tab:output_framework} is shown the results achieved from the perspective using two cameras. 
 
 \begin{table}[H]
 \centering
@@ -137,7 +137,7 @@ Car &  Measurements      \\
 \end{table} 
  
 
-In Figure \ref{fig:park_predict} was used just the model that contains the object recognition and detection using a single image and not as a stream, this test was performed to see the accuracy of the algorithm in this purpose and identify how far is possible to detect the objects in this scenario. It is necessary to note that this test previewed only five cars to detect, and the algorithm recognizes the whole cars in the scenario, each accuracy for each car of the test is available in Table \ref{tab:accuracy}.
+In Figure \ref{fig:park_predict} was used just the model that contains the object recognition and detection using a single image and not as a stream, this test was performed to see the accuracy of the algorithm in this purpose and identify how far is possible to detect the objects in this scenario. It is necessary to note that this test previewed only five cars to detect, and the algorithm recognizes the whole vehicles in the scenario, each accuracy for each car of the test is available in Table \ref{tab:accuracy}.
 
 
 \begin{figure}[H]
@@ -170,13 +170,13 @@ Car             & 98\%     \\ \hline
 
 
 
-In Figure \ref{fig:framework_predict} is shown the frontend of the application of this work, it was developed using Python and Javascript to allow the browser to communicate with the model. The Python module is composed by the libraries called sockets, and it permits the communication over many cameras and shares the stream information between the cameras and the command center, it was possible because the cameras used in the tests have an internal wireless network. Too, based on it, a script with a proxy function was developed to take care of this behavior. 
+In Figure \ref{fig:framework_predict} is shown the frontend of the application of this work, it was developed using Python and Javascript to allow the browser to communicate with the model. The Python module is composed by the libraries called sockets, and it permits the communication over many cameras and shares the stream information between the cameras and the command center, it was possible because the cameras used in the tests have an internal wireless network. Based on it, a script with a proxy function was developed to take care of this behavior. 
 
 The backend side of this project is described in Appendix \ref{ap:app}, where there is information about the pre-processing step, training step, object detection, and the frontend scenario as well. The network was built using the framework Pytorch \cite{paszke2019pytorch}. This script permits the Darknet abstraction to perform object detection and object recognition, and with all of this information, the step to predict the distance was combined to show the output. 
 
 The camera 1 of the Figure \ref{fig:framework_predict} is used only to perform the boundary boxes detection, and camera two is used to perform the distance prediction. This solution was embedded in a module to work as a controller of this framework.
 
-The experiments also led us to measure the rapidity of the multi-%cameras method by computing the number of frames treated per %second.  Fig. 9 shows that the method could treat up to 23 frames %per second. The average of frames per second through all the %experiments is 20.57 frames per second, which are enough for real-time %treatments. 
+The experiments also led us to measure the multi-%cameras method's rapidity by computing the number of frames treated per %second.  Fig. 9 shows that the technique could treat up to 23 frames %per second. The average of frames per second through all the %experiments is 20.57 frames per second, enough for real-time %treatments. 
 
 \begin{figure}[H]
 \centering
@@ -200,7 +200,7 @@ For validation purpose, it was used a commercial laser measurement as shown in F
 \label{fig:laser_meas}
 \end{figure}
 
-The current error rate is $\pm 1.5 mm$, thereby we repeated the measure three times and computed the mean and standard deviation as well. In Table \ref{tab:tab_measure} is shown the measurements with the camera positioned at $2.01$ m from the ground. Figure \ref{fig:park} is shown the position of the cars along the parking lot. The reason to measure three times is that in the manual is written that on sunny days can bias the measurement. 
+The current error rate is $ \pm 1.5 mm $, we repeated the measure three times and computed the mean and standard deviation. In Table \ref{tab:tab_measure} is shown the measurements with the camera positioned at $2.01$ m from the ground. Figure \ref{fig:park} is established the position of the cars along the parking lot. The reason to measure three times is that the manual is written on sunny days and can bias the measurement. 
 
 
 

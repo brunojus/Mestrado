@@ -1,13 +1,15 @@
 \chapter{Introduction} \label{introducao}
-The research area of autonomous vehicles (AV) is multidisciplinary. With the way the vehicle is built, it is possible to create high impact applications, which establish interrelations and information flows and detect new extended stimuli in scenarios where the infrastructure is physical or mobile \cite{bayat2017environmental}. With this, there is the possibility to apply the concepts of computer vision, which allows the car to see the external environment. Combined with Machine Learning (ML) tools, the vehicle begins to interpret what is around it \cite{rasouli2019autonomous}.
+The research area of autonomous vehicles (AV) is multidisciplinary. It is possible to create high impact applications in this area, establishing interrelations and information flows to detect new extended stimuli in scenarios where the infrastructure is physical or mobile \cite{bayat2017environmental}. There is also the possibility of applying computer vision (CV) concepts, that allows the car to perceive the external environment. Combined with CV tools, the vehicle is able to interpret the external scenario and connect these outputs using Machine Learning (ML) approaches \cite{rasouli2019autonomous}.
 
-One of the significant challenges of AV detects the position of the car along the road. It is possible to perform this task using the vehicle to infrastructure (V2I) or other techniques such as GPS \cite{hobert2015enhancements}. Therefore, there are some studies to investigate the acceptation of the AV, and a way to prove this new technology can reduce the car accidents, as research guided by Xu et al. where Of the respondents, 42.35\% and 45.28\% expect lower risk and lower insurance premiums for autonomous vehicles, respectively \cite{xu2019autonomous}.
+One significant challenge for AV is to estimate the distance from the surrounding objects. It is possible to perform this task using vehicle to infrastructure (V2I) communications or other techniques, such as GPS \cite{hobert2015enhancements}. Therefore, a number of studies investigate the acceptance of the AV, in a way to demonstrate that this new technology can reduce the car accidents. A research guided by Xu et al. shows that, among the respondents, 42.35 \% and 45.28 \% expect low risk and lower insurance premiums for autonomous vehicles, respectively \cite{xu2019autonomous}.
 
-Considering that it is possible to have cameras around the road, in this thesis, we propose an object detection model using multi-cameras. There is a responsible algorithm for detecting and classifying objects, as well as estimating the distance that the position of the object.
+Considering the possibility of having cameras around the road, we propose an object detection model using a multi-cameras approach in this thesis. We also implement algorithms responsible for detecting and classifying objects, as well as estimating the distance that the position of the object.
 
 \section{Motivation}
 
-The autonomous vehicles are the new reality for the next years with this premise, the new solutions need to grow, and one of these necessities is the vehicle tracking, and should reduce the traffic jams and decrease the number of cars crash \cite{bonnefon2016social}. Given that, there are many levels of self-drive car automation, as shown in Figure \ref{fig:automation}. This work proposes the test scenario of driving automation. To perform tests with drones require much battery during the trial and limit it to 30 to 45 minutes, the proposal is to use the infrastructure along the road as a camera on the pole and send the data to a command center.
+Autonomous vehicles are an upcoming reality for future years. Following this trend, it is essential to develop new solutions. In particular, vehicle tracking has become a major necessity. Wider AV adoption should reduce traffic jams and decrease the number of car crashes \cite{bonnefon2016social}. There are many self-drive car automation levels until full automation is reached, as shown in Figure \ref{fig:automation}. 
+
+The proposal of this work deals with driving test scenarios of AVs. Monitoring test trials using drones are limited to their battery life, amounting to a maximum of 30 to 45 minutes. Our proposal uses infrastructure that can be positioned along the road as a pole-mounted camera that sends the data to a command center.
 
 \begin{figure}[H]
 \centering
@@ -18,22 +20,22 @@ The autonomous vehicles are the new reality for the next years with this premise
 
 \section{Problem Description}
 
-This theme's problem is to create an architecture to detect objects along the roads combined with the distance measurement of these along the road. The first approach could be using a drone, but due to the battery conditions for long tests, it is not a good choice. Figure \ref{fig:tests} shown this problem. The goal is to track the position of the cars, even vehicles under the test (VUT) and traffic simulation data (TSV) along the road, and send this information to the command central (CC). 
+This theme's problem is to create an architecture to detect objects and measuring their distance along the road. A possible approach is using drones, but it is not ideal due to the battery life limitation for long tests, as illustrated in Figure \ref{fig:tests}. The goal is to track the position of the cars, namely vehicles under the test (VUT) and traffic simulation vehicles (TSV) along the test track, and send this information to the command central (CC). 
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{imagens/proposal.png}
-\caption{Modelling of the project using drones, where CC means command central, VUT is vehicle under the tests and TSV is traffic simulation vehicle.}
+\caption{Modelling of the test track scenario using drones, CC designates the command central, VUT is the vehicle under test and TSV is a traffic simulation vehicle.}
 \label{fig:tests}
 \end{figure}
 
 \section{Objectives}
 
-Create a framework able to detect objects as cars, trucks, motorcycles, pedestrians, and other strange obstacles along the road. With these capacities estimate the distance of this object along the way, this framework is necessary to work with a camera array.
+The main objective is to create a framework able to detect objects such as cars, trucks, motorcycles, pedestrians, and other arbitrary obstacles along the road. Additionally, the framework must also be capable of estimating the distance of such objects, working from a camera array.
 
 \section{Published Works}
 
-Along with developing this work, the author worked in several areas of computer sciences, particularly the data science domain, and always tried to keep the multidisciplinarity. These are my published works along my master degree:
+Simultaneously with the development of this work, the author has worked in several computer sciences domains, particularly in the data science domain, maintaining the multidisciplinarity in mind. The following works were published along the pursit of the Master's Degree:
 
 \begin{enumerate}
 
@@ -63,6 +65,6 @@ Along with developing this work, the author worked in several areas of computer 
 
 \section{Chapters Description}
 
-This work is divided as follows: in Chapter 2, state of the art is presented, to support this work, once it is necessary to get a good part of the previous contributions in this research area. Chapter 3 presents the theoretical concepts to promote the understanding of this work. Since self-drive cars are a new trend topic is necessary to describe step by step about this essential to provide an excellent theoretical background. In Chapter 4, the proposed framework is shown, and mathematical modeling is presented. In Chapter 5, the results are discussed around the algorithm performance and the error for object detection position estimation. Finally, in Chapter 6, the conclusions are discussed regarding the experiments, and some future works are shown.
+This work is divided as follows: in Chapter 2, state of the art is presented to support this work, exploring previous contributions in this research area. Chapter 3 presents the theoretical concepts necessary to the understanding of this work. As self-driving cars are a new trend topic, it is necessary to describe in greater detail. Chapter 4 shows the proposed framework, and the mathematical modeling is presented. Chapter 5 discusses the results achieved, algorithm performance and the error for object detection and position estimation. Finally, in Chapter 6, the concluding remarks are made regarding the experiments, along with suggestions of future works.
 
 

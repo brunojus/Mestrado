@@ -5,7 +5,7 @@ This chapter presents an overview of the main concepts of this work. The present
 
 \section{Sensors}\label{sensors}
 
-It is possible to have more sensors in autonomous vehicles, but these three sensors are the most common in autonomous vehicles structure. As is positioned in Figure \ref{fig:autonomous-vehicles}, the correct place for the most important sensors.
+It is possible to have more sensors in autonomous vehicles, but these three sensors are the most common in autonomous vehicles structure. Figure \ref{fig:autonomous-vehicles} shows the correct place for the principal sensors of an autonomous vehicle.
 
 
 \begin{figure}[H]
@@ -17,11 +17,11 @@ It is possible to have more sensors in autonomous vehicles, but these three sens
 
 
 \subsection{Camera}
-The camera is a kind of sensor that allows the car to see the environment using the collected image, in Figure \ref{fig:camera} is shown the standard camera for autonomous vehicles.
+The camera is a type of sensor that allows the car to note the environment using the collected images. Figure \ref{fig:camera} shows the standard camera for autonomous vehicles.
 
-It is an optical instrument for image or video capture of images in the same size. For example, there are some cameras where it is possible to set up the numbers of frames per second (FPS) and the image resolution. 
+It is an optical instrument for image or video capture in the same size. For example, there are some cameras where it is possible to set up the numbers of frames per second (FPS) and the image resolution. 
 
-It is also essential to remember the importance of the camera's calibration; the Equations for this process were available in \cite{888718}. This step is necessary to acquire the objects' real size because it is sometimes required to compare the size of these objects. 
+It is also essential to remember the importance of the camera's calibration; the Equations for this process were available in \cite{888718}. This step is necessary to acquire the objects' real size because it is sometimes required to compare these objects' dimensions. 
 
 \begin{figure}[H]
 \centering
@@ -30,11 +30,11 @@ It is also essential to remember the importance of the camera's calibration; the
 \label{fig:camera}
 \end{figure}
 
-This sensor allows the car to detect many objects while it is possible to perform object recognition as well. It is necessary to freeze the difference between object detection and object recognition. There are different algorithms to perform these tasks. The proposed algorithm in Chapter \ref{capitulo4} shows both exposures combined with the estimation of the distance. 
+This sensor allows the car to detect many objects while it is possible to perform object recognition. It is necessary to freeze the difference between object detection and object recognition. There are different algorithms to perform these tasks. The proposed algorithm in Chapter \ref{capitulo4} shows both exposures combined with the estimation of the distance. 
 
 \subsection{Radar}
 
-The automotive radio detection and ranging (RADAR) sensors have the responsibility to perform object detection around the vehicle and avoid potential collisions. Therefore, with this sensor, it is possible to warn the driver and combined with level 1 of automation as already shown in Figure \ref{fig:automation} to intervene with the brake the car or use other controls to prevent an accident \cite{ariyur2006collision}.
+The automotive radio detection and ranging (RADAR) sensors are responsible for performing object detection around the vehicle and avoiding potential collisions. Therefore, with this sensor, it is possible to warn the driver and combined with level 1 of automation, as shown in Figure \ref{fig:automation}, to intervene with the brake the car or use other controls to prevent an accident \cite{ariyur2006collision}.
 
 \begin{figure}[H]
 \centering
@@ -43,7 +43,7 @@ The automotive radio detection and ranging (RADAR) sensors have the responsibili
 \label{fig:camera}
 \end{figure}
 
-Another exciting application of the RADAR in the automotive scenario is the ability to measure the relative speed to the vehicle and other objects. It is possible to estimate the distance \cite{stevenson2011long} correctly.
+Another exciting application of the RADAR in the automotive scenario is measuring the relative speed to the vehicle and other objects. It is possible to estimate the distance correctly  \cite{stevenson2011long}.
 
 It is possible to combine the camera and RADAR and get a new kind of sensor, as defined in \cite{kamerad}. With this approach, it is possible to reach 160 times faster than a human driver.
 
@@ -67,7 +67,7 @@ The human brain has inspired artificial neural networks (ANN) or perceptron. Thi
 \begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{imagens/ann.png}
-\caption{The structure of an ANN}
+\caption{The structure of an ANN \cite{lecture}}
 \label{fig:ann}
 \end{figure}
 
@@ -77,13 +77,13 @@ So, mathematically, the neuron output is a function of the weighted sum of its i
 \begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{imagens/math_ann_bias.png}
-\caption{Mathematical representation of ANN with bias}
+\caption{Mathematical representation of ANN with bias \cite{lecture}}
 \label{fig:ann_weight}
 \end{figure}
 
 
 \subsubsection{Activation functions}
-There are many different activation functions to use. These are crucial for ANN characteristics, such as learning ability and computational efforts in terms of training and validation.
+There are many different activation functions to use. These are crucial for ANN characteristics, such as learning ability and computational efforts in training and validation.
 
 \begin{itemize}
     \item Unit step function
@@ -126,7 +126,7 @@ The graphic visualization of the function Relu is shown in Figure \ref{fig:relu}
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.3]{imagens/relu_corrected.png}
-\caption{The behavior of the Relu}
+\caption{The behavior of the Relu \cite{lecture}}
 \label{fig:relu}
 \end{figure} 
 
@@ -141,21 +141,21 @@ These are the essential characteristics of this activation function.
 \subsubsection{Layered Neural Networks}
 
 The quintessential illustration of a deep learning model is the multilayer perceptron (MLP). An MLP is just a mathematical function mapping some set of input values to output values. The function
-is formed by composing many more straightforward functions \cite{goodfellow2016deep}.
+is formed by composing many more specific functions \cite{goodfellow2016deep}.
 
 
 These are important deep learning models. The goal
 of a feedforward network is to approximate some function $f*$. For example, for a classifier, $y = f*(x)$ maps an input x to a category y. A feedforward network
 defines a mapping $y = f (x; \theta)$ and learns the value of the parameters $\theta$ that result in the best function approximation.
 
-These models are called feedforward because information flows through the function being evaluated from $x$, through the intermediate computations used to define $f$, and finally to the output $y$. There are no feedback connections in which outputs of the model are fed back into itself.
+These models are called feedforward because information flows through the function being evaluated from $x$, through the intermediate computations used to define $f$, and finally to the output $y$. There are no feedback connections in which results of the model are fed back into itself.
 
 
 
 \subsection{Convolutional Neural Networks}\label{sec:cnn}
 
 
-The Convolutional Neural Networks (CNN) is a specialized kind of neural network for processing data that has a known \cite{lecun1995convolutional}. For example, in the autonomous vehicle domain, this approach is several used for object detection and object identification. This name  indicates that the network employs a mathematical operation called
+The Convolutional Neural Networks (CNN) is a specialized kind of neural network for processing data known as in \cite{lecun1995convolutional}. For example, in the autonomous vehicle domain, this approach is several used for object detection and object identification. This name  indicates that the network employs a mathematical operation called
 convolution. 
 
 A CNN coarsely scans the image for features (in lower dimension space), pools possible patterns, then inspect those patterns in detail with its fully connected
@@ -163,7 +163,7 @@ subnetworks, generating their classifications. In Figure \ref{fig:cnn_car} is de
 \begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{imagens/Full_Process.png}
-\caption{Full process of a convolutional neural network}
+\caption{Full process of a convolutional neural network \cite{lecture}}
 \label{fig:cnn_car}
 \end{figure}
 
@@ -176,18 +176,18 @@ The standard inputs are a tridimensional matrix with height and width defined ac
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.35]{imagens/rgb_representation.png}
-\caption{Representation of the colors of the input image}
+\caption{Representation of the colors of the input image \cite{lecture}}
 \label{fig:rgb}
 \end{figure}
 
 
-The convolutions work as filters that seem little squares, and they are slipping through the whole image and capturing essential parts.  Figure \ref{fig:bias} shows an image by dimensions of $NxNX3$, filter among the $MxMX3$, wherever particular main difference per result is then summed, on bias ($\beta$) value, then passed through an activation function. Furthermore, the end of the process generates a new matrix called a feature map or activation map.
+The convolutions work as filters that seem little squares, and they are slipping through the whole image and capturing essential parts.  Figure \ref{fig:bias} shows an image by dimensions of $NxNX3$, filter among the $MxMX3$, wherever individual main difference per result is then summed, on bias ($\beta$) value, then passed through an activation function. Furthermore, the end of the process generates a new matrix called a feature map or activation map.
 
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.35]{imagens/three_dim_conv_2.png}
-\caption{Representation of the convolution process}
+\caption{Representation of the convolution process \cite{lecture}}
 \label{fig:bias}
 \end{figure}
 
@@ -201,7 +201,7 @@ A pooling layer is necessary to simplify the information from the previous layer
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.35]{imagens/max_pooling.png}
-\caption{Representation of the maxpooling process}
+\caption{Representation of the maxpooling process \cite{lecture}}
 \label{fig:pooling}
 \end{figure}
 
@@ -238,7 +238,7 @@ outlined by the National Highway Traffic Safety Administration
 vehicles as driver aids to hand over work from the driver to the
 car’s systems \cite{schoning2006parklenkassistent}. As technology progresses, there will be a more
 and more handover of control from the driver to the vehicle, level
-Four of automation being the fully-autonomous state that is a prominent talking point in the automotive industry. The level 5 AV will
+Four of automation being the fully-autonomous state that is a main talking point in the automotive industry. The level 5 AV will
 be able to self-drive anywhere ("full automation"), i.e., no cockpits,
 drivers are not required to be fit to drive, and even they do not require a driving license (every person in a vehicle is a passenger).
 
@@ -246,8 +246,8 @@ There are many open datasets to allow new people to work with autonomous vehicle
 
 \subsection{Challenges}
 
-The cities are not preparing for autonomous vehicles at the same velocity as the industry. Based on the data provided by \cite{cutler2015many}, only 6\% of the biggest cities in the United States are considering to create the necessary infrastructure to work with this new reality.
+The cities are not preparing for autonomous vehicles at the same velocity as the industry. Based on the data provided by \cite{cutler2015many}, only 6\% of the biggest cities in the United States are considering creating the necessary infrastructure to work with this new reality.
 
-The process of putting autonomous vehicles on the street is prolonged due to a lot of other problems taking care of the network, even 3G, 4G, or 5G, the conservation of the roads, and the most critical aspect are regarding the legislation. 
+The process of putting autonomous vehicles on the street is prolonged due to other problems taking care of the network issues, even 3G, 4G, or 5G, the conservation of the roads, and the most critical aspect regarding the legislation. 
 
-The study and development of these applications will change many things in society even in the sector of the process until companies that work with delivery. Nevertheless, it is indispensable to control the traffic and reduce the accidents, It follows the World Health Organization (WHO) every year over 1 million people lose their lives in car accidents, and only in Brazil is over 47,000 deaths \cite{world2004world}. 
+The study and development of these applications will change many things in society even in the process sector until companies that work with delivery. Nevertheless, it is indispensable to control the traffic and reduce the accidents, It follows the World Health Organization (WHO) every year over 1 million people lose their lives in car accidents, and only in Brazil is over 47,000 deaths \cite{world2004world}. 
