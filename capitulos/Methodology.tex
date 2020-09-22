@@ -1,13 +1,13 @@
 
 \chapter{Proposed framework}
 \label{capitulo4}
-The framework was idealized to work and different scenarios, in Section \ref{sub:1} is presented the proposal with one camera with the object calibration. Section \ref{sub:2} defines the problem with one camera, but using a known map along metrics to estimate the position along with the map. The Section \ref{sub:3} is defined the approach with multi-cameras and real-time processing. 
+The framework was idealized to work and different scenarios, in Section \ref{sub:1}  the proposal with one camera with the object calibration is presented. Section \ref{sub:2} defines the problem with one camera, but using a known map along metrics to estimate the position along with the map. The Section \ref{sub:3} is defined the approach with multi-cameras and real-time processing. 
 
 
 
 \section{Approach 1 - One camera with object calibration}\label{sub:1}
 
-The first proposed is based on the approach of the authors of the paper \cite{8678911}, where it is necessary to calibrate the camera before start the object recognition and classification. This proposal was defined in six steps, as shown in Figure \ref{fig:proposal1}.
+The first proposed technique is based on the approach of the authors of the paper \cite{8678911}, where it is necessary to calibrate the camera before start the object recognition and classification. This proposal was defined in six steps, as shown in Figure \ref{fig:proposal1}.
 
 \begin{figure}[H]
 \centering
@@ -41,7 +41,7 @@ The 3D point ($X_w, Y_w, Z_w$) in the world coordinates to its projection ($u, v
         \end{bmatrix}
 \end{equation}
 
-In \ref{eq:points}, $\mathbf{P}$ is a 3x4 projection matrix combined of two different parts, the intrinsic parameters of the camera ($\mathbf{K}$) and the extrinsic matrix ($[\mathbf{R}|t]$) that is based on the combination of 3x3 rotation matrix $\mathbf{R}$ and 3x1 translation $t$ vector \cite{kaehler2016learning}. 
+In (\ref{eq:points}), $\mathbf{P}$ is a 3x4 projection matrix combined of two different parts, the intrinsic parameters of the camera ($\mathbf{K}$) and the extrinsic matrix ($[\mathbf{R}|t]$) that is based on the combination of 3x3 rotation matrix $\mathbf{R}$ and 3x1 translation $t$ vector \cite{kaehler2016learning}. 
 
 \begin{equation}
     \label{eq:points}
@@ -59,7 +59,7 @@ The intrinsic matrix ($\mathbf{K}$) is an upper triangular matrix as shown in (\
     \end{bmatrix}
 \end{equation}
 
-Where, $f_x, f_y$ are the $x$ and $y$ focal lengths, $c_x, c_y$ are the $x$ and $y$ coordinates of the center in the image plane, $\gamma$ is the skew between the axes, in this master's thesis, was defined equal to $0$.  
+where, $f_x, f_y$ are the $x$ and $y$ focal lengths, $c_x, c_y$ are the $x$ and $y$ coordinates of the center in the image plane, $\gamma$ is the skew between the axes, in this master's thesis, was defined equal to $0$.  
 
 \subsection{Camera Image}
 
@@ -76,13 +76,13 @@ the image plane of a camera, where this aperture is described as a point, and no
 \label{fig:image_formation}
 \end{figure}
 
-\subsection{Extract Features}
+\subsection{Features Extraction}
 
-When it is necessary to work with variables that contain many contents, there is a necessity to improve this work and reduce the computer bottleneck during the process. In machine learning (ML), some variables are independents or some cases features on which the final output is done. Moreover, in other cases, that number of these features increases it and reduces the ability to visualize it. 
+When it is necessary to work with variables that contain many contents, there is a necessity to improve this work and reduce the computer bottleneck during the process. In machine learning (ML), some variables are independents or some features on which the final output is done. Moreover, in other cases, that number of these features increases it and reduces the ability to visualize it. 
 
 For example, the image resolution of the collected data for the ML algorithm's training is $1392$ pixels in height and $512$ pixels in width, for the total $712,704$ pixels in total. Each pixel has a single pixel-value associated with it, indicating the darkness or lightness of that pixel. The numbers are between $0$ and $255$, along this premise is necessary to determine which objects the image contains.
 
-The task was performed by feature extraction, which creates new features from existing features, which allows us to give more information and fewer redundancies \cite{wang2019data}.
+The task was performed by feature extraction, which creates new features from existing features, giving us more information and fewer redundancies \cite{wang2019data}.
 
 A mathematical tool called Principal Component Analysis (PCA) was used in this step, and the PCA is used to decompose a multivariate dataset in a set of successive orthogonal components that explain a maximum amount of the variance \cite{pedregosa2011scikit}. Figure \ref{fig:pca_step1} is shown how the technique works. The data is decomposed into a perpendicular vector where the information is unrolled. Besides, with more variance means more information regarding data.
 
@@ -151,9 +151,9 @@ In (\ref{eq:pca_4}), the equation finds the vector $u_i$, which gives the minimu
     \end{equation}
 \end{subequations}
 
-Eigenvalues and Eigenvectors give the solution to the above Equations. 
+Calculation of Eigenvalues and Eigenvectors give the solution to the above Equations. 
 
-Where, the matrix $\mathbf{X}$ in (\ref{eq:matrix}) is the matrix of the data points with the shape $(n x d)$
+where the matrix $\mathbf{X}$ in (\ref{eq:matrix}) is the matrix of the data points with the shape $(n x d)$
 
 \begin{equation}\label{eq:matrix}
     \mathbf{X} = \begin{bmatrix} 
@@ -172,7 +172,7 @@ Based on the approach of \cite{cambridge2009introduction}, in (\ref{eq:svd}) is 
     \lambda_i V_{i_{dx1}} = S_{dxd}V_{i_{dx1}}
 \end{equation}
 
-Where $\lambda$ is the scalar eigenvalues, $S$ is the co-variance matrix, $V$ is the vector - eigenvector, and $d$ is the dimension.
+where $\lambda$ is the scalar eigenvalues, $S$ is the co-variance matrix, $V$ is the vector - eigenvector, and $d$ is the dimension.
 
 The steps to find the Eigenvector: 
 
@@ -183,7 +183,7 @@ The steps to find the Eigenvector:
     \item $\lambda V = SV$
 \end{enumerate}
 
-To brief these steps is necessary to assume the more variability in a particular direction correlates with explaining the dependent variable's behavior. Theoretically, it is needed to apply the PCA to remove the sample's noise and keep only the essential things that are necessary to detect.
+To brief these steps is necessary to assume the more variability in a particular direction correlates with explaining the dependent variable's behavior. Theoretically, it is needed to apply the PCA to remove the sample's noise and keep only the necessary things to detect.
 
 
 \subsection{Object Detection and Object Recognition} 
@@ -208,7 +208,7 @@ In the YOLO environment, the algorithm divides the input image into a $ZxZ$ grid
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{imagens/yolo_flow.png}
+\includegraphics[scale=0.7]{imagens/yolo_flow.png}
 \caption{Yolo makes ZxZ predictions with B boundaries boxes}
 \label{fig:yolo_flow}
 \end{figure}
@@ -231,9 +231,7 @@ class confidence score         & box confidence score $\cdot$ conditional class 
 \label{eq:prob_yolo}
 \end{table}
 
-where in Table \ref{eq:prob_yolo}, 
-
-$P_r(object)$ is the probability the box contains an object.
+where in Table \ref{eq:prob_yolo},$P_r(object)$ is the probability the box contains an object.
 $IoU$ is the intersection over the union between the predicted box and the ground truth.
 $P_r(class_i|object)$ is the probability the object belongs to $class_i$ given an object is presence.
 $P_r(class_i)$ is the probability the object belongs to $class_i$.
@@ -253,7 +251,7 @@ The bounding boxes concept is defined in \cite{redmon2017yolo9000}, and in the m
     \end{aligned}
     \end{equation}
 
-Where, $t_x, t_y, t_w, t_h$ are the predictions made by the algorithm. 
+where, $t_x, t_y, t_w, t_h$ are the predictions made by the algorithm. 
 $c_x, c_y$ are the top left corner of the grid cell of the anchor.
 $p_w, p_h$ are the width and height of the anchor. 
 The image width and height normalize $ c_x, c_y$. 
@@ -267,7 +265,7 @@ $\sigma(t_i)$ is the box confidence score.
 \label{fig:anchor}
 \end{figure}
 
-As already defined, the proposed solution predicts multiple bounding boxes per grid cell. For this, it is necessary to compute the loss for the true positive, to reduce the error, hence the object is to be faster, not accurate. On the other hand, each cell will be looked at time and use, and it will be used the highest IoU. The loss function is composed by classification loss in (\ref{eq:classification_loss}), the localization loss in (\ref{eq:localization_loss}), the confidence loss (\ref{eq:confidence_loss}), and the loss function is (\ref{eq:loss}). 
+As already defined, the proposed solution predicts multiple bounding boxes per grid cell. Thus, it is necessary to compute the loss for the true positive, to reduce the error. Hence the object is to be faster, not accurate. On the other hand, each cell will be looked at time and use, and it will be used the highest IoU. The loss function is composed by classification loss in (\ref{eq:classification_loss}), the localization loss in (\ref{eq:localization_loss}), the confidence loss (\ref{eq:confidence_loss}), and the loss function is (\ref{eq:loss}). 
 
 If the object is located on the frame, the classification loss will perform the squared error at each cell on the conditional probability for each class: 
 
@@ -276,7 +274,7 @@ If the object is located on the frame, the classification loss will perform the 
     \sum_{i=0}^{s^2}1^{obj}_i \sum_{c\in~classes} \left ( p_i\left ( c \right )-\hat{p}_i\left ( c \right )\right )^2
 \end{equation}
 
-Where $1^{obj}_i$ is the Boolean that controls if has an object or not, $\hat{p}_i\left ( c \right )$ denotes the conditional probability for each class in the cell.
+where $1^{obj}_i$ is the Boolean that controls if has an object or not, $\hat{p}_i\left ( c \right )$ denotes the conditional probability for each class in the cell.
 
 The localization loss is necessary to take care of the measurement errors regarding the locations and the boxes' sizes. The goal is not to define the absolute weight errors in large boxes and small boxes. It predicts the square root of the bounding box width and height instead of the width and height. 
 
@@ -288,7 +286,7 @@ The localization loss is necessary to take care of the measurement errors regard
     \end{aligned}
 \end{equation}
 
-Where $1_{ij}^{obj} = 1$ if the boundary box in the cell is responsible for detecting the object, otherwise is 0. $\lambda_{coord}$ increases the weight for the loss in the boundary boxes coordinates, with this variable is possible to put more emphasis on the accuracy, so it is multiplied by the loss, the default value for this work is 5. 
+where $1_{ij}^{obj} = 1$ if the boundary box in the cell is responsible for detecting the object, otherwise is 0. $\lambda_{coord}$ increases the weight for the loss in the boundary boxes coordinates, with this variable is possible to put more emphasis on the accuracy, so it is multiplied by the loss, the default value for this work is 5. 
 
 The confidence loss is used to measure the box's objectness because a significant part of the boxes does not have any detector inside, and with this, an imbalance issue is noted to avoid this object is necessary to compute this loss. 
 
@@ -297,7 +295,7 @@ The confidence loss is used to measure the box's objectness because a significan
     \lambda_{noobj}\sum_{i=0}^{s^2}\sum_{j=0}^{B}1^{noobj}_{ij}\left ( C_i - \hat{C}_i \right )^2
 \end{equation}
 
-Where $1^{noobj}_i$ is the complement of $1^{obj}_i$, $\hat{C}_i$ is the box confidence score of the box $j$ in cell $i$, and $\lambda_{noobj}$ takes care of the weights decrease the loss when the background is detected in this work the used value for this variable is $0.5$. 
+where $1^{noobj}_i$ is the complement of $1^{obj}_i$, $\hat{C}_i$ is the box confidence score of the box $j$ in cell $i$, and $\lambda_{noobj}$ takes care of the weights decrease the loss when the background is detected in this work the used value for this variable is $0.5$. 
 
 The final loss is computed through the addition of previous losses, in (\ref{eq:loss}) is defined as the actual loss to reduce the errors in the object detection.
 
@@ -316,7 +314,7 @@ After object detection, it is necessary to perform the object classification, wh
 
 \subsection{Distance Estimation}
 
-This approach is proposed to use the object detector's outputs for the distance estimation, where $4$ variables are predicted, which are $(x, y, w, h)$. This work uses, $x,y$ are used to adjust the boundary box and $w, h$ are used in Figure \ref{fig:yolo_flow} to measure the distance of the object these variables will variate according to with the distance of the camera.  In \cite{cao2013circle} the image will be refracted in the lens and with this is possible to deduce a relationship between the known parameters: focal length $(f)$, the distance of the object from the lens $(d)$, the distance of the refracted image from the lens $(D)$. In Figure \ref{fig:distance} is shown how the distance measurer works. 
+This approach uses the object detector's outputs for the distance estimation, where $4$ variables are predicted, which are $(x, y, w, h)$. This work variables $x,y$ are used to adjust the boundary box and $w, h$ are used in Figure \ref{fig:yolo_flow} to measure the distance of the object. These variables will variate according to the distance of the camera.  In \cite{cao2013circle} the image will be refracted in the lens, and with this is possible to deduce a relationship between the known parameters: focal length $(f)$, the distance of the object from the lens $(d)$, the distance of the refracted image from the lens $(D)$. In Figure \ref{fig:distance} is shown how the distance measurer works. 
 
 
 \begin{figure}[H]
@@ -408,12 +406,12 @@ Subsection \ref{ml-ai}. The proposed ANN is in Figure \ref{fig:rede_neural}.
 \label{fig:rede_neural}
 \end{figure}
 
-Additionally with this defined architecture is possible to estimate the distance of the car along with the scenario, an example of the labeled image is shown in Figure \ref{fig:boundary_boxes_car}, these outputs were collected from this image and saved in Extensible Markup Language (XML) file so serve as input in the ANN. 
+Additionally, this defined architecture is possible to estimate the car's distance along the scenario. An example of the labeled image is shown in Figure \ref{fig:boundary_boxes_car}. These outputs were collected from this image and saved in Extensible Markup Language (XML) and this file is used as input in the ANN. 
 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{imagens/boundary_boxes.JPG}
+\includegraphics[scale=0.5]{imagens/boundary_boxes.JPG}
 \caption{Labeled image with boundary boxes positioned in each important element of the screen}
 \label{fig:boundary_boxes_car}
 \end{figure}
@@ -428,14 +426,14 @@ This approach was selected one for the construction of the framework in Subsecti
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{imagens/proposal3.png}
+\includegraphics[scale=0.6]{imagens/proposal3.png}
 \caption{Approach using multicamera}
 \label{fig:proposal3}
 \end{figure}
 
- The creation of a scenario-based in multiple cameras, forming cameras array, and a command center are responsible for merging all of the collected data and fusing this data on the database, such as the label of each object, position, and its timestamp. 
+ The creation of a scenario-based in multiple cameras, forming cameras array, and a command center is responsible for merging all of the collected data and fusing this data on the database, such as the label of each object, position, and its timestamp. 
 
-The data used on this task is provided from streams of the cameras, and they send these data to the command center via a wireless connection over the protocol IEEE 802.11, and this data fusion is controlled by proxy, and it was written in Python. The distance estimation is based on the Inverse perspective mapping (IPM) and is well defined in \ref{ipm}.
+The data used on this task is provided from streams of the cameras, and they send these data to the command center via a wireless connection over the protocol IEEE 802.11. The data fusion is controlled by proxy, and it was written in Python. The distance estimation is based on the Inverse perspective mapping (IPM) and is well defined in \ref{ipm}.
 
 
 \subsection{Estimate position based on multiple inputs}\label{ipm}
@@ -473,7 +471,7 @@ R=
 \end{equation}
 \par
 
-T is the translation matrix given in the equation \ref{exp3}. Where h means the height of the position of the camera.
+T is the translation matrix given in the equation \ref{exp3}, where h means the height of the position of the camera.
 \begin{equation} \label{exp3}
 T=
 \begin{bmatrix}
@@ -486,7 +484,7 @@ T=
 
 
 \par
-K is the camera parameter matrix given in (\ref{exp4}). Where $f$ is the focal length of the camera, $s$ is the skew parameter, and $u_0, v_0$ are the center of the pixel of desired image size. 
+K is the camera parameter matrix given in (\ref{exp4}), where $f$ is the focal length of the camera, $s$ is the skew parameter, and $u_0, v_0$ are the center of the pixel of desired image size. 
 \begin{equation} \label{exp4}
 K =
 \begin{bmatrix}
@@ -518,7 +516,7 @@ Z_w\\
 \label{eq:eq2}
 \end{equation}
 
-Where the matrix P was gotten from a product between K, T, and R. As is only necessary to evaluate the position of the road, so the coordinate $Y_w$ can be equal to 0, so simplifying the Equation \ref{eq:eq2}, so it is given by Equation \ref{eq:eq3}.
+where the matrix P was gotten from a product between K, T, and R. As is only necessary to evaluate the position of the road, so the coordinate $Y_w$ can be equal to 0, so simplifying the Equation \ref{eq:eq2}, so it is given by Equation \ref{eq:eq3}.
 
 \begin{equation}
     \label{eq:eq3}
@@ -552,7 +550,7 @@ Based on the Equations above, it is possible to infer the Equation \ref{eq:eq4} 
     d = ap+b
 \end{equation}
 
-Where $d$ is the distance between camera, object, and the vehicle in meter, $p$ is the order of the row that object is detected and $a, b$ are constants.
+$d$ is the distance between the camera, object, and the vehicle in meter, $p$ is the order of the row that object is detected, and $a, b$ are constants.
 
  
 \section{Framework Architecture} \label{framework}
@@ -577,11 +575,20 @@ Block 3 of Figure \ref{fig:framework} controls the usage flow of this framework 
 In block 4 of Figure \ref{fig:framework} is the part responsible for connecting the other cameras via WIFI protocol and allows the system to connect another camera, the total amount of camera is based on the hardware available for the tests. 
 
 
-Figure \ref{fig:networkBehavior} shows how the model performs the inference process along the detection time.  
+Figure \ref{fig:networkBehavior} shows how the model performs the inference process along the detection time, where this Figure shows the flow of the framework in new images. For example, the camera starts to stream, and to apply the object detection on the refereed frame, then the dimension estimation network is called, and in another direction, the segmentation network is activated. After this step, it is possible to use the vehicle segmentation to detect vehicles along this way.
+
+
+
+
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{imagens/Network Behavior.png}
+\includegraphics[width=\textwidth,height=40mm]{imagens/Network Behavior.png}
 \caption{Architecture of framework based on multicameras perspective}
 \label{fig:networkBehavior}
 \end{figure}
+
+
+Still using Figure \ref{fig:networkBehavior}, the next mutual box is the action to compute the algorithm to measure the distance of the object. In this box, the inputs are the relative position of each bounding box and the object's computed label. 
+
+This block diagram's last action is to show the predicted distance to the user and save it into the relational database for future queries. 

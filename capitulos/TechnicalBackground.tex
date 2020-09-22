@@ -1,11 +1,94 @@
-\chapter{Technical Background}
+\chapter{State of the Art and Technical Background}
 \label{capitulo3}
 
-This chapter presents an overview of the main concepts of this work. The present section is divided into three significant sections. In Section \ref{sensors}, the concepts of sensors are introduced. In Section \ref{ml-ai}, the main ideas regarding machine learning and artificial intelligence are described. Section \ref{autonomous-vehicles} is defined as the significant concepts of autonomous vehicles.
+This chapter presents a review of the state of the art in Section \ref{capitulo2}. An overview of the main concepts of this work. The present section is divided into three sections. In Section \ref{autonomous-vehicles} is defined as the significant concepts of autonomous vehicles. The concepts of sensors are introduced in Section \ref{sensors}. In Section \ref{ml-ai}, the main ideas regarding machine learning and artificial intelligence are described.
 
-\section{Sensors}\label{sensors}
+\section{State of the art} \label{capitulo2}
 
-It is possible to have more sensors in autonomous vehicles, but these three sensors are the most common in autonomous vehicles structure. Figure \ref{fig:autonomous-vehicles} shows the correct place for the principal sensors of an autonomous vehicle.
+This section presents an overview of the related works about this topic. Some papers were selected to support the proposed framework.
+
+The authors from the paper \cite{Lategahn2013} present the next-generation driver assistance systems that require precise self-localization. The system's accuracy is evaluated by computing two independent ego positions of the same trajectory from two different cameras and investigating them for consistency.
+
+The authors of \cite{Sankaranarayanan2008} state that the video cameras are among the most commonly used sensors in many applications, ranging from surveillance to smart rooms for video conferencing. In this regard, this paper's primary focus is to highlight the efficient use of the geometric constraints induced by the imaging devices to derive distributed algorithms for target detection, tracking, and recognition.
+
+In \cite{Unlu2019} the authors remark that the use of drones has seen a tremendous increase in the last few years, making these devices highly accessible to the public. Moreover, computer vision is extensively used to autonomously detect drones compared to other proposed solutions such as RADAR, acoustics, and RF signal analysis, thanks to its robustness. The authors aimed to combine a multi-frame deep learning detection technique, where the frame coming from the zoomed camera on the turret is overlaid on the wide-angle static camera's frame.
+
+The paper \cite{Pei2019} shows the development of a three-dimensional coordinate system of objects captured by a sequence of images taken in different views. Object reconstruction is a technique that aims to recover the shape and appearance of items. A novel method to reconstruct occluded objects based on synthetic aperture imaging is presented. The proposed method labels occlusion pixels according to variance and reconstructs the 3D point cloud based on synthetic aperture imaging.
+
+In \cite{Zaarane2020} the authors propose an inter-vehicle distance measurement system for self-driving based on image processing. The proposed method uses two cameras mounted as one stereo camera in the rear-view mirror's hosting vehicle.  Extensive experiments have shown the proposed method's high accuracy compared to the previous works from the literature. This method could also be used in several systems of various domains in real-time regardless of the object type.
+
+The paper \cite{Wu2019} presents a multi-camera vehicle detection system that significantly improves the detection performance under occlusion conditions. They also infer vehicle position on the ground plane by leveraging a multi-view cross-camera context.
+
+In paper \cite{ Ali2016}, the authors proposed two approaches: estimation of distance using an onboard camera, car position detection, and vehicle position detection is a method of specifying the relative position to the road that can serve as a Lane Departure Warning system. 
+
+The authors of \cite{Hane2017} used a surround multi-camera system to cover the full 360-degree field-of-view around the car. Their pipeline can precisely calibrate multi-camera systems, build sparse 3D maps for visual navigation, visually localize the vehicle for these maps, generate accurate dense graphs, and detect obstacles based on real-time depth map extraction.
+
+Unlike existing methods that use pinhole cameras, the implementation of \cite{Cui2019} is based on fisheye cameras, whose large field of view benefits various computer vision applications for self-driving vehicles visual-inertial odometry, visual localization, and object detection. It recovers the depths using multiple image resolutions. At the end of the pipeline, the authors fuse the fisheye depth images into the truncated signed distance function volume to obtain a 3D map.
+
+In \cite{Huang2019} the authors show that inter-vehicle distance estimation from an in-car camera based on monocular vision is critical.  An improved method for estimating a monocular vision vehicle's distance based on the target vehicle's detection and segmentation is proposed in this paper to address the vehicle attitude angle problem. The angle regression model is used to obtain the attitude angle information of the target vehicle. The dimension estimation network determines the actual dimensions of the target vehicle.
+
+In \cite{Bao2016}, the multipath and non-line-of-sight effects of GPS receivers decrease the precision of the vehicle's self-localization. More specifically, the lateral error is more severe because of the blockage of the satellites. The lateral distance between building and vehicle estimated by a stereo camera is compared with a 3D building map to rectify its lateral position. Besides, this paper employs an inertial sensor and GPS receiver to decide the car's longitudinal location.
+
+In \cite{Tang2019} introduces CityFlow, a city-scale traffic camera dataset consisting of more than 3 hours of synchronized HD videos from 40 cameras across ten intersections, with the longest distance between two simultaneous cameras being 2.5 km. The authors expected this dataset to catalyze research in this field, propel the state-of-the-art forward, and lead to deployed traffic optimization in the real world.
+
+In \cite{Qi2019} the authors measure the distance between the ego-vehicle and the target vehicle using a monocular vision. They also eliminate estimation error by changing the vehicle pose, proposing a distance estimation method based on the car pose information. The proposed technique can reduce the possible failure of distance estimation produced by changing an uncrewed vehicle's inclination angle and roll angle. Furthermore, the pose information could also help evaluate distance if the car is on a slope.
+
+In paper \cite{Wongsaree2018}, a distance determination technique using an image from the single forward camera is presented. Therefore, automatic brightness adjustment and inverse perspective mapping are applied in the proposed scheme. The experimental results confirm that the proposed technique can detect the object's distance in front of the car, where the error is 7.96\%.
+
+The paper \cite{Pan2019} simulated experiments to verify the feasibility of the proposed method. Meanwhile, physical experiment results show that this method can effectively reduce the outdoor environment impact and improve the calibration and measurement precision. Furthermore, in \cite{Lin2014} presents a novel method of camera parameters calibration for obstacle distance measurement based on monocular vision, and the experiment shows that the proposed method is advantageous.
+
+In \cite{Simon2019a}, the authors performed experiments on the KITTI dataset for accurate 3D object detection. They achieved the same results as state-of-the-art in all related categories while maintaining the performance and accuracy trade-off and still run in real-time.
+
+This paper weighted-mean YOLO to improve object detection's real-time performance by fusing RGB cameras and LIDAR information. A new system using weighted-mean to construct a robust network and compared it with other algorithms was implemented. It shows performance improvement of missed-detection \cite{Kim2019}.
+
+In paper \cite{Simon2019} introduced the Complex-YOLO, a state of the art real-time 3D object detection network on point clouds only. This work describes a system that expands YOLOv2, a fast 2D standard object detector for RGB images, by a specific complex regression strategy to estimate multi-class 3D boxes in Cartesian space. 
+
+In \cite{Oliveira2015} the proposed method consists of mapping images to a new coordinate system where perspective effects are removed. The removal of perspective associated effects facilitates road and obstacle detection and also assists in free space estimation. The results show this considerably improves the algorithm's effectiveness and reduces computation time compared with the classical inverse perspective mapping.
+
+In \cite{Salman2017}, a stereo camera calculated the distance considering the angular distance, the distance between cameras, based on the image's pixel. They proposed a method that measures object distance based on trigonometry.   
+
+ In \cite{Rangesh2019}, a new framework for tracking multiple objects is presented. They used fusion techniques to achieve this. They tested it on real-world highway data collected from a massively sensorized testbed capable of capturing full-surround information.
+
+In \cite{Tram2018}, a new intelligent transport system positioning technique that determines the distance between vehicles via image sensor-based visible light communication was implemented. An original novel method determines the distance between two cars using a low camera resolution.
+
+The object detection, classification, and localization in the real world scenario are studied and discussed by \cite{Hofmann2019}. Furthermore, the suggested approach fuses three different object detection algorithms and classification and uses stereo vision for object localization with the opposition. An algorithm for merging the results of the three object detection methods based on bounding boxes is introduced. The proposed fusion algorithm for bounding boxes improves the detection results and provides an information fusion.
+
+
+
+
+
+
+\section{Technical Background}
+This section contains the technical background necessary for this thesis understanding. It is divided into three subsections: the concepts behind autonomous vehicles, sensors, and machine learning.
+
+\subsection{Autonomous Vehicles} \label{autonomous-vehicles}
+
+This section will be discussed the importance of the autonomous vehicles domain and its applicability to the society, and the problems occurred as well. 
+
+\subsubsection{What are autonomous vehicles}
+Modern vehicles now have Advanced Driver Assistance Systems (ADAS)
+which work at several levels of autonomy, with these levels being
+outlined by the National Highway Traffic Safety Administration
+(NHTSA). The levels range from 0, no-automation, to 5, full self-driving automation \cite{national2013preliminary}. An example of an ADAS is a parking system, proposed by \cite{krasner2016automatic}, that uses sensors to find the best way to maneuver a car into a parking space without driver input. Systems such as these are being used in modern semi-autonomous
+vehicles as driver aids to hand over work from the driver to the
+car’s systems \cite{schoning2006parklenkassistent}. As technology progresses, there will be a more
+and more handover of control from the driver to the vehicle, level
+Four of automation being the fully-autonomous state that is a main talking point in the automotive industry. The level 5 AV will
+be able to self-drive anywhere ("full automation"), i.e., no cockpits,
+drivers are not required to be fit to drive, and even they do not require a driving license (every person in a vehicle is a passenger).
+
+There are many open datasets to allow new people to work with autonomous vehicles and hackathons as well. In the special the KITTI Dataset \cite{geiger2013vision} and NuScenes in \cite{caesar2020nuscenes}. These datasets provided data using GPS, Camera, RADAR, and LIDAR. 
+
+\subsubsection{Challenges in Autonomous Vehicles}
+
+The cities are not prepared for autonomous vehicles at the same velocity as the industry. Based on the data provided by \cite{cutler2015many}, only 6\% of the biggest cities in the United States are considering creating the necessary infrastructure to work with this new reality.
+
+The process of putting autonomous vehicles on the street is prolonged due to other problems taking care of the network issues, even 3G, 4G, or 5G, the conservation of the roads, and the most critical aspect regarding the legislation. 
+
+The study and development of these applications will change many things in society, even in the process sector, until companies work with delivery. Nevertheless, it is indispensable to control the traffic and reduce the accidents, It follows the World Health Organization (WHO), every year, over 1 million people lose their lives in car accidents, and only in Brazil is over 47,000 deaths \cite{world2004world}. 
+
+
+Figure \ref{fig:autonomous-vehicles} shows the correct place for the principal sensors of an autonomous vehicle, model Audi A8 \cite{ross2017audi}.
 
 
 \begin{figure}[H]
@@ -16,8 +99,14 @@ It is possible to have more sensors in autonomous vehicles, but these three sens
 \end{figure}
 
 
-\subsection{Camera}
-The camera is a type of sensor that allows the car to note the environment using the collected images. Figure \ref{fig:camera} shows the standard camera for autonomous vehicles.
+
+\subsection{Sensors}\label{sensors}
+
+Figure \ref{fig:autonomous-vehicles} shows the main vehicles' sensors, and in the next subsection each sensor is described. 
+
+
+\subsubsection{Camera}
+The camera is the type of sensor that allows the car to perceive the environment using the collected images. Figure \ref{fig:camera} shows the standard camera for autonomous vehicles.
 
 It is an optical instrument for image or video capture in the same size. For example, there are some cameras where it is possible to set up the numbers of frames per second (FPS) and the image resolution. 
 
@@ -25,29 +114,29 @@ It is also essential to remember the importance of the camera's calibration; the
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\columnwidth]{imagens/camera.png}
-\caption{Representation of a camera of the autonomous vehicle}
+\includegraphics[width=80mm]{imagens/camera.png}
+\caption{Representation of a camera of the autonomous vehicle \cite{site-camera}}
 \label{fig:camera}
 \end{figure}
 
 This sensor allows the car to detect many objects while it is possible to perform object recognition. It is necessary to freeze the difference between object detection and object recognition. There are different algorithms to perform these tasks. The proposed algorithm in Chapter \ref{capitulo4} shows both exposures combined with the estimation of the distance. 
 
-\subsection{Radar}
+\subsubsection{Radar}
 
 The automotive radio detection and ranging (RADAR) sensors are responsible for performing object detection around the vehicle and avoiding potential collisions. Therefore, with this sensor, it is possible to warn the driver and combined with level 1 of automation, as shown in Figure \ref{fig:automation}, to intervene with the brake the car or use other controls to prevent an accident \cite{ariyur2006collision}.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\columnwidth]{imagens/radar.jpg}
+\includegraphics[width=120mm]{imagens/radar.jpg}
 \caption{A commercial radar model ARS430 CV from Continental}
 \label{fig:camera}
 \end{figure}
 
-Another exciting application of the RADAR in the automotive scenario is measuring the relative speed to the vehicle and other objects. It is possible to estimate the distance correctly  \cite{stevenson2011long}.
+Another exciting application of the RADAR in the automotive scenario is measuring the vehicle's relative speed and other objects. It is possible to estimate the distance correctly  \cite{stevenson2011long}.
 
 It is possible to combine the camera and RADAR and get a new kind of sensor, as defined in \cite{kamerad}. With this approach, it is possible to reach 160 times faster than a human driver.
 
-\subsection{Lidar}
+\subsubsection{Lidar}
 In Figure \ref{fig:lidar} is shown a light detection and ranging (LIDAR). The main purpose of this laser is to detect and track any kind of objects. 
 \begin{figure}[H]
 \centering
@@ -56,9 +145,9 @@ In Figure \ref{fig:lidar} is shown a light detection and ranging (LIDAR). The ma
 \label{fig:lidar}
 \end{figure}
 
-This measurement is based on many times rotate this sensor in different directions, to scan the whole area of the autonomous vehicles is driving and collect some data for detecting the objects \cite{gao2018object}.
+This measurement is based on many times rotate this sensor in different directions to scan the whole area of the autonomous vehicles is driving and collect some data for detecting the objects \cite{gao2018object}.
 
-\section{Machine Learning}\label{ml-ai}
+\section{Machine Learning in Computer Vision}\label{ml-ai}
 The machine learning is an approach based on algorithms to create some predictions. These techniques are based on mathematical and computer science. It is possible to apply this in several fields of science. 
 \subsection{Artificial Neural Networks}
 
@@ -71,7 +160,7 @@ The human brain has inspired artificial neural networks (ANN) or perceptron. Thi
 \label{fig:ann}
 \end{figure}
 
-So, mathematically, the neuron output is a function of the weighted sum of its inputs. Figure \ref{fig:ann_weight} is shown the mathematical background. Where $f$ is activation function, $w_i$ are the weights, and $\beta$ is the constant input called bias.
+The neuron output is a function of the weighted sum of its inputs. Figure \ref{fig:ann_weight} is shown the mathematical background, where $f$ is activation function, $w_i$ are the weights, and $\beta$ is the constant input called bias.
 
 
 \begin{figure}[H]
@@ -85,17 +174,10 @@ So, mathematically, the neuron output is a function of the weighted sum of its i
 \subsubsection{Activation functions}
 There are many different activation functions to use. These are crucial for ANN characteristics, such as learning ability and computational efforts in training and validation.
 
-\begin{itemize}
-    \item Unit step function
-    \item Sign function
-    \item Identity function
-    \item Sigmoid function
-    \item Hyperbolic tangent function
-    \item Retified linear unit (Relu) 
-\end{itemize}
+There are different kinds of activation function for machine learning approaches. Each activation function has its particularity for a distinct problems. Table \ref{tab:tab1} shows the characteristics for these functions. 
+
 
 \begin{table}[H]
-\label{tab:tab1} 
 \caption{Comparison Table for Activation Functions}
 \centering
 \resizebox{15.3cm}{!}{%
@@ -108,10 +190,63 @@ Identity & {\color[HTML]{009901} \checkmark}& {\color[HTML]{009901} \checkmark}&
 Sigmoid                                                                 & {\color[HTML]{FE0000} x} & {\color[HTML]{009901} \checkmark}             & {\color[HTML]{009901} \checkmark}                   & {\color[HTML]{FE0000} x}                                                 & {\color[HTML]{009901} \checkmark}                                                                   & {\color[HTML]{FE0000} x}                                                               \\ \hline
 \begin{tabular}[c]{@{}c@{}}Hyperbolic\\ Tangent\end{tabular}            & {\color[HTML]{FE0000} x} & {\color[HTML]{009901} \checkmark}             & {\color[HTML]{009901} \checkmark}                   & {\color[HTML]{FE0000} x}                                                 & {\color[HTML]{009901} \checkmark}                                                                   & {\color[HTML]{009901} \checkmark}                                                                                 \\ \hline
 \begin{tabular}[c]{@{}c@{}}Rectified \\ Linear Unit \\ (ReLU)\end{tabular} & {\color[HTML]{FE0000} x} & {\color[HTML]{009901} \checkmark}              & {\color[HTML]{009901} \checkmark}                   & {\color[HTML]{009901} \checkmark}                                                                   & \begin{tabular}[c]{@{}c@{}}{\color[HTML]{FE0000} x}\\ (at 0)\end{tabular}                       & {\color[HTML]{FE0000} x}                                                               \\ \hline
-\end{tabular}}
+\end{tabular}\label{tab:tab1}}
 \end{table}
 
-In this work, Relu is the activation function chosen activation. Its mathematical definition is show in (\ref{eq:relu}). 
+
+Equation \ref{eq:eq_unit} shows the behavior of the Unit Step activation function ($H(x)$) where it is possible to note that it is nonlinear, monotonic, and fine for classification, but in other hands it has discontinuous derivatives and not monotonic with gradient descent methods.
+
+
+\begin{equation}\label{eq:eq_unit}
+    H(x) = \left\{\begin{matrix}
+    1 & if & x >  0,\\
+    \frac{1}{2} & if & x = 0, \\
+    0 & if & x < 0 
+    \end{matrix}\right.
+\end{equation}
+
+Equation \ref{eq:sign} shows the behavior of the Sign Function activation function. Its properties are similar to the (\ref{eq:eq_unit}) as they have, essentially, the same format with different values. The pros are nonlinear, monotonic, and ideal for fine classification, but the cons are discontinuous derivative and it is not suitable for regressions.
+
+
+\begin{equation}\label{eq:sign}
+    sgn(x) = \left\{\begin{matrix}
+    1 & for & x >  0,\\
+    0 & for & x = 0, \\
+    -1 & for & x < 0 
+    \end{matrix}\right.
+\end{equation}
+
+        
+
+
+Equation (\ref{eq:identity}) defines the Identity activation function where the usage is indicated when it is necessary to optimize the weights, but for multi layers networks is not recommended, because it is a linear function. 
+
+
+\begin{equation}\label{eq:identity}
+    f(x) = x
+\end{equation}
+
+
+Equation (\ref{eq:sigmoid}) shows the classic activation function for the multi-layer networks. It is important to remind that this function is nonlinear, monotonic, and it is well suited to gradient descent, but its asymmetry to the origin may have slower convergence and can get stuck at the training time.     
+
+
+\begin{equation}\label{eq:sigmoid}
+    \mathrm{S}(x) = \frac{1}{1+e^{-x}}
+\end{equation}
+
+        
+Equation (\ref{eq:hiper}) proposes an alternative to (\ref{eq:sigmoid}) where has a non-linearity and it is symmetric to its origin, and it is well suited to gradient descent optimization, but at the same it does not have a monotonic derivative, and can have a slow convergence, but it is better sometimes than the Sigmoid activation function.
+
+
+\begin{equation}\label{eq:hiper}
+ \mathrm{tanh}(x) = \frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}
+\end{equation}
+
+
+    
+
+
+In this work, ReLU is the activation function chosen activation. Its mathematical definition is shown in (\ref{eq:relu}). This activation function is a novel and it is widely used in deep networks, because it is nonlinear, and it has a fast convergence. Contrarily of the previously equations it is not differential continuously just at zero and the issues to work with gradient descent is just around the origin. 
 
 
 \begin{equation}
@@ -125,22 +260,18 @@ The graphic visualization of the function Relu is shown in Figure \ref{fig:relu}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.3]{imagens/relu_corrected.png}
+\includegraphics[scale=0.2]{imagens/relu_corrected.png}
 \caption{The behavior of the Relu \cite{lecture}}
 \label{fig:relu}
 \end{figure} 
 
-These are the essential characteristics of this activation function.
+These are the essential characteristics of this activation function. It is widely used in deep networks, it is nonlinear, monotonic, derivative monotonic, and it has fast converge. As the weaknesses, this activation function has a non continuously differential at zero, i.e. issues with gradient descent around origin.
 
-    \begin{itemize}
-        \item Widely used in deep networks
-        \item Pros: nonlinear, monotonic, derivative monotonic, and fast convergence
-        \item Cons: not continuously differentiable at zero, i.e. issues with gradient descent around origin.
-    \end{itemize}
+
 
 \subsubsection{Layered Neural Networks}
 
-The quintessential illustration of a deep learning model is the multilayer perceptron (MLP). An MLP is just a mathematical function mapping some set of input values to output values. The function
+The quintessential element of a deep learning model is the multilayer perceptron (MLP) ~\cite{goodfellow2016deep}. An MLP is just a mathematical function mapping some set of input values to output values. The function
 is formed by composing many more specific functions \cite{goodfellow2016deep}.
 
 
@@ -155,7 +286,7 @@ These models are called feedforward because information flows through the functi
 \subsection{Convolutional Neural Networks}\label{sec:cnn}
 
 
-The Convolutional Neural Networks (CNN) is a specialized kind of neural network for processing data known as in \cite{lecun1995convolutional}. For example, in the autonomous vehicle domain, this approach is several used for object detection and object identification. This name  indicates that the network employs a mathematical operation called
+The Convolutional Neural Networks (CNN) is a specialized neural network for processing data known as in \cite{lecun1995convolutional}. For example, in the autonomous vehicle domain, this approach is several used for object detection and object identification. This name  indicates that the network employs a mathematical operation called
 convolution. 
 
 A CNN coarsely scans the image for features (in lower dimension space), pools possible patterns, then inspect those patterns in detail with its fully connected
@@ -196,7 +327,7 @@ The convolutions work as filters that seem little squares, and they are slipping
 
 \subsubsection{Pooling and Upsampling}\label{sub:pooling}
 
-A pooling layer is necessary to simplify the information from the previous layer. As happens with the convolution layer, it is choosing a unit area, for example, $2x2$ to slicing for the whole output information from the previous step. To brief, if the information from the previous layer was $4x4$, the output from the process of pooling will be $2x2$. Nevertheless, the most used method is max-pooling, where the biggest number in the matrix is passed to the next step. This data summarization is used to reduce the number of weights and avoid overfitting. In Figure \ref{fig:pooling} is shown the max-pooling process.
+A pooling layer is necessary to simplify the information from the previous layer. As happens with the convolution layer, it is choosing a unit area, for example, $2x2$, to slicing for the whole output information from the previous step. To brief, if the information from the previous layer was $4x4$, the output from the process of pooling will be $2x2$. Nevertheless, the most used method is max-pooling, where the biggest number in the matrix is passed to the next step. This data summarization is used to reduce the number of weights and avoid overfitting. In Figure \ref{fig:pooling} is shown the max-pooling process.
 
 \begin{figure}[H]
 \centering
@@ -223,31 +354,6 @@ As described in \cite{yang2020feedback}, this architecture has a hidden layer of
 
 \subsubsection{Training}
 
-In the machine learning scenario, in special, the neural networks domain epoch can be defined as a single forward pass and backward pass of all the training examples. It feeds in all the neurons into the network at once. Instead, it chooses a batch of neurons and feeds them in. It performs stochastic gradient descent, and prevent the system from overfitting. There is a difference between individual training step time and total training time \cite{pascanu2013difficulty}. 
+In the machine learning scenario, in special, the neural networks domain epoch can be defined as a single forward pass and backward pass of all the training examples. It feeds in all the neurons into the network at once. Instead, it chooses a batch of neurons and feeds them in. It performs stochastic gradient descent and prevents the system from overfitting. There is a difference between individual training step time and total training time \cite{pascanu2013difficulty}. 
 
 
-\section{Autonomous Vehicles} \label{autonomous-vehicles}
-
-This section will be discussed the importance of the autonomous vehicles domain and its applicability to the society, and the problems occurred as well. 
-
-\subsection{What are autonomous vehicles}
-Modern vehicles now have Advanced Driver Assistance Systems (ADAS)
-which work at several levels of autonomy, with these levels being
-outlined by the National Highway Traffic Safety Administration
-(NHTSA). The levels range from 0, no-automation, to 5, full self-driving automation \cite{national2013preliminary}. An example of an ADAS is a parking system, proposed by \cite{krasner2016automatic}, that uses sensors to find the best way to maneuver a car into a parking space without driver input. Systems such as these are being used in modern semi-autonomous
-vehicles as driver aids to hand over work from the driver to the
-car’s systems \cite{schoning2006parklenkassistent}. As technology progresses, there will be a more
-and more handover of control from the driver to the vehicle, level
-Four of automation being the fully-autonomous state that is a main talking point in the automotive industry. The level 5 AV will
-be able to self-drive anywhere ("full automation"), i.e., no cockpits,
-drivers are not required to be fit to drive, and even they do not require a driving license (every person in a vehicle is a passenger).
-
-There are many open datasets to allow new people to work with autonomous vehicles and hackathons as well. In the special the KITTI Dataset \cite{geiger2013vision} and NuScenes in \cite{caesar2020nuscenes}. These datasets provided data using GPS, Camera, RADAR, and LIDAR. 
-
-\subsection{Challenges}
-
-The cities are not preparing for autonomous vehicles at the same velocity as the industry. Based on the data provided by \cite{cutler2015many}, only 6\% of the biggest cities in the United States are considering creating the necessary infrastructure to work with this new reality.
-
-The process of putting autonomous vehicles on the street is prolonged due to other problems taking care of the network issues, even 3G, 4G, or 5G, the conservation of the roads, and the most critical aspect regarding the legislation. 
-
-The study and development of these applications will change many things in society even in the process sector until companies that work with delivery. Nevertheless, it is indispensable to control the traffic and reduce the accidents, It follows the World Health Organization (WHO) every year over 1 million people lose their lives in car accidents, and only in Brazil is over 47,000 deaths \cite{world2004world}. 
