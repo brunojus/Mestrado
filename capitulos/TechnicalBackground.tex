@@ -1,7 +1,7 @@
 \chapter{State of the Art and Technical Background}
 \label{capitulo3}
 
-This chapter presents a review of the state of the art in Section \ref{capitulo2}. An overview of the main concepts of this work. The present section is divided into three sections. In Section \ref{autonomous-vehicles} is defined as the significant concepts of autonomous vehicles. The concepts of sensors are introduced in Section \ref{sensors}. In Section \ref{ml-ai}, the main ideas regarding machine learning and artificial intelligence are described.
+This chapter presents a review of state of the art in Section \ref{capitulo2}.  An overview of the main concepts of this work. The present section is divided into three sections. In Section \ref{autonomous-vehicles} is defined as the significant concepts of autonomous vehicles. The concepts of sensors are introduced in Section \ref{sensors}. In Section \ref{ml-ai}, the main ideas regarding machine learning and artificial intelligence are described.
 
 \section{State of the art} \label{capitulo2}
 
@@ -19,7 +19,7 @@ In \cite{Zaarane2020} the authors propose an inter-vehicle distance measurement 
 
 The paper \cite{Wu2019} presents a multi-camera vehicle detection system that significantly improves the detection performance under occlusion conditions. They also infer vehicle position on the ground plane by leveraging a multi-view cross-camera context.
 
-In paper \cite{ Ali2016}, the authors proposed two approaches: estimation of distance using an onboard camera, car position detection, and vehicle position detection is a method of specifying the relative position to the road that can serve as a Lane Departure Warning system. 
+In the paper \cite{ Ali2016}, the authors proposed two approaches: estimation of distance using an onboard camera, car position detection, and vehicle position detection is a method of specifying the relative position to the road that can serve as a Lane Departure Warning system. 
 
 The authors of \cite{Hane2017} used a surround multi-camera system to cover the full 360-degree field-of-view around the car. Their pipeline can precisely calibrate multi-camera systems, build sparse 3D maps for visual navigation, visually localize the vehicle for these maps, generate accurate dense graphs, and detect obstacles based on real-time depth map extraction.
 
@@ -39,7 +39,8 @@ The paper \cite{Pan2019} simulated experiments to verify the feasibility of the 
 
 In \cite{Simon2019a}, the authors performed experiments on the KITTI dataset for accurate 3D object detection. They achieved the same results as state-of-the-art in all related categories while maintaining the performance and accuracy trade-off and still run in real-time.
 
-This paper weighted-mean YOLO to improve object detection's real-time performance by fusing RGB cameras and LIDAR information. A new system using weighted-mean to construct a robust network and compared it with other algorithms was implemented. It shows performance improvement of missed-detection \cite{Kim2019}.
+
+This paper weighted-mean YOLO to improve object detection's real-time performance by fusing RGB cameras and LIDAR information. It implemented a new system using weighted-mean to construct a robust network and compared it with other algorithms. It shows performance improvement of missed-detection \cite{Kim2019}.
 
 In paper \cite{Simon2019} introduced the Complex-YOLO, a state of the art real-time 3D object detection network on point clouds only. This work describes a system that expands YOLOv2, a fast 2D standard object detector for RGB images, by a specific complex regression strategy to estimate multi-class 3D boxes in Cartesian space. 
 
@@ -63,7 +64,7 @@ This section contains the technical background necessary for this thesis underst
 
 \subsection{Autonomous Vehicles} \label{autonomous-vehicles}
 
-This section will be discussed the importance of the autonomous vehicles domain and its applicability to the society, and the problems occurred as well. 
+This section discusses the importance of the autonomous vehicles domain and its applicability to the society, and the problems occurred as well. 
 
 \subsubsection{What are autonomous vehicles}
 Modern vehicles now have Advanced Driver Assistance Systems (ADAS)
@@ -83,29 +84,45 @@ There are many open datasets to allow new people to work with autonomous vehicle
 
 The cities are not prepared for autonomous vehicles at the same velocity as the industry. Based on the data provided by \cite{cutler2015many}, only 6\% of the biggest cities in the United States are considering creating the necessary infrastructure to work with this new reality.
 
-The process of putting autonomous vehicles on the street is prolonged due to other problems taking care of the network issues, even 3G, 4G, or 5G, the conservation of the roads, and the most critical aspect regarding the legislation. 
+Putting autonomous vehicles on the street is prolonged due to other problems taking care of the network issues, even 3G, 4G, or 5G, the conservation of the roads, and the most critical aspect regarding the legislation. 
 
 The study and development of these applications will change many things in society, even in the process sector, until companies work with delivery. Nevertheless, it is indispensable to control the traffic and reduce the accidents, It follows the World Health Organization (WHO), every year, over 1 million people lose their lives in car accidents, and only in Brazil is over 47,000 deaths \cite{world2004world}. 
 
 
-Figure \ref{fig:autonomous-vehicles} shows the correct place for the principal sensors of an autonomous vehicle, model Audi A8 \cite{ross2017audi}.
-
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.7]{imagens/image823.png}
-\caption{Representation of an autonomous vehicle}
-\label{fig:autonomous-vehicles}
-\end{figure}
 
 
 
 \subsection{Sensors}\label{sensors}
 
-Figure \ref{fig:autonomous-vehicles} shows the main vehicles' sensors, and in the next subsection each sensor is described. 
+Figure \ref{fig:autonomous-vehicles} shows the correct place for the principal sensors of an autonomous vehicle, model Audi A8 \cite{ross2017audi}. The subsections \ref{sub:camera}, \ref{sub:radar}, and
+\ref{sub:lidar} describe camera, radar, and LiDar respectively. 
+
+Autonomous vehicles (AV) would be impossible without sensors: they allow the car to see and sense everything on the road and collect the information needed to drive safely \cite{kocic2018sensors}. Furthermore, this information is processed and analyzed to build a path from point A to point B and send the appropriate instructions to the car's controls, such as steering, acceleration, and braking \cite{kato2015open}.
+
+The technology of sensor manufacturing has shown a significant evolution in the last years, having the appearance of a great diversity of sensors and a general decrease in its cost. Thus, from an economic point of view, it became interesting to replace a high-precision, high-cost sensor with several low-cost and less accurate sensors \cite{varghese2015overview}. The combination of multiple low-cost sensors also implied the development of new methods for merging data from various sensors and specific electronics with high processing capacity capable of using the advantages of these new sensors and minimizing their low precision deficiencies \cite{krasniqi2016use}.
 
 
-\subsubsection{Camera}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{imagens/image823.png}
+\caption{Representation of an autonomous vehicle}
+\label{fig:autonomous-vehicles}
+\end{figure}
+
+
+Each sensor has a different range and coverage angle, and this mixing of the sensor in the car allows it to cover a big area and make it possible to reduce car accidents and improve the driver's safety.  Although Figure \ref{fig:sensorsrange} shows reasonable performance parameters for AV sensors, specific sensor designs and implementations will ultimately determine the performance parameters for a particular AV in the real world.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{imagens/Imagem1.png}
+\caption{Illustration of the various sensors, with reasonable estimates of coverage area (field of view) and typical operating ranges}
+\label{fig:sensorsrange}
+\end{figure}
+
+
+
+\subsubsection{Camera}\label{sub:camera}
 The camera is the type of sensor that allows the car to perceive the environment using the collected images. Figure \ref{fig:camera} shows the standard camera for autonomous vehicles.
 
 It is an optical instrument for image or video capture in the same size. For example, there are some cameras where it is possible to set up the numbers of frames per second (FPS) and the image resolution. 
@@ -119,9 +136,13 @@ It is also essential to remember the importance of the camera's calibration; the
 \label{fig:camera}
 \end{figure}
 
+There are many different models of cameras, which vary in their technical specs. In this thesis, it uses GoPro5, which is the highest-end model. The camera alone weighs 118 g, and 186 g with the camera, we selected this camera because it works better for outside scenarios. GoPro gives the user great control of the settings for both picture and video acquisition. Video offers some recording options, from 480p until 4k resolution, at various frame rates. There is also the option to shoot in 4K—a resolution higher than most HD televisions. The user can also adjust exposure, white balance, color, ISO, and sharpness, among other settings \cite{paro2015video}.
+
+GoPro carries a WiFi signal within itself that allows connected devices like another GoPro or your computer. There is no internal storage, and video is saved into removable microSD cards. Battery life is dependent on which video quality. The official Web site suggests a battery life of 2 hours of continuous video and three hours for recharging.
+
 This sensor allows the car to detect many objects while it is possible to perform object recognition. It is necessary to freeze the difference between object detection and object recognition. There are different algorithms to perform these tasks. The proposed algorithm in Chapter \ref{capitulo4} shows both exposures combined with the estimation of the distance. 
 
-\subsubsection{Radar}
+\subsubsection{Radar}\label{sub:radar}
 
 The automotive radio detection and ranging (RADAR) sensors are responsible for performing object detection around the vehicle and avoiding potential collisions. Therefore, with this sensor, it is possible to warn the driver and combined with level 1 of automation, as shown in Figure \ref{fig:automation}, to intervene with the brake the car or use other controls to prevent an accident \cite{ariyur2006collision}.
 
@@ -136,7 +157,7 @@ Another exciting application of the RADAR in the automotive scenario is measurin
 
 It is possible to combine the camera and RADAR and get a new kind of sensor, as defined in \cite{kamerad}. With this approach, it is possible to reach 160 times faster than a human driver.
 
-\subsubsection{Lidar}
+\subsubsection{Lidar}\label{sub:lidar}
 In Figure \ref{fig:lidar} is shown a light detection and ranging (LIDAR). The main purpose of this laser is to detect and track any kind of objects. 
 \begin{figure}[H]
 \centering
@@ -174,7 +195,7 @@ The neuron output is a function of the weighted sum of its inputs. Figure \ref{f
 \subsubsection{Activation functions}
 There are many different activation functions to use. These are crucial for ANN characteristics, such as learning ability and computational efforts in training and validation.
 
-There are different kinds of activation function for machine learning approaches. Each activation function has its particularity for a distinct problems. Table \ref{tab:tab1} shows the characteristics for these functions. 
+There are different kinds of activation functions for machine learning approaches. Each activation function has its particularity for specific problems. Table \ref{tab:tab1} shows the characteristics for these functions. 
 
 
 \begin{table}[H]
@@ -194,7 +215,7 @@ Sigmoid                                                                 & {\colo
 \end{table}
 
 
-Equation \ref{eq:eq_unit} shows the behavior of the Unit Step activation function ($H(x)$) where it is possible to note that it is nonlinear, monotonic, and fine for classification, but in other hands it has discontinuous derivatives and not monotonic with gradient descent methods.
+Equation \ref{eq:eq_unit} shows the behavior of the Unit Step activation function ($H(x)$) where it is possible to note that it is nonlinear, monotonic, and adequate for classification. However, on the other hand, it has discontinuous derivatives and not monotonic with gradient descent methods.
 
 
 \begin{equation}\label{eq:eq_unit}
@@ -205,7 +226,7 @@ Equation \ref{eq:eq_unit} shows the behavior of the Unit Step activation functio
     \end{matrix}\right.
 \end{equation}
 
-Equation \ref{eq:sign} shows the behavior of the Sign Function activation function. Its properties are similar to the (\ref{eq:eq_unit}) as they have, essentially, the same format with different values. The pros are nonlinear, monotonic, and ideal for fine classification, but the cons are discontinuous derivative and it is not suitable for regressions.
+Equation \ref{eq:sign} shows the behavior of the Sign Function activation function. Its properties are similar to the (\ref{eq:eq_unit}) as they have, essentially, the same format with different values. The pros are nonlinear, monotonic, and ideal for fine classification, but the cons are discontinuous and not suitable for regressions.
 
 
 \begin{equation}\label{eq:sign}
@@ -219,7 +240,7 @@ Equation \ref{eq:sign} shows the behavior of the Sign Function activation functi
         
 
 
-Equation (\ref{eq:identity}) defines the Identity activation function where the usage is indicated when it is necessary to optimize the weights, but for multi layers networks is not recommended, because it is a linear function. 
+Equation (\ref{eq:identity}) defines the Identity activation function where the usage is indicated when necessary to optimize the weights, but for multilayers networks are not recommended because it is a linear function. 
 
 
 \begin{equation}\label{eq:identity}
@@ -227,7 +248,7 @@ Equation (\ref{eq:identity}) defines the Identity activation function where the 
 \end{equation}
 
 
-Equation (\ref{eq:sigmoid}) shows the classic activation function for the multi-layer networks. It is important to remind that this function is nonlinear, monotonic, and it is well suited to gradient descent, but its asymmetry to the origin may have slower convergence and can get stuck at the training time.     
+Equation (\ref{eq:sigmoid}) shows the classic activation function for the multi-layer networks. It is important to remind that this function is nonlinear, monotonic, and well-suited to gradient descent, but its asymmetry to the origin may have slower convergence and can get stuck at the training time.     
 
 
 \begin{equation}\label{eq:sigmoid}
@@ -235,7 +256,7 @@ Equation (\ref{eq:sigmoid}) shows the classic activation function for the multi-
 \end{equation}
 
         
-Equation (\ref{eq:hiper}) proposes an alternative to (\ref{eq:sigmoid}) where has a non-linearity and it is symmetric to its origin, and it is well suited to gradient descent optimization, but at the same it does not have a monotonic derivative, and can have a slow convergence, but it is better sometimes than the Sigmoid activation function.
+Equation (\ref{eq:hiper}) proposes an alternative to (\ref{eq:sigmoid}) where has a non-linearity and it is symmetric to its origin, and it is well suited to gradient descent optimization, but at the same, it does not have a monotonic derivative and can have a slow convergence, but it is better sometimes than the Sigmoid activation function.
 
 
 \begin{equation}\label{eq:hiper}
@@ -246,7 +267,7 @@ Equation (\ref{eq:hiper}) proposes an alternative to (\ref{eq:sigmoid}) where ha
     
 
 
-In this work, ReLU is the activation function chosen activation. Its mathematical definition is shown in (\ref{eq:relu}). This activation function is a novel and it is widely used in deep networks, because it is nonlinear, and it has a fast convergence. Contrarily of the previously equations it is not differential continuously just at zero and the issues to work with gradient descent is just around the origin. 
+In this work, ReLU is the activation function chosen activation. Its mathematical definition is shown in (\ref{eq:relu}). This activation function is a novel, and it is widely used in deep networks because it is nonlinear and has a fast convergence. Contrarily of the previous equations, it is not differential continuously just at zero, and the issues to work with gradient descent is just around the origin. 
 
 
 \begin{equation}
@@ -265,7 +286,7 @@ The graphic visualization of the function Relu is shown in Figure \ref{fig:relu}
 \label{fig:relu}
 \end{figure} 
 
-These are the essential characteristics of this activation function. It is widely used in deep networks, it is nonlinear, monotonic, derivative monotonic, and it has fast converge. As the weaknesses, this activation function has a non continuously differential at zero, i.e. issues with gradient descent around origin.
+These are the essential characteristics of this activation function. It is widely used in deep networks. It is nonlinear, monotonic, derivative monotonic, and fast converge. As the weaknesses, this activation function has a non continuously differential at zero, i.e., issues with gradient descent around the origin.
 
 
 
@@ -327,7 +348,7 @@ The convolutions work as filters that seem little squares, and they are slipping
 
 \subsubsection{Pooling and Upsampling}\label{sub:pooling}
 
-A pooling layer is necessary to simplify the information from the previous layer. As happens with the convolution layer, it is choosing a unit area, for example, $2x2$, to slicing for the whole output information from the previous step. To brief, if the information from the previous layer was $4x4$, the output from the process of pooling will be $2x2$. Nevertheless, the most used method is max-pooling, where the biggest number in the matrix is passed to the next step. This data summarization is used to reduce the number of weights and avoid overfitting. In Figure \ref{fig:pooling} is shown the max-pooling process.
+A pooling layer is necessary to simplify the information from the previous layer. The convolution layer is choosing a unit area, for example, $2x2$, to slicing for the whole output information from the previous step. To brief, if the information from the previous layer was $4x4$, the output from the process of pooling will be $2x2$. Nevertheless, the most used method is max-pooling, where the biggest number in the matrix is passed to the next step. This data summarization is used to reduce the number of weights and avoid overfitting. In Figure \ref{fig:pooling} is shown the max-pooling process.
 
 \begin{figure}[H]
 \centering
