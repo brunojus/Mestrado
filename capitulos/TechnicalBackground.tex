@@ -1,37 +1,33 @@
 \chapter{State of the Art and Technical Background}
 \label{capitulo3}
 
-This chapter presents a review of state of the art in Section \ref{capitulo2}.  An overview of the main concepts of this work. The present section is divided into three sections. In Section \ref{autonomous-vehicles} is defined as the significant concepts of autonomous vehicles. The concepts of sensors are introduced in Section \ref{sensors}. In Section \ref{ml-ai}, the main ideas regarding machine learning and artificial intelligence are described.
+This chapter presents a review of the state of the art in Section \ref{capitulo2}.  An overview of the main concepts of this work. The present section is divided into three sections. In Section \ref{autonomous-vehicles} is defined as the significant concepts of autonomous vehicles. The concepts of sensors are introduced in Section \ref{sensors}. In Section \ref{ml-ai}, the main ideas regarding machine learning and artificial intelligence are described.
 
 \section{State of the art} \label{capitulo2}
 
-This section presents an overview of the related works about this topic. Some papers were selected to support the proposed framework.
+This section presents an overview of the related works about this topic. These papers were selected to support the proposed framework during the coding step. These bibliographies support for comparison and the new approach proposal. 
 
-The authors from the paper \cite{Lategahn2013} present the next-generation driver assistance systems that require precise self-localization. The system's accuracy is evaluated by computing two independent ego positions of the same trajectory from two different cameras and investigating them for consistency.
+The authors from the paper \cite{Lategahn2013} present the next-generation driver assistance systems that require precise self-localization. The system's accuracy is evaluated by computing two independent ego positions of the same trajectory from two different cameras and investigating them for consistency. The landmark creation of the map is one of the significant contributions to the processing pipeline. The rest of the paper assumes a backward-facing stereo camera setup. Moreover, they calibrated all sensors. And the coordinates transform from camera to receiver to be fully known. Its localization presents on a two-step approach and yields a six degrees of freedom ego pose estimation.
 
-The authors of \cite{Sankaranarayanan2008} state that the video cameras are among the most commonly used sensors in many applications, ranging from surveillance to smart rooms for video conferencing. In this regard, this paper's primary focus is to highlight the efficient use of the geometric constraints induced by the imaging devices to derive distributed algorithms for target detection, tracking, and recognition.
+The authors of \cite{Sankaranarayanan2008} state that the video cameras are among the most commonly used sensors in many applications, ranging from surveillance to smart rooms for video conferencing. In this regard, this paper's primary focus is to highlight the efficient use of the geometric constraints induced by the imaging devices to derive distributed algorithms for target detection, tracking, and recognition. The authors introduced the concept of the image's triangulation, and in many detection and tracking applications, once there are correspondences between object locations across views, the localization of these objects in scene coordinates is most important. Each camera gives rise to a line, and estimating the object's location involves computing the point of intersection of these lines. In the presence of noisy measurements, these lines do not intersect at a single point, and error measures such as the sum of squares are used to obtain a robust estimate of the object's location \cite{hartley1997triangulation}.
 
-In \cite{Unlu2019} the authors remark that the use of drones has seen a tremendous increase in the last few years, making these devices highly accessible to the public. Moreover, computer vision is extensively used to autonomously detect drones compared to other proposed solutions such as RADAR, acoustics, and RF signal analysis, thanks to its robustness. The authors aimed to combine a multi-frame deep learning detection technique, where the frame coming from the zoomed camera on the turret is overlaid on the wide-angle static camera's frame.
+In \cite{Unlu2019} the authors remark that the use of drones has seen a tremendous increase in the last few years, making these devices highly accessible to the public. Besides, computer vision is widely used to autonomously detect drones contrasted to other proposed solutions such as RADAR, acoustics, and RF signal analysis, due to its robustness. The authors aimed to combine a multi-frame deep learning detection method, where the frame coming from the zoomed camera on the turret is overlaid on the wide-angle static camera's frame. Their equipment's nature can group the proposed approaches in the market and academic papers. However, conventional ones cannot detect small commercial uncrewed aerial vehicles. Also, they are flying at relatively much lower velocities, which decreases the Doppler signature. Based on this information, the authors proposed an approach based on cameras.
 
 The paper \cite{Pei2019} shows the development of a three-dimensional coordinate system of objects captured by a sequence of images taken in different views. Object reconstruction is a technique that aims to recover the shape and appearance of items. A novel method to reconstruct occluded objects based on synthetic aperture imaging is presented. The proposed method labels occlusion pixels according to variance and reconstructs the 3D point cloud based on synthetic aperture imaging.
 
-In \cite{Zaarane2020} the authors propose an inter-vehicle distance measurement system for self-driving based on image processing. The proposed method uses two cameras mounted as one stereo camera in the rear-view mirror's hosting vehicle.  Extensive experiments have shown the proposed method's high accuracy compared to the previous works from the literature. This method could also be used in several systems of various domains in real-time regardless of the object type.
+In \cite{Zaarane2020} the authors propose an inter-vehicle distance measurement system for self-driving based on image processing. The proposed method uses two cameras mounted as one stereo camera in the rear-view mirror's hosting vehicle.  Extensive experiments have shown the proposed method's high accuracy compared to the previous works from the literature. This method could also be used in several systems of various domains in real-time regardless of the object type. The paper \cite{Wu2019} presents a multi-camera vehicle detection system that significantly improves the detection performance under occlusion conditions. They also infer vehicle position on the ground plane by leveraging a multi-view cross-camera context.
 
-The paper \cite{Wu2019} presents a multi-camera vehicle detection system that significantly improves the detection performance under occlusion conditions. They also infer vehicle position on the ground plane by leveraging a multi-view cross-camera context.
-
-In the paper \cite{ Ali2016}, the authors proposed two approaches: estimation of distance using an onboard camera, car position detection, and vehicle position detection is a method of specifying the relative position to the road that can serve as a Lane Departure Warning system. 
-
-The authors of \cite{Hane2017} used a surround multi-camera system to cover the full 360-degree field-of-view around the car. Their pipeline can precisely calibrate multi-camera systems, build sparse 3D maps for visual navigation, visually localize the vehicle for these maps, generate accurate dense graphs, and detect obstacles based on real-time depth map extraction.
+In the paper \cite{ Ali2016}, the authors proposed two approaches: estimation of distance using an onboard camera, car position detection, and vehicle position detection is a method of specifying the relative position to the road that can serve as a Lane Departure Warning system. The authors of \cite{Hane2017} used a surround multi-camera system to cover the full 360-degree field-of-view around the car. Their pipeline can precisely calibrate multi-camera systems, build sparse 3D maps for visual navigation, visually localize the vehicle for these maps, generate accurate dense graphs, and detect obstacles based on real-time depth map extraction.
 
 Unlike existing methods that use pinhole cameras, the implementation of \cite{Cui2019} is based on fisheye cameras, whose large field of view benefits various computer vision applications for self-driving vehicles visual-inertial odometry, visual localization, and object detection. It recovers the depths using multiple image resolutions. At the end of the pipeline, the authors fuse the fisheye depth images into the truncated signed distance function volume to obtain a 3D map.
 
-In \cite{Huang2019} the authors show that inter-vehicle distance estimation from an in-car camera based on monocular vision is critical.  An improved method for estimating a monocular vision vehicle's distance based on the target vehicle's detection and segmentation is proposed in this paper to address the vehicle attitude angle problem. The angle regression model is used to obtain the attitude angle information of the target vehicle. The dimension estimation network determines the actual dimensions of the target vehicle.
+In \cite{Huang2019}, the authors show that inter-vehicle distance estimation from an in-car camera based on monocular vision is critical.  An improved method for estimating a monocular vision vehicle's distance based on the target vehicle's detection and segmentation is proposed in this paper to address the vehicle attitude angle problem. The angle regression model is used to obtain the attitude angle information of the target vehicle. The dimension estimation network determines the actual dimensions of the target vehicle.
 
 In \cite{Bao2016}, the multipath and non-line-of-sight effects of GPS receivers decrease the precision of the vehicle's self-localization. More specifically, the lateral error is more severe because of the blockage of the satellites. The lateral distance between building and vehicle estimated by a stereo camera is compared with a 3D building map to rectify its lateral position. Besides, this paper employs an inertial sensor and GPS receiver to decide the car's longitudinal location.
 
 In \cite{Tang2019} introduces CityFlow, a city-scale traffic camera dataset consisting of more than 3 hours of synchronized HD videos from 40 cameras across ten intersections, with the longest distance between two simultaneous cameras being 2.5 km. The authors expected this dataset to catalyze research in this field, propel the state-of-the-art forward, and lead to deployed traffic optimization in the real world.
 
-In \cite{Qi2019} the authors measure the distance between the ego-vehicle and the target vehicle using a monocular vision. They also eliminate estimation error by changing the vehicle pose, proposing a distance estimation method based on the car pose information. The proposed technique can reduce the possible failure of distance estimation produced by changing an uncrewed vehicle's inclination angle and roll angle. Furthermore, the pose information could also help evaluate distance if the car is on a slope.
+In \cite{Qi2019}, the authors measure the distance between the ego-vehicle and the target vehicle using a monocular vision. They also eliminate estimation error by changing the vehicle pose, proposing a distance estimation method based on the car pose information. The proposed technique can reduce the possible failure of distance estimation produced by changing an uncrewed vehicle's inclination angle and roll angle. Furthermore, the pose information could also help evaluate distance if the car is on a slope.
 
 In paper \cite{Wongsaree2018}, a distance determination technique using an image from the single forward camera is presented. Therefore, automatic brightness adjustment and inverse perspective mapping are applied in the proposed scheme. The experimental results confirm that the proposed technique can detect the object's distance in front of the car, where the error is 7.96\%.
 
@@ -40,22 +36,15 @@ The paper \cite{Pan2019} simulated experiments to verify the feasibility of the 
 In \cite{Simon2019a}, the authors performed experiments on the KITTI dataset for accurate 3D object detection. They achieved the same results as state-of-the-art in all related categories while maintaining the performance and accuracy trade-off and still run in real-time.
 
 
-This paper weighted-mean YOLO to improve object detection's real-time performance by fusing RGB cameras and LIDAR information. It implemented a new system using weighted-mean to construct a robust network and compared it with other algorithms. It shows performance improvement of missed-detection \cite{Kim2019}.
+This paper weighted-mean YOLO to improve object detection's real-time performance by fusing RGB cameras and LIDAR information. It implemented a new system using weighted-mean to construct a robust network and compared it with other algorithms. It shows performance improvement of missed-detection \cite{Kim2019}. In paper \cite{Simon2019} introduced the Complex-YOLO, a state of the art real-time 3D object detection network on point clouds only. This work describes a system that expands YOLOv2, a fast 2D standard object detector for RGB images, by a specific complex regression strategy to estimate multi-class 3D boxes in Cartesian space. 
 
-In paper \cite{Simon2019} introduced the Complex-YOLO, a state of the art real-time 3D object detection network on point clouds only. This work describes a system that expands YOLOv2, a fast 2D standard object detector for RGB images, by a specific complex regression strategy to estimate multi-class 3D boxes in Cartesian space. 
+In \cite{Oliveira2015}, the proposed method consists of mapping images to a new coordinate system where perspective effects are removed. The removal of perspective associated effects facilitates road and obstacle detection and also assists in free space estimation. The results show this considerably improves the algorithm's effectiveness and reduces computation time compared with the classical inverse perspective mapping.
 
-In \cite{Oliveira2015} the proposed method consists of mapping images to a new coordinate system where perspective effects are removed. The removal of perspective associated effects facilitates road and obstacle detection and also assists in free space estimation. The results show this considerably improves the algorithm's effectiveness and reduces computation time compared with the classical inverse perspective mapping.
-
-In \cite{Salman2017}, a stereo camera calculated the distance considering the angular distance, the distance between cameras, based on the image's pixel. They proposed a method that measures object distance based on trigonometry.   
-
- In \cite{Rangesh2019}, a new framework for tracking multiple objects is presented. They used fusion techniques to achieve this. They tested it on real-world highway data collected from a massively sensorized testbed capable of capturing full-surround information.
+In \cite{Salman2017}, a stereo camera calculated the distance considering the angular distance, the distance between cameras, based on the image's pixel. They proposed a method that measures object distance based on trigonometry.  In \cite{Rangesh2019}, a new framework for tracking multiple objects is presented. They used fusion techniques to achieve this. They tested it on real-world highway data collected from a massively sensorized testbed capable of capturing full-surround information.
 
 In \cite{Tram2018}, a new intelligent transport system positioning technique that determines the distance between vehicles via image sensor-based visible light communication was implemented. An original novel method determines the distance between two cars using a low camera resolution.
 
 The object detection, classification, and localization in the real world scenario are studied and discussed by \cite{Hofmann2019}. Furthermore, the suggested approach fuses three different object detection algorithms and classification and uses stereo vision for object localization with the opposition. An algorithm for merging the results of the three object detection methods based on bounding boxes is introduced. The proposed fusion algorithm for bounding boxes improves the detection results and provides an information fusion.
-
-
-
 
 
 
@@ -84,7 +73,7 @@ There are many open datasets to allow new people to work with autonomous vehicle
 
 The cities are not prepared for autonomous vehicles at the same velocity as the industry. Based on the data provided by \cite{cutler2015many}, only 6\% of the biggest cities in the United States are considering creating the necessary infrastructure to work with this new reality.
 
-Putting autonomous vehicles on the street is prolonged due to other problems taking care of the network issues, even 3G, 4G, or 5G, the conservation of the roads, and the most critical aspect regarding the legislation. 
+Putting autonomous vehicles on the street is prolonged due to other problems taking care of the network issues, even 3G, 4G, or 5G, the roads' conservation, and the most critical aspect regarding the legislation. 
 
 The study and development of these applications will change many things in society, even in the process sector, until companies work with delivery. Nevertheless, it is indispensable to control the traffic and reduce the accidents, It follows the World Health Organization (WHO), every year, over 1 million people lose their lives in car accidents, and only in Brazil is over 47,000 deaths \cite{world2004world}. 
 
@@ -110,12 +99,12 @@ The technology of sensor manufacturing has shown a significant evolution in the 
 \end{figure}
 
 
-Each sensor has a different range and coverage angle, and this mixing of the sensor in the car allows it to cover a big area and make it possible to reduce car accidents and improve the driver's safety.  Although Figure \ref{fig:sensorsrange} shows reasonable performance parameters for AV sensors, specific sensor designs and implementations will ultimately determine the performance parameters for a particular AV in the real world.
+Each sensor has a different range and coverage angle, and this mixing of the sensor in the car allows it to cover a big area and make it possible to reduce car accidents and improve the driver's safety.  Although Figure \ref{fig:sensorsrange} shows reasonable performance parameters for AV sensors, specific sensor designs, and implementations will ultimately determine the performance parameters for a particular AV in the real world.
 
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.7]{imagens/Imagem1.png}
+\includegraphics[scale=0.5]{imagens/Imagem1.png}
 \caption{Illustration of the various sensors, with reasonable estimates of coverage area (field of view) and typical operating ranges}
 \label{fig:sensorsrange}
 \end{figure}
@@ -136,7 +125,7 @@ It is also essential to remember the importance of the camera's calibration; the
 \label{fig:camera}
 \end{figure}
 
-There are many different models of cameras, which vary in their technical specs. In this thesis, it uses GoPro5, which is the highest-end model. The camera alone weighs 118 g, and 186 g with the camera, we selected this camera because it works better for outside scenarios. GoPro gives the user great control of the settings for both picture and video acquisition. Video offers some recording options, from 480p until 4k resolution, at various frame rates. There is also the option to shoot in 4K—a resolution higher than most HD televisions. The user can also adjust exposure, white balance, color, ISO, and sharpness, among other settings \cite{paro2015video}.
+There are many different models of cameras, which vary in their technical specs. In this thesis, it uses GoPro5, which is the highest-end model. The camera alone weighs 118 g and 186 g with the camera. We selected this camera because it works better for outside scenarios. GoPro gives the user great control of the settings for both picture and video acquisition. Video offers some recording options, from 480p until 4k resolution, at various frame rates. There is also the option to shoot in 4K—a resolution higher than most HD televisions. The user can also adjust exposure, white balance, color, ISO, and sharpness, among other settings \cite{paro2015video}.
 
 GoPro carries a WiFi signal within itself that allows connected devices like another GoPro or your computer. There is no internal storage, and video is saved into removable microSD cards. Battery life is dependent on which video quality. The official Web site suggests a battery life of 2 hours of continuous video and three hours for recharging.
 
@@ -158,15 +147,23 @@ Another exciting application of the RADAR in the automotive scenario is measurin
 It is possible to combine the camera and RADAR and get a new kind of sensor, as defined in \cite{kamerad}. With this approach, it is possible to reach 160 times faster than a human driver.
 
 \subsubsection{Lidar}\label{sub:lidar}
-In Figure \ref{fig:lidar} is shown a light detection and ranging (LIDAR). The main purpose of this laser is to detect and track any kind of objects. 
+In Figure \ref{fig:lidar} is shown a light detection and ranging (LiDAR). The main purpose of this laser is to detect and track any kind of objects. 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\columnwidth]{imagens/lidar.jpg}
+\includegraphics[scale=0.25]{imagens/lidar.jpg}
 \caption{An exemple of a lidar of the autonomous vehicle}
 \label{fig:lidar}
 \end{figure}
 
 This measurement is based on many times rotate this sensor in different directions to scan the whole area of the autonomous vehicles is driving and collect some data for detecting the objects \cite{gao2018object}.
+
+The name is similar to Radar is not a coincidence. The two technologies exist to understand what is happening in the environment around them, but their methods are different.
+
+The Radar transmits radio waves from a receiver. The radio waves then bounce off objects in the receiver's vicinity to detect how and where said objects are moving. It is available angle and velocity, things of that nature. Think of a weather radar, which measures how quickly and in what direction a storm cloud is moving. 
+
+This sensor shoots out invisible beams of light from across the light spectrum. It can use infrared and ultraviolet light to map out the environment around it. It can get a sense of both the physical dimensions and motion (if any) of objects in its vicinity. The usage of the LiDAR is a way to figure out the environment around the object using laser beams.  
+
+Autonomous vehicles may use Lidar for object detection and to navigate safely through environments \cite{Lim2019}. Point cloud output from the Lidar sensor provides the necessary data for automated software to determine potential obstacles in the ground and where the robot is concerning those potential obstacles.  such as CARLA simulator \cite{dosovitskiy2017carla}\cite{dworak2019performance}.
 
 \section{Machine Learning in Computer Vision}\label{ml-ai}
 The machine learning is an approach based on algorithms to create some predictions. These techniques are based on mathematical and computer science. It is possible to apply this in several fields of science. 
@@ -267,7 +264,7 @@ Equation (\ref{eq:hiper}) proposes an alternative to (\ref{eq:sigmoid}) where ha
     
 
 
-In this work, ReLU is the activation function chosen activation. Its mathematical definition is shown in (\ref{eq:relu}). This activation function is a novel, and it is widely used in deep networks because it is nonlinear and has a fast convergence. Contrarily of the previous equations, it is not differential continuously just at zero, and the issues to work with gradient descent is just around the origin. 
+In this work, ReLU is the activation function chosen activation. Its mathematical definition is shown in (\ref{eq:relu}). This activation function is a novel, and it is widely used in deep networks because it is nonlinear and has a fast convergence. Contrarily to the previous equations, it is not differential continuously just at zero, and the issues to work with gradient descent is just around the origin. 
 
 
 \begin{equation}
@@ -338,7 +335,7 @@ The convolutions work as filters that seem little squares, and they are slipping
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.35]{imagens/three_dim_conv_2.png}
+\includegraphics[scale=0.3]{imagens/three_dim_conv_2.png}
 \caption{Representation of the convolution process \cite{lecture}}
 \label{fig:bias}
 \end{figure}
@@ -348,7 +345,7 @@ The convolutions work as filters that seem little squares, and they are slipping
 
 \subsubsection{Pooling and Upsampling}\label{sub:pooling}
 
-A pooling layer is necessary to simplify the information from the previous layer. The convolution layer is choosing a unit area, for example, $2x2$, to slicing for the whole output information from the previous step. To brief, if the information from the previous layer was $4x4$, the output from the process of pooling will be $2x2$. Nevertheless, the most used method is max-pooling, where the biggest number in the matrix is passed to the next step. This data summarization is used to reduce the number of weights and avoid overfitting. In Figure \ref{fig:pooling} is shown the max-pooling process.
+A pooling layer is necessary to simplify the information from the previous layer. The convolution layer chooses a unit area, for example, $2x2$, to slicing for the whole output information from the previous step. To brief, if the information from the previous layer was $4x4$, the output from the process of pooling will be $2x2$. Nevertheless, the most used method is max-pooling, where the biggest number in the matrix is passed to the next step. This data summarization is used to reduce the number of weights and avoid overfitting. In Figure \ref{fig:pooling} is shown the max-pooling process.
 
 \begin{figure}[H]
 \centering

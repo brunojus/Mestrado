@@ -35,7 +35,7 @@ The algorithm for object detection was performed over the parking lot of the com
 
 \section{Description of the test scenario}
 
-The test scenario was built three times using different perspectives, for the first test where was necessary to use the camera calibration perspective was built using only one camera and the height of this camera does not matter to compute the distance, only a known distance, and dimensions of a known object to adjust this algorithm.
+The test scenario was built three times, using different perspectives. For the first test where it was necessary to use the camera, calibration perspective was made using only one camera, and the height of this camera does not matter to compute the distance, only a known distance, and dimensions of a known object to adjust this algorithm.
 
 For the second scenario, some photos were taken and labeled with the known metrics to support the training step and return a useful result according to reality. 
 
@@ -85,7 +85,7 @@ In this section is detailed the results of the proposal with a known map. This a
 
 The results collected in this section are beneficial, as several companies and other universities are releasing the dataset as open source. There is a need to understand image manipulation, and in some cases, data from LIDAR and Radar.
 
-This test's main idea was to get the information from the object detection performed with the algorithm using the boundary boxes approach, collect this known information as input in the neural network, and start predicting a distance from the camera until the object. Where in Figure \ref{fig:output} is shown an example of the known KITTI dataset, it serves just as motivation for this work. The final results were not performed over this dataset. 
+This test's main idea was to get the information from the object detection performed with the algorithm using the boundary boxes approach, collect this known information as input in the neural network, and predict a distance from the camera until the object. Where in Figure \ref{fig:output} is shown an example of the known KITTI dataset, it serves just as motivation for this work. The final results were not performed over this dataset. 
 
 \begin{figure}[H]
 \centering
@@ -137,7 +137,7 @@ Car &  Measurements      \\
 \end{table} 
  
 
-In Figure \ref{fig:park_predict} was used just the model that contains the object recognition and detection using a single image and not as a stream. This test was performed to see the algorithm's accuracy in this purpose and identify how far it is possible to detect the objects in this scenario. It is necessary to note that this test previewed only five cars to detect, and the algorithm recognizes the whole vehicles in the scenario, each accuracy for each car of the test is available in Table \ref{tab:accuracy}.
+In Figure \ref{fig:park_predict} was used just the model that contains the object recognition and detection using a single image and not as a stream. This test was performed to see the algorithm's accuracy for this purpose and identify how far it can detect the objects in this scenario. It is necessary to note that this test previewed only five cars to detect, and the algorithm recognizes the whole vehicles in the scenario, each accuracy for each car of the test is available in Table \ref{tab:accuracy}.
 
 
 \begin{figure}[H]
@@ -170,7 +170,7 @@ Car             & 98\%     \\ \hline
 
 
 
-In Figure \ref{fig:framework_predict} is shown the frontend of the application of this work. It was developed using Python and Javascript to allow the browser to communicate with the model. The Python module is composed of the libraries called sockets, and it permits the communication over many cameras and shares the stream information between the cameras and the command center. It was possible because the cameras used in the tests have an internal wireless network. Based on it, a script with a proxy function was developed to take care of this behavior. 
+Figure \ref{fig:framework_predict} is shown the frontend of the application of this work. It was developed using Python and Javascript to allow the browser to communicate with the model. The Python module is composed of the libraries called sockets, and it permits the communication over many cameras and shares the stream information between the cameras and the command center. It was possible because the cameras used in the tests have an internal wireless network. Based on it, a script with a proxy function was developed to take care of this behavior. 
 
 The backend side of this project is described in Appendix \ref{ap:app}, where there is information about the pre-processing step, training step, object detection, and the frontend scenario as well. The network was built using the framework Pytorch \cite{paszke2019pytorch}. This script permits the Darknet abstraction to perform object detection and object recognition, and with all of this information, the step to predict the distance was combined to show the output. 
 
